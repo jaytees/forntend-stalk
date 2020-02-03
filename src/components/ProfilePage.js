@@ -1,5 +1,7 @@
-import React from 'react'
-import axios from 'axios'
+import React from 'react';
+import axios from 'axios';
+import PlantCalendar from './PlantCalendar';
+
 
 class ProfilePage extends React.Component {
   state = {
@@ -27,11 +29,15 @@ class ProfilePage extends React.Component {
   render(){
     return(
 
+      <div>
         <h2>Profile Page for {this.state.user.name}</h2>
+
+          <PlantCalendar />
+        </div>
 
     );
   }
 
 }
 
-export default ProfilePage
+export default ProfilePage;
