@@ -30,7 +30,7 @@ function StalkApp() {
         <main>
           <h1>Stalk App</h1>
 
-          <LoginForm/>
+          <LoginForm loginComplete={ setTokenHeaderSet } />
 
           <LogOut/>
 

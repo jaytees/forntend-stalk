@@ -3,8 +3,8 @@ import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 
 function LoginForm(props){
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("jordan@test.com");
+  const [password, setPassword] = useState("chicken");
   let history = useHistory();
 
   const handleEmailChange = (event) => {
@@ -37,7 +37,7 @@ function LoginForm(props){
         localStorage.setItem('token', res.data.jwt);
         localStorage.setItem('userId', res.data.user.id);
         axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.jwt}`;
-
+        props.loginComplete( true );
         history.push('/profile')
       })
       .catch( err => {
