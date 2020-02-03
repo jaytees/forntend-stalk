@@ -14,7 +14,7 @@ class ProfilePage extends React.Component {
     // this.setState({id: localStorage.getItem('userId')})
 
 
-      axios.get(`http://localhost:3000/users/${this.state.id}`)
+      axios.get(`http://localhost:3000/users/${this.state.id}.json`)
       .then( res => {
         // console.log(res)
         this.setState({user: res.data})
