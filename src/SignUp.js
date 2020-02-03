@@ -56,6 +56,7 @@ function SignUp( props ){
 
         history.push('/profile')
 
+        setUser(resetState(user))
 
       } else {
 
@@ -68,7 +69,7 @@ function SignUp( props ){
     .catch( err => {
       console.warn(err);
     })
-    setUser(resetState(user))
+
   };
 
   return(
