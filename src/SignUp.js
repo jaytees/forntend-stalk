@@ -18,6 +18,7 @@ function SignUp( props ){
   const [errors, setErrors] = useState([]);
 
 
+
   const handleChange = (event) => {
     const name = event.target.name;
     const newValue = event.target.value;
