@@ -15,7 +15,7 @@ function SignUp( props ){
     }
   );
   const history = useHistory();
-  const [errors, setErrors] = useState('');
+  const [errors, setErrors] = useState([]);
 
 
   const handleChange = (event) => {
@@ -26,6 +26,11 @@ function SignUp( props ){
 
   }
 
+  const resetState = (user) => {
+
+    Object.keys(user).map(key => user[key] = '')
+
+  }
 
 
 
@@ -47,23 +52,23 @@ function SignUp( props ){
         localStorage.setItem('token', res.data.jwt);
         localStorage.setItem('userId', res.data.user.id);
         axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.jwt}`;
-        props.loginComplete( true );
+        props.signUpComplete( true );
 
         history.push('/profile')
 
 
       } else {
 
-        setErrors(res.data.failure)
+//// TODO: speak to luke
+        setErrors(res.data.errors)
+        // console.log(errors);
 
       }
     })
     .catch( err => {
       console.warn(err);
     })
-
-
-
+    setUser(resetState(user))
   };
 
   return(
@@ -76,40 +81,40 @@ function SignUp( props ){
         <div className="field">
           <label>Name:</label>
           <br/>
-          <input value={user.name} onChange={handleChange} type="text" name="name"/>
+          <input value={user.name} onChange={handleChange} type="text" name="name" placeholder="name"/>
         </div>
         <br/>
 
         <div className="field">
           <label>Username:</label>
           <br/>
-          <input value={user.username} onChange={handleChange} type="text" name="username"/>
+          <input value={user.username} onChange={handleChange} type="text" name="username" placeholder="username"/>
         </div>
         <br/>
 
         <div className="field">
           <label>Location:</label>
           <br/>
-          <input value={user.location} onChange={handleChange} type="text" name="location"/>
+          <input value={user.location} onChange={handleChange} type="text" name="location" placeholder="location"/>
         </div>
         <br/>
 
         <div className="field">
           <label>Email:</label>
           <br/>
-          <input value={user.email} onChange={handleChange} type="text" name="email"/>
+          <input value={user.email} onChange={handleChange} type="text" name="email" placeholder="email"/>
         </div>
         <br/>
 
         <div className="field">
           <label>Password:</label>
           <br/>
-          <input value={user.password} onChange={handleChange} type="password" name="password"/>
+          <input value={user.password} onChange={handleChange} type="password" name="password" placeholder="password"/>
         </div>
         <br/>
 
         <div className="field">
-          <label>Password:</label>
+          <label>Password Confirmation:</label>
           <br/>
           <input value={user.password_confirmation} onChange={handleChange} type="password" name="password_confirmation" placeholder="password confirmation"/>
         </div>
