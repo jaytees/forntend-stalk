@@ -3,9 +3,10 @@ import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 
 function SignUp(){
-  const [name, setName] = useState("Dave");
-  const [username, setUsername] = useState("daveyBoi69");
-  const [email, setEmail] = useState("dave@test.com");
+  const [name, setName] = useState("Skip");
+  const [username, setUsername] = useState("SkippyBoi69");
+  const [location, setLocation] = useState("London");
+  const [email, setEmail] = useState("skip@test.com");
   const [password, setPassword] = useState("chicken");
   const [passwordConf, setPasswordConf] = useState("chicken");
   const [errors, setErrors] = useState("");
@@ -18,6 +19,9 @@ function SignUp(){
   const handleUsernameChange = (event) => {
     setUsername(event.target.value)
   };
+  const handleLocationChange = (event) => {
+    setLocation(event.target.value)
+  };
   const handleEmailChange = (event) => {
     setEmail(event.target.value)
   };
@@ -28,21 +32,29 @@ function SignUp(){
     setPasswordConf(event.target.value)
   };
 
-  
+
 
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    axios.post('http://localhost:3000/users', {
+    axios.post('http://localhost:3000/users', { user:{
       name: name,
       username: username,
+      location: location,
       email: email,
       password: password,
-      password_confirmation: passwordConf,
+      password_confirmation: passwordConf
+    },
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       }
+    })
+    .then( res => {
+      console.log(res);
+    })
+    .catch( err => {
+      console.warn(err);
     })
 
 
@@ -58,35 +70,42 @@ function SignUp(){
         <div className="field">
           <label>Name:</label>
           <br/>
-          <input value={name} onChange={handleNameChange} type="text" placeholder="Name"/>
+          <input value={name} onChange={handleNameChange} type="text" name="Name"/>
         </div>
         <br/>
 
         <div className="field">
           <label>Username:</label>
           <br/>
-          <input value={username} onChange={handleUsernameChange} type="text" placeholder="Username"/>
+          <input value={username} onChange={handleUsernameChange} type="text" name="Username"/>
+        </div>
+        <br/>
+
+        <div className="field">
+          <label>Location:</label>
+          <br/>
+          <input value={location} onChange={handleLocationChange} type="text" name="Location"/>
         </div>
         <br/>
 
         <div className="field">
           <label>Email:</label>
           <br/>
-          <input value={email} onChange={handleEmailChange} type="text" placeholder="email"/>
+          <input value={email} onChange={handleEmailChange} type="text" name="email"/>
         </div>
         <br/>
 
         <div className="field">
           <label>Password:</label>
           <br/>
-          <input value={password} onChange={handlePasswordChange} type="password" placeholder="Password"/>
+          <input value={password} onChange={handlePasswordChange} type="password" name="Password"/>
         </div>
         <br/>
 
         <div className="field">
           <label>Password:</label>
           <br/>
-          <input value={passwordConf} onChange={handlePasswordConfChange} type="password" placeholder="Password Confirmation"/>
+          <input value={passwordConf} onChange={handlePasswordConfChange} type="password" name="Password Confirmation"/>
         </div>
         <br/>
 
