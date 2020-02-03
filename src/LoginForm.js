@@ -59,7 +59,7 @@ function LoginForm(props){
         </div>
         <div className="field">
           <label>Password:</label>
-          <input value={password} onChange={handlePasswordChange} type="text" placeholder="password"/>
+          <input value={password} onChange={handlePasswordChange} type="password" placeholder="password"/>
         </div>
 
 
