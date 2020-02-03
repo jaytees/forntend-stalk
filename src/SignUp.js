@@ -1,57 +1,62 @@
-import React, {useState} from 'react';
+import React, {useState, useReducer} from 'react';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 
-function SignUp(){
-  const [name, setName] = useState("Skip");
-  const [username, setUsername] = useState("SkippyBoi69");
-  const [location, setLocation] = useState("London");
-  const [email, setEmail] = useState("skip@test.com");
-  const [password, setPassword] = useState("chicken");
-  const [passwordConf, setPasswordConf] = useState("chicken");
-  const [errors, setErrors] = useState("");
+function SignUp( props ){
+  const [user, setUser] = useReducer(
+    (state, newState) => ({...state, ...newState}),
+    {
+      name: '',
+      username: '',
+      location: '',
+      email: '',
+      password: '',
+      password_confirmation: ''
+    }
+  );
+  const history = useHistory();
+  const [errors, setErrors] = useState('');
 
 
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const newValue = event.target.value;
 
-  const handleNameChange = (event) => {
-    setName(event.target.value)
-  };
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value)
-  };
-  const handleLocationChange = (event) => {
-    setLocation(event.target.value)
-  };
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value)
-  };
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value)
-  };
-  const handlePasswordConfChange = (event) => {
-    setPasswordConf(event.target.value)
-  };
+    setUser({[name]: newValue});
+
+  }
+
 
 
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    // console.log(user);
 
-    axios.post('http://localhost:3000/users', { user:{
-      name: name,
-      username: username,
-      location: location,
-      email: email,
-      password: password,
-      password_confirmation: passwordConf
-    },
+    axios.post('http://localhost:3000/users', {
+      user,
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       }
     })
     .then( res => {
-      console.log(res);
+      // console.log(res);
+      if (res.data.jwt) {
+
+        localStorage.setItem('token', res.data.jwt);
+        localStorage.setItem('userId', res.data.user.id);
+        axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.jwt}`;
+        props.loginComplete( true );
+
+        history.push('/profile')
+
+
+      } else {
+
+        setErrors(res.data.failure)
+
+      }
     })
     .catch( err => {
       console.warn(err);
@@ -64,48 +69,49 @@ function SignUp(){
   return(
     <div className="signupForm">
       <h2>Sign up</h2>
-
-
+      {
+        (errors) && <p>{errors}</p>
+      }
       <form onSubmit={handleSubmit}>
         <div className="field">
           <label>Name:</label>
           <br/>
-          <input value={name} onChange={handleNameChange} type="text" name="Name"/>
+          <input value={user.name} onChange={handleChange} type="text" name="name"/>
         </div>
         <br/>
 
         <div className="field">
           <label>Username:</label>
           <br/>
-          <input value={username} onChange={handleUsernameChange} type="text" name="Username"/>
+          <input value={user.username} onChange={handleChange} type="text" name="username"/>
         </div>
         <br/>
 
         <div className="field">
           <label>Location:</label>
           <br/>
-          <input value={location} onChange={handleLocationChange} type="text" name="Location"/>
+          <input value={user.location} onChange={handleChange} type="text" name="location"/>
         </div>
         <br/>
 
         <div className="field">
           <label>Email:</label>
           <br/>
-          <input value={email} onChange={handleEmailChange} type="text" name="email"/>
+          <input value={user.email} onChange={handleChange} type="text" name="email"/>
         </div>
         <br/>
 
         <div className="field">
           <label>Password:</label>
           <br/>
-          <input value={password} onChange={handlePasswordChange} type="password" name="Password"/>
+          <input value={user.password} onChange={handleChange} type="password" name="password"/>
         </div>
         <br/>
 
         <div className="field">
           <label>Password:</label>
           <br/>
-          <input value={passwordConf} onChange={handlePasswordConfChange} type="password" name="Password Confirmation"/>
+          <input value={user.password_confirmation} onChange={handleChange} type="password" name="password_confirmation" placeholder="password confirmation"/>
         </div>
         <br/>
 

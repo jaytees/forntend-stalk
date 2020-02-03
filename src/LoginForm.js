@@ -2,10 +2,10 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 
-function LoginForm(props){
+function LoginForm( props ){
   const [email, setEmail] = useState("jordan@test.com");
   const [password, setPassword] = useState("chicken");
-  const [error, setError] = useState("")
+  const [errors, setErrors] = useState("");
   let history = useHistory();
 
   const handleEmailChange = (event) => {
@@ -36,7 +36,7 @@ function LoginForm(props){
         }
       })
       .then( res => {
-        console.log( res );
+        // console.log( res );
         if (res.data.jwt) {
 
           localStorage.setItem('token', res.data.jwt);
@@ -48,7 +48,7 @@ function LoginForm(props){
 
         } else {
 
-            setError(res.data.failure)
+            setErrors(res.data.failure)
             // console.log(error)
 
         }
@@ -66,7 +66,7 @@ function LoginForm(props){
     <div>
       <h1>LOGIN</h1>
       {
-        (error) && <p>{error}</p>
+        (errors) && <p>{errors}</p>
       }
       <form onSubmit={handleSubmit}>
         <div className="field">
