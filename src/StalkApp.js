@@ -34,9 +34,9 @@ function StalkApp() {
           <LoginForm loginComplete={ setTokenHeaderSet } />
 
 
-          <LogOut/>
+          <LogOut />
 
-          <SignUp />
+          <SignUp signUpComplete={ setTokenHeaderSet }/>
 
           <Switch>
 
