@@ -5,6 +5,7 @@ import {Route, Switch} from 'react-router-dom'
 import Home from './components/Home'
 import LoginForm from './LoginForm'
 import LogOut from './LogOut'
+import SignUp from './SignUp'
 import ProfilePage from './components/ProfilePage'
 
 
@@ -32,7 +33,10 @@ function StalkApp() {
 
           <LoginForm loginComplete={ setTokenHeaderSet } />
 
+
           <LogOut/>
+
+          <SignUp />
 
           <Switch>
 
