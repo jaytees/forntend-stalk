@@ -40,7 +40,6 @@ function StalkApp() {
 
           <p>{welcomeMessage}</p>
 
-            <Upload/>
 
           {
             (tokenHeaderSet) ?
@@ -64,6 +63,8 @@ function StalkApp() {
             <Route exact path='/users' component={Users} />
             <Route exact path='/profile/:user_id' component={Profile} />
             <Route exact path='/photo/:photo_id' component={Photo} />
+            <Route exact path='/addplant' component={AddPlant} />
+
           </Switch>
         </main>
       </div>

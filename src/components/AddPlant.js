@@ -1,11 +1,9 @@
 import React from 'react'
-
+import Upload from './Upload'
 
 class AddPlant extends React.Component {
 
   //must be logged in to create a plant - render error if not logged in
-
-
 
   render(){
     return(
@@ -18,8 +16,11 @@ class AddPlant extends React.Component {
             <label>About your plant:</label><input type="text" name="description"/> <br/>
             <label>Date Acquired</label><input type="date" name="date_acquired"/> <br/>
             <label>Days between watering</label><input type="text" name="water_days"/> <br/>
+            <Upload />
             <input type="submit"/>
+
           </div>
+
         </form>
       </div>
     )
