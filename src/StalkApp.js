@@ -33,7 +33,7 @@ function StalkApp() {
       <div className="stalk-app">
         <main>
 
-          <NavBar setTokenHeader={ setTokenHeaderSet } tokenHeaderValue={tokenHeaderSet}/>
+          <NavBar setTokenHeader={ setTokenHeaderSet } tokenHeaderValue={tokenHeaderSet} />
 
 
 
@@ -42,7 +42,7 @@ function StalkApp() {
             <Route exact path='/' component={Home}/>
 
 
-            <Route exact path="/signup" render={(props) => <SignUp {...props} signUpComplete={setTokenHeaderSet} />} />
+            <Route exact path="/signup" render={(props) => <SignUp {...props} signUpComplete={setTokenHeaderSet}  />} />
 
 
             {

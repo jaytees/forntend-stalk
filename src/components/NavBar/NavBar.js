@@ -9,7 +9,15 @@ import './NavBar.css'
 
 function NavBar( props ){
   const [welcomeMessage, setWelcomeMessage] = useState('Please login or sign up');
+
   const [loginFormDisplayed, setLoginFormDisplayed] = useState(false)
+
+
+  const createWelcomeMessage = () => {
+    (props.tokenHeaderValue) ? setWelcomeMessage(`Welcome back, `)
+    :
+    setWelcomeMessage('Please login or sign up')
+  }
 
   const displayLogin = () => {
 
@@ -30,7 +38,7 @@ function NavBar( props ){
           {
             (props.tokenHeaderValue)
             ?
-            <LogOut logOutComplete={ props.setTokenHeader } logOutSuccess={setWelcomeMessage} />
+            <LogOut logOutComplete={ props.setTokenHeader } logOutMessage={setWelcomeMessage} />
             :
 
             <div id="nav-login-operations">
@@ -41,7 +49,8 @@ function NavBar( props ){
               (loginFormDisplayed) &&
 
                 <div id="login-content">
-                    <LoginForm loginComplete={ props.setTokenHeader } loginSuccess={setWelcomeMessage} />
+                    <LoginForm loginComplete={ props.setTokenHeader } loginMessage={setWelcomeMessage}
+                    loginDisplay={displayLogin}/>
                 </div>
 
               }

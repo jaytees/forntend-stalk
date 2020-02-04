@@ -13,7 +13,7 @@ function LogOut(props) {
     localStorage.removeItem('userId');
     delete axios.defaults.headers.common['Authorization'];
     props.logOutComplete( false );
-    props.logOutSuccess( 'Please login or sign up' );
+    props.logOutMessage( 'Please login or sign up' );
 
     history.push('/')
 
