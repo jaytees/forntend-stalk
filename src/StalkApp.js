@@ -11,6 +11,7 @@ import Profile from './components/Profile'
 import Users from './components/Users'
 import Photo from './components/Photo'
 import AddPlant from './components/AddPlant'
+import Time from './components/Time'
 
 
 function StalkApp() {
@@ -40,7 +41,7 @@ function StalkApp() {
 
           {
             (tokenHeaderSet) ?
-            <LogOut logOutComplete={ setTokenHeaderSet } logOutSuccess={setWelcomeMessage}/> : 
+            <LogOut logOutComplete={ setTokenHeaderSet } logOutSuccess={setWelcomeMessage}/> :
             <div>
               <LoginForm loginComplete={ setTokenHeaderSet } loginSuccess={setWelcomeMessage} />
 
@@ -59,6 +60,8 @@ function StalkApp() {
             <Route exact path='/users' component={Users} />
             <Route exact path='/profile/:user_id' component={Profile} />
             <Route exact path='/photo/:photo_id' component={Photo} />
+            <Route exact path='/time/' component={Time} />
+            <Route exact path='/addplant/' component={AddPlant} />
           </Switch>
         </main>
       </div>
