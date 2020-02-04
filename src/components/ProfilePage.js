@@ -43,11 +43,9 @@ class ProfilePage extends React.Component {
 
         <div>
         <h2>Profile Page for {this.state.user.name}</h2>
-        <Link to='/users'>check out the other stalkers!</Link> <br/>
-        <Link to='/addplant/'>add a new plant!</Link>
-        <div onClick={() => this.handleClick(this.state.user.id)}>
-          View your garden
-        </div>
+        <Link to='/users'>Check Out Other Stalkers</Link> <br/>
+        <Link to='/addplant/'>Add A New Plant</Link><br/>
+        <Link to={`/mygarden/${this.state.user.id}`}>View Your Garden</Link>
         </div>
 
 
