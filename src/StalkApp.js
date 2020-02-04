@@ -11,6 +11,7 @@ import ProfilePage from './components/ProfilePage'
 
 function StalkApp() {
   const [tokenHeaderSet, setTokenHeaderSet] = useState(false);
+  const [welcomeMessage, setWelcomeMessage] = useState('Please login or sign up');
 
 
   //check token and set auth header from it
@@ -31,12 +32,18 @@ function StalkApp() {
         <main>
           <h1>Stalk App</h1>
 
-          <LoginForm loginComplete={ setTokenHeaderSet } />
+          <p>{welcomeMessage}</p>
 
+          {
+            (tokenHeaderSet) ?
+            <LogOut logOutComplete={ setTokenHeaderSet } logOutSuccess={setWelcomeMessage}/> : 
+            <div>
+              <LoginForm loginComplete={ setTokenHeaderSet } loginSuccess={setWelcomeMessage} />
 
-          <LogOut />
+              <SignUp signUpComplete={ setTokenHeaderSet } />
+          </div>
+          }
 
-          <SignUp signUpComplete={ setTokenHeaderSet }/>
 
           <Switch>
 
