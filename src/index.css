@@ -70,3 +70,7 @@ code {
   height: 90%;
   margin-left: 10px;
 }
+.uploadImagePreview {
+  max-width: 50vw;
+  max-height: 50vh;
+}
