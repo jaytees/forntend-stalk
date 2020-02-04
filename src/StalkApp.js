@@ -3,7 +3,7 @@ import axios from 'axios';
 import {Route, Switch} from 'react-router-dom';
 
 import Home from './components/Home';
-
+import SignUp from './SignUp';
 import ProfilePage from './components/ProfilePage';
 import MyGarden from './components/MyGarden';
 import Users from './components/Users';
@@ -27,7 +27,7 @@ function StalkApp() {
 
   }, []);
 
-
+    // <SignUp signUpComplete={ props.setTokenHeader } />
 
     return(
       <div className="stalk-app">
@@ -37,13 +37,20 @@ function StalkApp() {
           <NavBar setTokenHeader={ setTokenHeaderSet } tokenHeaderValue={tokenHeaderSet}/>
 
 
+
           <Switch>
 
             <Route exact path='/' component={Home}/>
+
+
+            <Route exact path="/signup" render={(props) => <SignUp {...props} signUpComplete={setTokenHeaderSet} />} />
+
+
             {
               tokenHeaderSet &&
               <Route exact path='/profile' component={ProfilePage} />
             }
+
             <Route exact path='/users' component={Users} />
             <Route exact path='/mygarden/:user_id' component={MyGarden} />
 

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 import LoginForm from './../LoginForm';
 import LogOut from './../LogOut';
-import SignUp from './../SignUp';
+
 
 function NavBar( props ){
   const [welcomeMessage, setWelcomeMessage] = useState('Please login or sign up');
@@ -20,7 +20,13 @@ function NavBar( props ){
           <div>
             <LoginForm loginComplete={ props.setTokenHeader } loginSuccess={setWelcomeMessage} />
 
-            <SignUp signUpComplete={ props.setTokenHeader } />
+            <Link to='/signup'>Sign Up</Link>
+
+
+
+
+
+
           </div>
           }
       </div>
