@@ -12,6 +12,8 @@ import Users from './components/Users'
 import Photo from './components/Photo'
 import AddPlant from './components/AddPlant'
 
+import Upload from './components/Upload'
+
 
 function StalkApp() {
   const [tokenHeaderSet, setTokenHeaderSet] = useState(false);
@@ -38,15 +40,18 @@ function StalkApp() {
 
           <p>{welcomeMessage}</p>
 
+            <Upload/>
+
           {
             (tokenHeaderSet) ?
-            <LogOut logOutComplete={ setTokenHeaderSet } logOutSuccess={setWelcomeMessage}/> : 
+            <LogOut logOutComplete={ setTokenHeaderSet } logOutSuccess={setWelcomeMessage}/> :
             <div>
               <LoginForm loginComplete={ setTokenHeaderSet } loginSuccess={setWelcomeMessage} />
 
               <SignUp signUpComplete={ setTokenHeaderSet } />
           </div>
           }
+
 
 
           <Switch>
