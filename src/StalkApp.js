@@ -34,12 +34,16 @@ function StalkApp() {
 
           <p>{welcomeMessage}</p>
 
-          <LoginForm loginComplete={ setTokenHeaderSet } />
+          {
+            (tokenHeaderSet) ?
+            <LogOut logOutComplete={ setTokenHeaderSet } logOutSuccess={setWelcomeMessage}/> : 
+            <div>
+              <LoginForm loginComplete={ setTokenHeaderSet } loginSuccess={setWelcomeMessage} />
 
+              <SignUp signUpComplete={ setTokenHeaderSet } />
+          </div>
+          }
 
-          <LogOut />
-
-          <SignUp signUpComplete={ setTokenHeaderSet }/>
 
           <Switch>
 
