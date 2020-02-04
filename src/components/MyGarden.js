@@ -3,7 +3,7 @@ import axios from 'axios'
 
 let userIDQuery = ''
 
-class Profile extends React.Component {
+class MyGarden extends React.Component {
 
   handleClick = ( id ) => {
     console.log(id);
@@ -39,7 +39,7 @@ class Profile extends React.Component {
   render(){
     return(
       <div className='App'>
-        <h2>Profile</h2>
+        <h2>Your Garden</h2>
         <p>{this.state.user.name}</p>
         {
           this.state.user.length === 0
@@ -54,8 +54,8 @@ class Profile extends React.Component {
                 <p>{plant.name}</p>
                 {
                   plant.photos.map( photo =>
-                    <div className="profilePlantPhoto" onClick={() => this.handleClick(photo.id)}>
-                      <img src={photo.image}/>
+                    <div key={photo.id} className="profilePlantPhoto" onClick={() => this.handleClick(photo.id)}>
+                      <img src={photo.image} />
                     </div>
                   )
                 }
@@ -70,4 +70,4 @@ class Profile extends React.Component {
 
 } // Class
 
-export default Profile
+export default MyGarden

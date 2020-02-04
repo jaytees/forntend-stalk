@@ -1,22 +1,31 @@
-import React, {useState, useEffect, useHistory} from 'react'
-import axios from 'axios'
-import {Route, Switch} from 'react-router-dom'
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import {Route, Switch} from 'react-router-dom';
 
-import Home from './components/Home'
-import LoginForm from './LoginForm'
-import LogOut from './LogOut'
-import SignUp from './SignUp'
-import ProfilePage from './components/ProfilePage'
-import Profile from './components/Profile'
-import Users from './components/Users'
-import Photo from './components/Photo'
-import AddPlant from './components/AddPlant'
-
+import Home from './components/Home';
+import SignUp from './SignUp';
+import ProfilePage from './components/ProfilePage';
+import MyGarden from './components/MyGarden';
+import Users from './components/Users';
+import Photo from './components/Photo';
+import AddPlant from './components/AddPlant';
+import NavBar from './components/NavBar/NavBar';
 
 function StalkApp() {
   const [tokenHeaderSet, setTokenHeaderSet] = useState(false);
   const [welcomeMessage, setWelcomeMessage] = useState('Please login or sign up');
 
+
+  const handleUserStatus = (tokenValue, name) => {
+
+    if ( tokenValue) {
+      setWelcomeMessage(`Welcome back, ${name}`)
+      setTokenHeaderSet(true)
+    } else {
+      setWelcomeMessage('Please login or sign up')
+      setTokenHeaderSet(false)
+    }
+  }
 
   //check token and set auth header from it
   useEffect(() => {
@@ -29,35 +38,34 @@ function StalkApp() {
 
   }, []);
 
+    // <SignUp signUpComplete={ props.setTokenHeader } />
 
-  //TODO: ternary for logout
     return(
       <div className="stalk-app">
         <main>
-          <h1>Stalk App</h1>
 
-          <p>{welcomeMessage}</p>
+          <NavBar tokenHeaderValue={tokenHeaderSet} messageCreator={handleUserStatus}
+          navMessage={welcomeMessage} />
 
-          {
-            (tokenHeaderSet) ?
-            <LogOut logOutComplete={ setTokenHeaderSet } logOutSuccess={setWelcomeMessage}/> : 
-            <div>
-              <LoginForm loginComplete={ setTokenHeaderSet } loginSuccess={setWelcomeMessage} />
-
-              <SignUp signUpComplete={ setTokenHeaderSet } />
-          </div>
-          }
 
 
           <Switch>
 
             <Route exact path='/' component={Home}/>
+
+
+            <Route exact path="/signup" render={(props) => <SignUp {...props}
+            messageCreator={handleUserStatus}  />} />
+
+
             {
               tokenHeaderSet &&
               <Route exact path='/profile' component={ProfilePage} />
             }
+
             <Route exact path='/users' component={Users} />
-            <Route exact path='/profile/:user_id' component={Profile} />
+            <Route exact path='/mygarden/:user_id' component={MyGarden} />
+
             <Route exact path='/photo/:photo_id' component={Photo} />
           </Switch>
         </main>

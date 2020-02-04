@@ -53,7 +53,7 @@ function SignUp( props ){
         localStorage.setItem('token', res.data.jwt);
         localStorage.setItem('userId', res.data.user.id);
         axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.jwt}`;
-        props.signUpComplete( true );
+        props.messageCreator( true, res.data.user.name );
 
         history.push('/profile')
 
@@ -61,14 +61,14 @@ function SignUp( props ){
 
       } else {
 
-//// TODO: speak to luke
         setErrors(res.data.errors)
-        // console.log(errors);
 
       }
     })
-    .catch( err => {
-      console.warn(err);
+    .catch( (err) => {
+      // console.warn('catch', err.response.data.errors);
+      // displayErrors(err.response.data.errors)
+      setErrors(err.response.data.errors)
     })
 
   };
@@ -77,8 +77,15 @@ function SignUp( props ){
     <div className="signupForm">
       <h2>Sign up</h2>
       {
-        (errors) && <p>{errors}</p>
+        (errors) && <div id="signup-errors">
+          <ul>
+            {errors.map(error =>
+              <li>{error}</li>
+            )}
+          </ul>
+        </div>
       }
+
       <form onSubmit={handleSubmit}>
         <div className="field">
           <label>Name:</label>
