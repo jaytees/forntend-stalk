@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  margin: 50px;
+}
+.rbc-btn-group:last-child{
+  display: none;
+}
+.rbc-toolbar-label {
+  text-align: right !important;
+}
