@@ -31,14 +31,13 @@ class Upload extends React.Component {
 
         <div className="upload">
 
-
                 <button onClick={this.uploadWidget} className="upload-button">
                     Upload PLANT!
                 </button>
                 {
                   this.state.image_url.length === 0
                   ?
-                  <p>noimage</p>
+                  console.log("no image")
                   :
                   <img className="uploadImagePreview" src={this.state.image_url} />
                 }

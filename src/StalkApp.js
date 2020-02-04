@@ -11,6 +11,7 @@ import Profile from './components/Profile'
 import Users from './components/Users'
 import Photo from './components/Photo'
 import AddPlant from './components/AddPlant'
+import Plant from './components/Plant'
 
 import Upload from './components/Upload'
 
@@ -63,6 +64,7 @@ function StalkApp() {
             <Route exact path='/users' component={Users} />
             <Route exact path='/profile/:user_id' component={Profile} />
             <Route exact path='/photo/:photo_id' component={Photo} />
+            <Route exact path='/plant/:plant_id' component={Plant} />
             <Route exact path='/addplant' component={AddPlant} />
 
           </Switch>

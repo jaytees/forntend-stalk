@@ -12,6 +12,13 @@ class Profile extends React.Component {
     this.props.history.push( route )
 }
 
+ handleClickPlant = ( id ) => {
+  console.log(id);
+  const route = `/plant/${ id }`
+  console.log('route:', route);
+  this.props.history.push( route )
+}
+
   state = {
     user: []
   }
@@ -50,7 +57,7 @@ class Profile extends React.Component {
           <p>plants</p>
           {
             this.state.user.plants.map(plant =>
-              <div key={plant.id} className="profilePlantIndex">
+              <div key={plant.id} className="profilePlantIndex" onClick={() => this.handleClickPlant(plant.id)}>
                 <p>{plant.name}</p>
                 {
                   plant.photos.map( photo =>
