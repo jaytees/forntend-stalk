@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import PlantCalendar from './PlantCalendar';
 
 
 let plants = ''
@@ -29,13 +30,6 @@ class ProfilePage extends React.Component {
 
   }
 
-  handleClick = ( id ) => {
-    console.log(id);
-    const route = `/profile/${ id }`
-    console.log('route', route);
-    this.props.history.push( route )
-  }
-
 
 
   render(){
@@ -49,6 +43,7 @@ class ProfilePage extends React.Component {
         <div onClick={() => this.handleClick(this.state.user.id)}>
           go to your profile
         </div>
+        <PlantCalendar />
         </div>
 
 
