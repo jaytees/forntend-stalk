@@ -9,7 +9,7 @@ import MyGarden from './components/MyGarden';
 import Users from './components/Users';
 import Photo from './components/Photo';
 import AddPlant from './components/AddPlant';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 
 function StalkApp() {
   const [tokenHeaderSet, setTokenHeaderSet] = useState(false);
@@ -32,7 +32,6 @@ function StalkApp() {
     return(
       <div className="stalk-app">
         <main>
-          <h1>Stalk App</h1>
 
           <NavBar setTokenHeader={ setTokenHeaderSet } tokenHeaderValue={tokenHeaderSet}/>
 

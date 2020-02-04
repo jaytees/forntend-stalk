@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 
+import './components/NavBar/NavBar.css'
 
 function LogOut(props) {
   let history = useHistory()
@@ -19,7 +20,7 @@ function LogOut(props) {
   }
 
   return(
-    <button onClick={logOutSubmit}>Log Out</button>
+    <a onClick={logOutSubmit} id="logOut-link">Log Out</a>
   )
 
 }

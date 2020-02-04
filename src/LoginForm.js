@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 
+import './components/NavBar/NavBar.css'
+
 function LoginForm( props ){
   const [email, setEmail] = useState("jordan@test.com");
   const [password, setPassword] = useState("chicken");
@@ -63,25 +65,27 @@ function LoginForm( props ){
       props.loginSuccess( 'Please login or sign up' )
     }
 
+    // <h1>LOGIN</h1>
+    //
+    // <label>Email:</label>
+    // <label>Password:</label>
 
   return(
     <div>
-      <h1>LOGIN</h1>
       {
         (errors) && <p>{errors}</p>
       }
-      <form onSubmit={handleSubmit}>
-        <div className="field">
-          <label>Email:</label>
-          <input value={email} onChange={handleEmailChange} type="text" placeholder="email"/>
-        </div>
-        <div className="field">
-          <label>Password:</label>
-          <input value={password} onChange={handlePasswordChange} type="password" placeholder="password"/>
+      <form id="login" onSubmit={handleSubmit}>
+        <div id="login-inputs">
+
+          <input value={email} onChange={handleEmailChange} type="text" placeholder="Your email address"/>
+
+
+          <input value={password} onChange={handlePasswordChange} type="password" placeholder="Password"/>
         </div>
         <br/>
 
-        <button type="submit">Submit</button>
+        <button id="login-submit" type="submit">Login</button>
       </form>
     </div>
   )
