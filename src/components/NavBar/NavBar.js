@@ -35,7 +35,7 @@ function NavBar( props ){
 
             <div id="nav-login-operations">
 
-              <a id="login-trigger" href="#" onClick={displayLogin}>Log In</a>
+              <p id="login-trigger" href="#" onClick={displayLogin}>Log In</p>
 
             {
               (loginFormDisplayed) &&

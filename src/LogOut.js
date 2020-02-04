@@ -12,7 +12,7 @@ function LogOut(props) {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
     delete axios.defaults.headers.common['Authorization'];
-    
+
     props.logOutMessage( false, 'Please login or sign up' );
 
     history.push('/')
@@ -20,7 +20,7 @@ function LogOut(props) {
   }
 
   return(
-    <a onClick={logOutSubmit} id="logOut-link">Log Out</a>
+    <p onClick={logOutSubmit} id="logOut-link">Log Out</p>
   )
 
 }

@@ -9,13 +9,15 @@
 nav #login-trigger,
   nav #signup-link,
     nav #logOut-link {
-    height: 25px;
-    line-height: 25px;
-    font-weight: bold;
-    padding: 0 8px;
-    text-decoration: none;
-    color: #444;
-    text-shadow: 0 1px 0 #fff;
+      display: inline;
+      height: 25px;
+      line-height: 25px;
+      font-weight: bold;
+      padding: 0 8px;
+      text-decoration: none;
+      color: #444;
+      text-shadow: 0 1px 0 #fff;
+      cursor: pointer;
 }
 
 /* nav #login-trigger {
@@ -76,7 +78,6 @@ nav #login-content {
   #login #login-submit:hover,
   #login #login-submit:focus {
     background-color: #e97171;
-    background-image: linear-gradient(top, #d14545, #e97171);
   }
 
   #login #login-submit:active {
