@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useHistory} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import {Route, Switch} from 'react-router-dom'
 

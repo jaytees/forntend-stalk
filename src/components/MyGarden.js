@@ -54,8 +54,8 @@ class MyGarden extends React.Component {
                 <p>{plant.name}</p>
                 {
                   plant.photos.map( photo =>
-                    <div className="profilePlantPhoto" onClick={() => this.handleClick(photo.id)}>
-                      <img src={photo.image}/>
+                    <div key={photo.id} className="profilePlantPhoto" onClick={() => this.handleClick(photo.id)}>
+                      <img src={photo.image} />
                     </div>
                   )
                 }
