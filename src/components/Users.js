@@ -10,7 +10,7 @@ class Users extends React.Component {
 
   handleClick = ( id ) => {
     console.log(id);
-    const route = `/profile/${ id }`
+    const route = `/mygarden/${ id }`
     console.log('route:', route);
     this.props.history.push( route )
 }

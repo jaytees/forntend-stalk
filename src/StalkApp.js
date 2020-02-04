@@ -7,7 +7,7 @@ import LoginForm from './LoginForm'
 import LogOut from './LogOut'
 import SignUp from './SignUp'
 import ProfilePage from './components/ProfilePage'
-import Profile from './components/Profile'
+import MyGarden from './components/MyGarden'
 import Users from './components/Users'
 import Photo from './components/Photo'
 import AddPlant from './components/AddPlant'
@@ -40,7 +40,7 @@ function StalkApp() {
 
           {
             (tokenHeaderSet) ?
-            <LogOut logOutComplete={ setTokenHeaderSet } logOutSuccess={setWelcomeMessage}/> : 
+            <LogOut logOutComplete={ setTokenHeaderSet } logOutSuccess={setWelcomeMessage}/> :
             <div>
               <LoginForm loginComplete={ setTokenHeaderSet } loginSuccess={setWelcomeMessage} />
 
@@ -57,7 +57,8 @@ function StalkApp() {
               <Route exact path='/profile' component={ProfilePage} />
             }
             <Route exact path='/users' component={Users} />
-            <Route exact path='/profile/:user_id' component={Profile} />
+            <Route exact path='/mygarden/:user_id' component={MyGarden} />
+
             <Route exact path='/photo/:photo_id' component={Photo} />
           </Switch>
         </main>
