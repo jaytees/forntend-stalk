@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
@@ -5,6 +6,12 @@ import PlantCalendar from './PlantCalendar';
 
 
 let plants = ''
+=======
+import React from 'react';
+import axios from 'axios';
+import PlantCalendar from './PlantCalendar';
+
+>>>>>>> f0eb132df8eae59e476c94aabdb67d40b89d86c9
 
 class ProfilePage extends React.Component {
   state = {
@@ -35,7 +42,7 @@ class ProfilePage extends React.Component {
   render(){
     return(
 
-        <div>
+      <div>
         <h2>Profile Page for {this.state.user.name}</h2>
         <Link to='/users'>check out the other stalkers!</Link> <br/>
         <Link to='/profile/64/'>check in on your plants!</Link> <br/>
@@ -46,10 +53,9 @@ class ProfilePage extends React.Component {
         <PlantCalendar />
         </div>
 
-
     );
   }
 
 }
 
-export default ProfilePage
+export default ProfilePage;

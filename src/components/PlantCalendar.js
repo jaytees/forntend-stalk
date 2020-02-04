@@ -1,9 +1,14 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import moment from 'moment';
+<<<<<<< HEAD
 import { Calendar, momentLocalizer, Views  } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import '../App.css'
+=======
+import DayPicker, { DateUtils } from 'react-day-picker';
+import 'react-day-picker/lib/style.css';
+>>>>>>> f0eb132df8eae59e476c94aabdb67d40b89d86c9
 
 
 let waterInterval = 0;
@@ -36,8 +41,11 @@ class WaterInterval extends React.Component {
 class PlantCalendar extends React.Component {
 
   state = {
+<<<<<<< HEAD
     user: [],
     id: localStorage.getItem('userId'),
+=======
+>>>>>>> f0eb132df8eae59e476c94aabdb67d40b89d86c9
     date: new Date(),
     acquiredDate: new Date("2019-12-28"),
     datesArray: [],
@@ -45,6 +53,7 @@ class PlantCalendar extends React.Component {
   }
 
   onChange = date => this.setState({date});
+<<<<<<< HEAD
 
   componentDidMount(){
     axios.get(`http://localhost:3000/users/${this.state.id}.json`)
@@ -78,6 +87,21 @@ class PlantCalendar extends React.Component {
     if(currMonthStart < startDate) {
       this.state.datesArray = [];
       console.log("RETURN",currMonthStart,tempDate);
+=======
+  // axios.get('http://localhost:3000/plants')
+  // .then(res => {
+  //   console.log(res);
+  //
+  //   // this.setState({acquiredDate: res.data});
+  // })
+  // .catch(err => console.warn(err));
+
+  calculate = (startDate, waterInterval, currMonthStart) => {
+
+    if(waterInterval <= 0) {
+      this.setState({data: true});
+      this.state.datesArray = [];
+>>>>>>> f0eb132df8eae59e476c94aabdb67d40b89d86c9
       return;
     }
 
@@ -93,11 +117,16 @@ class PlantCalendar extends React.Component {
     let firstScheduleDt = moment(currMonthStart).add( offset, 'days' ).toDate();
 
     let nextScheduleDt = firstScheduleDt;
+<<<<<<< HEAD
     // this.state.datesArray = [];
+=======
+    this.state.datesArray = [];
+>>>>>>> f0eb132df8eae59e476c94aabdb67d40b89d86c9
 
     //TODO: loop until end of month
     while(nextScheduleDt.getMonth() === firstScheduleDt.getMonth()){
 
+<<<<<<< HEAD
       let calendarEntry = {
         title: plantName,
         allDay: true,
@@ -142,6 +171,37 @@ class PlantCalendar extends React.Component {
             onRangeChange={this.monthsChangeHandler}
             views={Views.MONTH}
           />
+=======
+      this.state.datesArray.push(nextScheduleDt);
+      nextScheduleDt = moment(nextScheduleDt).add(waterInterval, 'days').toDate();
+
+    }
+
+    this.setState({data: true});
+  }
+
+  monthsChangeHandler = (month) => {
+
+    this.calculate(this.state.acquiredDate, waterInterval, month);
+  }
+
+  render() {
+    return(
+      <div>
+        <br />
+        <WaterInterval onSubmit={(waterInterval) => {
+          this.state.date.setDate(1);
+          this.calculate(this.state.acquiredDate, waterInterval, this.state.date)
+        }}
+        />
+        {
+          this.state.data
+            ? < DayPicker selectedDays={this.state.datesArray}
+                  onMonthChange = {this.monthsChangeHandler}/>
+            : null
+        }
+        <br />
+>>>>>>> f0eb132df8eae59e476c94aabdb67d40b89d86c9
       </div>
     );  // return
   } // render
