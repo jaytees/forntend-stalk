@@ -44,8 +44,7 @@ function LoginForm( props ){
           localStorage.setItem('token', res.data.jwt);
           localStorage.setItem('userId', res.data.user.id);
           axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.jwt}`;
-          props.loginComplete( true );
-          props.loginMessage( res.data.success )
+          props.loginMessage( true, res.data.user.name )
 
           history.push('/profile')
 
@@ -62,7 +61,7 @@ function LoginForm( props ){
 
       setEmail("")
       setPassword("")
-      
+
       props.loginDisplay()
     }
 

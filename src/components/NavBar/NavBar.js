@@ -8,16 +8,8 @@ import './NavBar.css'
 
 
 function NavBar( props ){
-  const [welcomeMessage, setWelcomeMessage] = useState('Please login or sign up');
-
   const [loginFormDisplayed, setLoginFormDisplayed] = useState(false)
 
-
-  const createWelcomeMessage = () => {
-    (props.tokenHeaderValue) ? setWelcomeMessage(`Welcome back, `)
-    :
-    setWelcomeMessage('Please login or sign up')
-  }
 
   const displayLogin = () => {
 
@@ -30,7 +22,7 @@ function NavBar( props ){
     <div>
       <nav id="navbar">
 
-          <p>{welcomeMessage}</p>
+          <p>{props.navMessage}</p>
 
           <div>
               <h1>Stalk App</h1>
@@ -38,7 +30,7 @@ function NavBar( props ){
           {
             (props.tokenHeaderValue)
             ?
-            <LogOut logOutComplete={ props.setTokenHeader } logOutMessage={setWelcomeMessage} />
+            <LogOut logOutMessage={props.messageCreator} />
             :
 
             <div id="nav-login-operations">
@@ -49,7 +41,7 @@ function NavBar( props ){
               (loginFormDisplayed) &&
 
                 <div id="login-content">
-                    <LoginForm loginComplete={ props.setTokenHeader } loginMessage={setWelcomeMessage}
+                    <LoginForm loginMessage={props.messageCreator}
                     loginDisplay={displayLogin}/>
                 </div>
 

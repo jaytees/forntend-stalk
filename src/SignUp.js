@@ -53,7 +53,7 @@ function SignUp( props ){
         localStorage.setItem('token', res.data.jwt);
         localStorage.setItem('userId', res.data.user.id);
         axios.defaults.headers.common['Authorization'] = `Bearer ${res.data.jwt}`;
-        props.signUpComplete( true );
+        props.messageCreator( true, res.data.user.name );
 
         history.push('/profile')
 
@@ -67,8 +67,8 @@ function SignUp( props ){
 
       }
     })
-    .catch( err => {
-      console.warn(err);
+    .catch( (err) => {
+      console.warn('catch', err.response);
     })
 
   };

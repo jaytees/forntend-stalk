@@ -13,8 +13,19 @@ import NavBar from './components/NavBar/NavBar';
 
 function StalkApp() {
   const [tokenHeaderSet, setTokenHeaderSet] = useState(false);
+  const [welcomeMessage, setWelcomeMessage] = useState('Please login or sign up');
 
 
+  const handleUserStatus = (tokenValue, name) => {
+
+    if ( tokenValue) {
+      setWelcomeMessage(`Welcome back, ${name}`)
+      setTokenHeaderSet(true)
+    } else {
+      setWelcomeMessage('Please login or sign up')
+      setTokenHeaderSet(false)
+    }
+  }
 
   //check token and set auth header from it
   useEffect(() => {
@@ -33,7 +44,8 @@ function StalkApp() {
       <div className="stalk-app">
         <main>
 
-          <NavBar setTokenHeader={ setTokenHeaderSet } tokenHeaderValue={tokenHeaderSet} />
+          <NavBar tokenHeaderValue={tokenHeaderSet} messageCreator={handleUserStatus}
+          navMessage={welcomeMessage} />
 
 
 
@@ -42,7 +54,8 @@ function StalkApp() {
             <Route exact path='/' component={Home}/>
 
 
-            <Route exact path="/signup" render={(props) => <SignUp {...props} signUpComplete={setTokenHeaderSet}  />} />
+            <Route exact path="/signup" render={(props) => <SignUp {...props}
+            messageCreator={handleUserStatus}  />} />
 
 
             {
