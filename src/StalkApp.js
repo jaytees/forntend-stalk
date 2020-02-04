@@ -1,21 +1,19 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios'
-import {Route, Switch} from 'react-router-dom'
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import {Route, Switch} from 'react-router-dom';
 
-import Home from './components/Home'
-import LoginForm from './LoginForm'
-import LogOut from './LogOut'
-import SignUp from './SignUp'
-import ProfilePage from './components/ProfilePage'
-import MyGarden from './components/MyGarden'
-import Users from './components/Users'
-import Photo from './components/Photo'
-import AddPlant from './components/AddPlant'
+import Home from './components/Home';
 
+import ProfilePage from './components/ProfilePage';
+import MyGarden from './components/MyGarden';
+import Users from './components/Users';
+import Photo from './components/Photo';
+import AddPlant from './components/AddPlant';
+import NavBar from './components/NavBar';
 
 function StalkApp() {
   const [tokenHeaderSet, setTokenHeaderSet] = useState(false);
-  const [welcomeMessage, setWelcomeMessage] = useState('Please login or sign up');
+
 
 
   //check token and set auth header from it
@@ -30,23 +28,13 @@ function StalkApp() {
   }, []);
 
 
-  //TODO: ternary for logout
+
     return(
       <div className="stalk-app">
         <main>
           <h1>Stalk App</h1>
 
-          <p>{welcomeMessage}</p>
-
-          {
-            (tokenHeaderSet) ?
-            <LogOut logOutComplete={ setTokenHeaderSet } logOutSuccess={setWelcomeMessage}/> :
-            <div>
-              <LoginForm loginComplete={ setTokenHeaderSet } loginSuccess={setWelcomeMessage} />
-
-              <SignUp signUpComplete={ setTokenHeaderSet } />
-          </div>
-          }
+          <NavBar setTokenHeader={ setTokenHeaderSet } tokenHeaderValue={tokenHeaderSet}/>
 
 
           <Switch>
