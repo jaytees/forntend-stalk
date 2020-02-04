@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 
+import PlantCalendar from './PlantCalendar';
+
 
 // let plants = ''
 
@@ -46,6 +48,8 @@ class ProfilePage extends React.Component {
         <Link to='/users'>Check Out Other Stalkers</Link> <br/>
         <Link to='/addplant/'>Add A New Plant</Link><br/>
         <Link to={`/mygarden/${this.state.user.id}`}>View Your Garden</Link>
+
+        <PlantCalendar />
         </div>
 
 
