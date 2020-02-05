@@ -47,7 +47,7 @@ function StalkApp() {
 
     const navAnimation = (merge) => {
 
-      console.log('trigger')
+      // console.log('trigger')
       const mainLogoElem = document.querySelector('#main-logo');
       const navbarLogoElem = document.querySelector('#navbar-logo');
 
