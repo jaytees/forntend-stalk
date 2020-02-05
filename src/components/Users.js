@@ -30,7 +30,7 @@ class Users extends React.Component {
   render(){
     return(
       <div className='App'>
-        <h2>Users</h2>
+        <h2>Stalker</h2>
           {
             this.state.users.length === 0
             ?
