@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 
+import './GardenDisplay.css'
+
 let userIDQuery = ''
 
 class MyGarden extends React.Component {
@@ -72,7 +74,7 @@ class MyGarden extends React.Component {
           {
             this.state.user.plants.map(plant =>
 
-              <div key={plant.id} className="profilePlantIndex">
+              <div key={plant.id} className="gardenPlantIndex">
                 <div className="skew-left"></div>
                 <div className="skew-right"></div>
 

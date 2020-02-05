@@ -8,7 +8,7 @@ import './Main.css'
 import Home from './components/Home';
 import SignUp from './SignUp';
 import ProfilePage from './components/ProfilePage';
-import MyGarden from './components/MyGarden';
+import MyGarden from './components/GardenDisplay/MyGarden';
 import Users from './components/Users';
 import Photo from './components/Photo';
 import AddPlant from './components/AddPlant';

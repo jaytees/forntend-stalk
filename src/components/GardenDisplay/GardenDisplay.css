@@ -1,0 +1,86 @@
+
+.gardenPlantIndex {
+  display: flex;
+  height: 25vh;
+  width: 65vw;
+  /* background-color: palegreen; */
+  margin-bottom: 10px;
+  align-items: center;
+  padding: 10px;
+  overflow-y: scroll;
+  position: relative;
+  border-bottom: 1em solid #ead2a7;
+  margin: 3em auto;
+  border-radius: 0px 0px 11px 10px;
+
+}
+
+.skew-left {
+  z-index: -10;
+  background-color: moccasin;
+  height: 5em;
+  display: absolute;
+  bottom: 0;
+  position: absolute;
+  width: 50%;
+  width: 50%;
+  left: 1.8em;
+  transform: skewX(-37deg)
+}
+
+.skew-right {
+  z-index: -10;
+  background-color: moccasin;
+  height: 5em;
+  display: absolute;
+  bottom: 0;
+  position: absolute;
+  width: 50%;
+  right: 1.8em;
+  transform: skewX(37deg);
+}
+
+.display-plant-name {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  /* border-bottom: 2px solid; */
+}
+
+.gardenPlantIndex .deleteButton{
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    margin: 1em 1em;
+}
+.gardenPlantIndex .editButton{
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    margin: 1em 1em;
+}
+
+
+/* .profilePlantPhoto {
+  display: flex;
+} */
+
+.myGardenPlantPhoto{
+  height: 80%;
+  margin: 2em 2em 0 2em;
+  border-radius: 2em;
+  border: 2px solid #bfb29c;
+  box-shadow: 1px 9px 7px -4px rgba(0,0,0,0.47);
+}
+
+.waterPlant {
+  border-radius: 50%;
+  background-color:#66ADD9;
+}
+
+.waterPlant > img {
+  height: 5vh;
+  margin: 10px;
+  padding: 5px;
+}
