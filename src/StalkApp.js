@@ -10,6 +10,7 @@ import Users from './components/Users';
 import Photo from './components/Photo';
 import AddPlant from './components/AddPlant';
 import NavBar from './components/NavBar/NavBar';
+import Time from './components/Time'
 
 function StalkApp() {
   const [tokenHeaderSet, setTokenHeaderSet] = useState(false);
