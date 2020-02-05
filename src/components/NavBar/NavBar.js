@@ -19,11 +19,15 @@ function NavBar( props ){
 
 
   return(
-    <div>
+    <div id="nav-div">
       <nav id="navbar">
 
 
           <p>{props.navMessage}</p>
+
+          <div id="navbar-logo">
+            <h1 id="logo">STALK</h1>
+          </div>
 
           {
             (props.tokenHeaderValue)

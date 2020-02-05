@@ -1,4 +1,8 @@
-
+#nav-div {
+  position: sticky;
+  top: 0;
+  background-color: aliceblue;
+}
 
 #navbar {
   display: flex;
@@ -9,6 +13,18 @@
   padding: 0px;
   z-index: 100;
   border: 1px solid #ffdede;
+}
+
+#navbar-logo {
+  visibility: hidden;
+  /* justify-content: space-around; */
+  /* border: 6px solid #f2e6e5; */
+  position: sticky;
+  top: 0;
+  padding: 0px 8em 0 3em;
+  letter-spacing: 1em;
+  color: #6ea37f;
+  /* background-color: aliceblue; */
 
 }
 
