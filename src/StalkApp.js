@@ -13,6 +13,10 @@ import Users from './components/Users';
 import Photo from './components/Photo';
 import AddPlant from './components/AddPlant';
 import NavBar from './components/NavBar/NavBar';
+import PlantCalendar from './components/PlantCalendar';
+
+import Time from './components/Time'
+
 
 function StalkApp() {
   const [tokenHeaderSet, setTokenHeaderSet] = useState(false);
@@ -120,12 +124,16 @@ function StalkApp() {
                     <Route exact path='/profile' component={ProfilePage} />
                   }
 
-                  <Route exact path='/users' component={Users} />
-                  <Route exact path='/mygarden/:user_id' component={MyGarden} />
 
-                  <Route exact path='/photo/:photo_id' component={Photo} />
-                </Switch>
-              </div>
+            <Route exact path='/users' component={Users} />
+            <Route exact path='/mygarden/:user_id' component={MyGarden} />
+            <Route exact path='/plantcalendar/:user_id' component={PlantCalendar} />
+
+            <Route exact path='/photo/:photo_id' component={Photo} />
+            <Route exact path='/time/' component={Time} />
+            <Route exact path='/addplant/' component={AddPlant} />
+           </Switch>
+          </div>
         </main>
       </div>
 

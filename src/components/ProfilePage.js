@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 
 // let plants = ''
@@ -45,7 +45,10 @@ class ProfilePage extends React.Component {
         <h2>Profile Page for {this.state.user.name}</h2>
         <Link to='/users'>Check Out Other Stalkers</Link> <br/>
         <Link to='/addplant/'>Add A New Plant</Link><br/>
-        <Link to={`/mygarden/${this.state.user.id}`}>View Your Garden</Link>
+        <Link to={`/mygarden/${this.state.user.id}`}>View Your Garden</Link><br/>
+        <Link to={`/plantcalendar/${this.state.user.id}`}>Calendar</Link><br/>
+
+
         </div>
 
 
