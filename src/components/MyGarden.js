@@ -12,6 +12,26 @@ class MyGarden extends React.Component {
     this.props.history.push( route )
 }
 
+  handleEditClick = ( id ) => {
+    console.log(id);
+    const route = `/editplant/${ id }`
+    console.log('route:', route);
+    this.props.history.push( route )
+}
+
+  handleDeleteClick = ( id ) => {
+    console.log(id)
+    // console.log(`http://localhost.com:3000/plants/${id}.json`)
+    axios.delete(`http://localhost:3000/plants/${id}.json`)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(console.warn)
+    // const route = `/editplant/${ id }`
+    // console.log('route:', route);
+    // this.props.history.push( route )
+}
+
   state = {
     user: []
   }
@@ -51,7 +71,7 @@ class MyGarden extends React.Component {
           {
             this.state.user.plants.map(plant =>
               <div key={plant.id} className="profilePlantIndex">
-                <p>{plant.name}</p>
+                <p>{plant.name}</p><button onClick={() => this.handleEditClick(plant.id)}>edit</button><button onClick={() => this.handleDeleteClick(plant.id)}>delete</button>
                 {
                   plant.photos.map( photo =>
                     <div key={photo.id} className="profilePlantPhoto" onClick={() => this.handleClick(photo.id)}>

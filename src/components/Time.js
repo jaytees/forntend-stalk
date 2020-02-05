@@ -41,7 +41,7 @@ class Time extends React.Component {
     console.log('wateringPlant:', plant_id);
     // this.setState({watering: Math.floor(Date.now() / 1000)})
     console.log(({last_watered: Math.floor(Date.now() / 1000)}));
-    console.log(this.state.watering);
+    // console.log(this.state.watering);
     const lastWatered = (Math.floor(Date.now() / 1000))
 
 
