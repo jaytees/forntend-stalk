@@ -24,9 +24,10 @@ class Photo extends React.Component {
   render(){
     return(
       <div className='App'>
-        <h2>UPDATE FOR THIS IMAGE - ADD DESCRIPTION</h2>
+        <h2>Photo Description</h2>
         {this.state.photo.id}
         <img className="mainPhoto" src={this.state.photo.image} alt=""/>
+        <p>{this.state.photo.description}</p>
       </div>
     )
   }
