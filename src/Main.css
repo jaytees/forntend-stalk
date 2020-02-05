@@ -1,0 +1,33 @@
+main {
+  background-color: #d0deca;
+    width: 100vw;
+    height: 100vh
+}
+
+
+#main-wrapper {
+  background-color: aliceblue;
+  width: 82%;
+  height: 85%;
+  margin: 4% auto;
+  position: fixed;
+  left: 0;
+  right: 0;
+  overflow: scroll;
+  padding: 2%;
+}
+
+#main-logo {
+  display: flex;
+  visibility: visible;
+  justify-content: space-around;
+  border: 6px solid #f2e6e5;
+  position: sticky;
+  top: 0;
+  width: 50%;
+  margin: 2em auto;
+  padding: 0px 4em 0 3em;
+  letter-spacing: 1em;
+  color: #6ea37f;
+  background-color: aliceblue;
+}

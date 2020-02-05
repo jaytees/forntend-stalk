@@ -1,6 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, createRef} from 'react';
 import axios from 'axios';
 import {Route, Switch} from 'react-router-dom';
+
+import './components/NavBar/NavBar.css'
+import './Main.css'
 
 import Home from './components/Home';
 import SignUp from './SignUp';
@@ -17,7 +20,10 @@ import Time from './components/Time'
 
 function StalkApp() {
   const [tokenHeaderSet, setTokenHeaderSet] = useState(false);
-  const [welcomeMessage, setWelcomeMessage] = useState('Please login or sign up');
+  const [welcomeMessage, setWelcomeMessage] = useState('Welcome, please login or sign up');
+
+  const myRef = React.createRef();
+  const [scrollTop, setScrollTop] = useState(0)
 
 
   const handleUserStatus = (tokenValue, name) => {
@@ -26,7 +32,7 @@ function StalkApp() {
       setWelcomeMessage(`Welcome back, ${name}`)
       setTokenHeaderSet(true)
     } else {
-      setWelcomeMessage('Please login or sign up')
+      setWelcomeMessage('Welcome, Please login or sign up')
       setTokenHeaderSet(false)
     }
   }
@@ -35,37 +41,89 @@ function StalkApp() {
   useEffect(() => {
     const token = localStorage.getItem('token')
     if (token){
-      console.log('TOKEN FOUND!', token);
+      // console.log('TOKEN FOUND!', token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       setTokenHeaderSet( true );
     }
 
   }, []);
 
-    // <SignUp signUpComplete={ props.setTokenHeader } />
+
+    const navAnimation = (merge) => {
+
+      console.log('trigger')
+      const mainLogoElem = document.querySelector('#main-logo');
+      const navbarLogoElem = document.querySelector('#navbar-logo');
+
+
+      if (merge) {
+        // console.log('mergeAnimation')
+
+        mainLogoElem.style.visibility = 'hidden';
+        navbarLogoElem.style.visibility = 'visible';
+
+
+      } else {
+        //unmerge
+        // console.log('unmerge animation')
+
+        mainLogoElem.style.visibility = 'visible';
+        navbarLogoElem.style.visibility = 'hidden';
+
+      }
+
+    }
+
+    const onScroll = () => {
+      const scrollTop = myRef.current.scrollTop
+      // console.log(`myRef.scrollTop: ${scrollTop} `)
+      setScrollTop(scrollTop)
+
+      if (scrollTop >= 115) {
+          // console.log('merge')
+
+          navAnimation(true)
+
+      } else if (scrollTop <= 110) {
+          // console.log('unMerge')
+          navAnimation()
+      }
+    }
+
+
+
 
     return(
+
       <div className="stalk-app">
         <main>
 
-          <NavBar tokenHeaderValue={tokenHeaderSet} messageCreator={handleUserStatus}
-          navMessage={welcomeMessage} />
+            <div id="main-wrapper"
+              ref={myRef}
+              onScroll={onScroll}
+              >
+                  <div id="main-logo">
+                    <h1 id="logo">STALK</h1>
+                  </div>
+
+                  <NavBar tokenHeaderValue={tokenHeaderSet} messageCreator={handleUserStatus}
+                  navMessage={welcomeMessage} />
 
 
+                <Switch>
 
-          <Switch>
-
-            <Route exact path='/' component={Home}/>
-
-
-            <Route exact path="/signup" render={(props) => <SignUp {...props}
-            messageCreator={handleUserStatus}  />} />
+                  <Route exact path='/' component={Home}/>
 
 
-            {
-              tokenHeaderSet &&
-              <Route exact path='/profile' component={ProfilePage} />
-            }
+                  <Route exact path="/signup" render={(props) => <SignUp {...props}
+                  messageCreator={handleUserStatus}  />} />
+
+
+                  {
+                    tokenHeaderSet &&
+                    <Route exact path='/profile' component={ProfilePage} />
+                  }
+
 
             <Route exact path='/users' component={Users} />
             <Route exact path='/mygarden/:user_id' component={MyGarden} />
@@ -74,9 +132,11 @@ function StalkApp() {
             <Route exact path='/photo/:photo_id' component={Photo} />
             <Route exact path='/time/' component={Time} />
             <Route exact path='/addplant/' component={AddPlant} />
-          </Switch>
+           </Switch>
+          </div>
         </main>
       </div>
+
     )
 
 
