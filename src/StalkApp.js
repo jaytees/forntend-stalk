@@ -51,7 +51,7 @@ function StalkApp() {
 
     const navAnimation = (merge) => {
 
-      // console.log('trigger')
+      // console.log('trigger'):
       const mainLogoElem = document.querySelector('#main-logo');
       const navbarLogoElem = document.querySelector('#navbar-logo');
 
@@ -125,14 +125,16 @@ function StalkApp() {
                   }
 
 
-            <Route exact path='/users' component={Users} />
-            <Route exact path='/mygarden/:user_id' component={MyGarden} />
-            <Route exact path='/plantcalendar/:user_id' component={PlantCalendar} />
+                  <Route exact path='/users'/>
 
-            <Route exact path='/photo/:photo_id' component={Photo} />
-            <Route exact path='/time/' component={Time} />
-            <Route exact path='/addplant/' component={AddPlant} />
-           </Switch>
+                  <Route exact path='/mygarden/:user_id' component={MyGarden} />
+
+                  <Route exact path='/plantcalendar/:user_id' component={PlantCalendar} />
+
+                  <Route exact path='/photo/:photo_id' component={Photo} />
+                  <Route exact path='/time/' component={Time} />
+                  <Route exact path='/addplant/' component={AddPlant} />
+               </Switch>
           </div>
         </main>
       </div>
