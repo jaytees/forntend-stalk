@@ -26,6 +26,9 @@ function StalkApp() {
   const myRef = React.createRef();
   const [scrollTop, setScrollTop] = useState(0)
 
+  const [baseWidth, setBaseWidth] = useState(100)
+
+
 
   const handleUserStatus = (tokenValue, name) => {
 
@@ -52,23 +55,31 @@ function StalkApp() {
 
     const navAnimation = (merge) => {
 
-      console.log('trigger')
+      // console.log('trigger'):
       const mainLogoElem = document.querySelector('#main-logo');
       const navbarLogoElem = document.querySelector('#navbar-logo');
+//
+// yId("p2").className = "classname"
 
 
       if (merge) {
         // console.log('mergeAnimation')
 
-        mainLogoElem.style.visibility = 'hidden';
+
+
+
+        // mainLogoElem.style.visibility = 'hidden';
+        mainLogoElem.className = 'nav-animate-out';
         navbarLogoElem.style.visibility = 'visible';
+
 
 
       } else {
         //unmerge
         // console.log('unmerge animation')
 
-        mainLogoElem.style.visibility = 'visible';
+        // mainLogoElem.style.visibility = 'visible';
+        mainLogoElem.className = 'nav-animate-back';
         navbarLogoElem.style.visibility = 'hidden';
 
       }
@@ -76,20 +87,27 @@ function StalkApp() {
     }
 
     const onScroll = () => {
-      const scrollTop = myRef.current.scrollTop
+      const scrollTop = myRef.current.scrollTop;
       // console.log(`myRef.scrollTop: ${scrollTop} `)
-      setScrollTop(scrollTop)
+      setScrollTop(scrollTop);
 
-      if (scrollTop >= 115) {
-          // console.log('merge')
+      console.log('scrollTop', scrollTop)
 
-          navAnimation(true)
 
-      } else if (scrollTop <= 110) {
-          // console.log('unMerge')
-          navAnimation()
-      }
-    }
+          if (scrollTop >= 80) {
+              // console.log('merge')
+
+              navAnimation(true);
+
+          } else if (scrollTop <= 110) {
+              // console.log('unMerge')
+              navAnimation();
+
+          } //nested if
+
+
+    } //onscroll
+
 
 
 
@@ -103,14 +121,14 @@ function StalkApp() {
               ref={myRef}
               onScroll={onScroll}
               >
+
                   <div id="main-logo">
                     <h1 id="logo">STALK</h1>
                   </div>
 
                   <NavBar tokenHeaderValue={tokenHeaderSet} messageCreator={handleUserStatus}
                   navMessage={welcomeMessage} />
-
-
+          
                 <Switch>
 
                   <Route exact path='/' component={Home}/>
@@ -126,15 +144,18 @@ function StalkApp() {
                   }
 
 
-            <Route exact path='/users' component={Users} />
-            <Route exact path='/mygarden/:user_id' component={MyGarden} />
-            <Route exact path='/plantcalendar/:user_id' component={PlantCalendar} />
+                  <Route exact path='/users'/>
 
-            <Route exact path='/photo/:photo_id' component={Photo} />
-            <Route exact path='/time/' component={Time} />
-            <Route exact path='/addplant/' component={AddPlant} />
-            <Route exact path='/editplant/:plant_id' component={EditPlant} />
-          </Switch>
+                  <Route exact path='/mygarden/:user_id' component={MyGarden} />
+
+                  <Route exact path='/plantcalendar/:user_id' component={PlantCalendar} />
+
+
+                  <Route exact path='/photo/:photo_id' component={Photo} />
+                  <Route exact path='/time/' component={Time} />
+                  <Route exact path='/addplant/' component={AddPlant} />
+                  <Route exact path='/editplant/:plant_id' component={EditPlant} />
+                </Switch>
           </div>
         </main>
       </div>

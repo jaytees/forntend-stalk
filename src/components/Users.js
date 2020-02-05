@@ -30,14 +30,14 @@ class Users extends React.Component {
   render(){
     return(
       <div className='App'>
-        <h2>Stalker</h2>
+        <h2>Stalkers</h2>
           {
             this.state.users.length === 0
             ?
             <p>no users</p>
             :
             this.state.users.map( user =>
-              <div key={user.id} onClick={() => this.handleClick(user.id)}>
+              <div key={user.id} onClick={() => this.handleClick(user.id)} >
                 <span>{user.username} - {user.plants.length} plants</span><br/>
                 <div className="userIndexPlants">
                   {
