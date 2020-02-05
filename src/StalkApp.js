@@ -69,7 +69,8 @@ function StalkApp() {
             <Route exact path='/plantcalendar/:user_id' component={PlantCalendar} />
 
             <Route exact path='/photo/:photo_id' component={Photo} />
-
+            <Route exact path='/time/' component={Time} />
+            <Route exact path='/addplant/' component={AddPlant} />
           </Switch>
         </main>
       </div>
