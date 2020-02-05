@@ -12,6 +12,9 @@ import AddPlant from './components/AddPlant';
 import NavBar from './components/NavBar/NavBar';
 import PlantCalendar from './components/PlantCalendar';
 
+import Time from './components/Time'
+
+
 function StalkApp() {
   const [tokenHeaderSet, setTokenHeaderSet] = useState(false);
   const [welcomeMessage, setWelcomeMessage] = useState('Please login or sign up');
