@@ -9,6 +9,7 @@ import MyGarden from './components/MyGarden';
 import Users from './components/Users';
 import Photo from './components/Photo';
 import AddPlant from './components/AddPlant';
+import EditPlant from './components/EditPlant';
 import NavBar from './components/NavBar/NavBar';
 import PlantCalendar from './components/PlantCalendar';
 
@@ -74,6 +75,7 @@ function StalkApp() {
             <Route exact path='/photo/:photo_id' component={Photo} />
             <Route exact path='/time/' component={Time} />
             <Route exact path='/addplant/' component={AddPlant} />
+            <Route exact path='/editplant/:plant_id' component={EditPlant} />
           </Switch>
         </main>
       </div>
