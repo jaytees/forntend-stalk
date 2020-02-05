@@ -93,7 +93,7 @@ function StalkApp() {
       // console.log(`myRef.scrollTop: ${scrollTop} `)
       setScrollTop(scrollTop);
 
-      console.log('scrollTop', scrollTop)
+      // console.log('scrollTop', scrollTop)
 
 
           if (scrollTop >= 80) {
@@ -130,7 +130,7 @@ function StalkApp() {
 
                   <NavBar tokenHeaderValue={tokenHeaderSet} messageCreator={handleUserStatus}
                   navMessage={welcomeMessage} />
-          
+
                 <Switch>
 
                   <Route exact path='/' component={Home}/>
@@ -146,7 +146,7 @@ function StalkApp() {
                   }
 
 
-                  <Route exact path='/users'/>
+                  <Route exact path='/users' component={Users}/>
 
                   <Route exact path='/mygarden/:user_id' component={MyGarden} />
 
