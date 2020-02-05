@@ -9,6 +9,7 @@ class MyGarden extends React.Component {
     console.log(id);
     const route = `/photo/${ id }`
     console.log('route:', route);
+
     this.props.history.push( route )
 }
 
@@ -70,13 +71,23 @@ class MyGarden extends React.Component {
           <p>plants</p>
           {
             this.state.user.plants.map(plant =>
+
               <div key={plant.id} className="profilePlantIndex">
-                <p>{plant.name}</p><button onClick={() => this.handleEditClick(plant.id)}>edit</button><button onClick={() => this.handleDeleteClick(plant.id)}>delete</button>
+                <div className="skew-left"></div>
+                <div className="skew-right"></div>
+
+                <div className="display-plant-name">
+                    <p>{plant.name}</p>
+
+                  <button onClick={() => this.handleEditClick(plant.id)} className="editButton">edit</button>
+
+                  <button onClick={() => this.handleDeleteClick(plant.id)} className="deleteButton">delete</button>
+                </div>
                 {
                   plant.photos.map( photo =>
-                    <div key={photo.id} className="profilePlantPhoto" onClick={() => this.handleClick(photo.id)}>
-                      <img src={photo.image} />
-                    </div>
+
+                      <img src={photo.image}  key={photo.id} className="myGardenPlantPhoto" onClick={() => this.handleClick(photo.id)}/>
+
                   )
                 }
               </div>
