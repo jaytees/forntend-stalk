@@ -19,7 +19,6 @@
   z-index: -10;
   background-color: moccasin;
   height: 5em;
-  display: absolute;
   bottom: 0;
   position: absolute;
   width: 50%;
@@ -32,7 +31,6 @@
   z-index: -10;
   background-color: moccasin;
   height: 5em;
-  display: absolute;
   bottom: 0;
   position: absolute;
   width: 50%;
@@ -62,17 +60,19 @@
 }
 
 
-/* .profilePlantPhoto {
-  display: flex;
-} */
-
-.myGardenPlantPhoto{
+img.myGardenPlantPhoto{
+  position: relative;
   height: 80%;
   margin: 2em 2em 0 2em;
   border-radius: 2em;
   border: 2px solid #bfb29c;
   box-shadow: 1px 9px 7px -4px rgba(0,0,0,0.47);
+
+  transition: all .2s ease-in-out;
+	-webkit-transition: all .2s ease-in-out
 }
+
+
 
 .waterPlant {
   border-radius: 50%;
@@ -83,4 +83,37 @@
   height: 5vh;
   margin: 10px;
   padding: 5px;
+}
+
+
+.image-box{
+  position: relative;
+  height: 95%;
+  border-radius: 2em;
+	z-index: 2;
+  top: 0;
+  background-color: #ffffff00;
+	transition: all .2s ease-in-out;
+	-webkit-transition: all .2s ease-in-out
+}
+
+
+.plant-details{
+  position: relative;
+  width: 100%;
+  text-align: center;
+  bottom: 3em;
+	font-size: 1em;
+	font-weight: 700;
+	color: #464646;
+  z-index: -1;
+}
+
+.myGardenPlantPhoto:hover{
+	opacity: 0.5;
+}
+
+
+.myGardenPlantPhoto:hover {
+	top: -75px;
 }

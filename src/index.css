@@ -17,18 +17,6 @@ code {
 }
 
 
-/* .indexPlants {
-  display: inline-block;
-  width: 200px;
-  margin-left: 20px;
-  background-color: palegreen;
-  padding: 10px;
-}
-
-.indexPlantPhoto {
-  height: 150px;
-} */
-
 .App {
   display:flex;
   flex-direction: column;
@@ -39,4 +27,14 @@ code {
 .mainPhoto {
   max-width: 75vw;
   max-height: 75vh;
+}
+
+.image-box{
+  position: absolute;
+	height: 100%;
+	z-index: 2;
+  top: 0;
+  background-color: white;
+	/* transition: all .2s ease-in-out;
+	-webkit-transition: all .2s ease-in-out */
 }

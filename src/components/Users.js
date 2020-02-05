@@ -37,7 +37,7 @@ class Users extends React.Component {
             ?
             <p>no users</p>
             :
-            <div>
+            <div >
             {
             this.state.users.map( user =>
 
@@ -48,16 +48,21 @@ class Users extends React.Component {
 
 
                   <div className="display-plant-name">
-                    <span>{user.username}s garden</span><br/>
+                    <p>{user.username}s garden</p>
 
-                    
+
                   </div>
 
                   {
 
                     user.plants.map( plant =>
 
-                        <img key={plant.id} className="myGardenPlantPhoto" src={plant.photos[0].image} alt=""/>
+                      <div className="image-box">
+                          <img key={plant.id} className="myGardenPlantPhoto" src={plant.photos[0].image} alt=""/>
+
+                          <p className="plant-details">Plant Name</p>
+                      </div>
+
 
                     )
                   }
