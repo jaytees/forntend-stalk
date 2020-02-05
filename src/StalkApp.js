@@ -133,6 +133,7 @@ function StalkApp() {
             <Route exact path='/photo/:photo_id' component={Photo} />
             <Route exact path='/time/' component={Time} />
             <Route exact path='/addplant/' component={AddPlant} />
+            <Route exact path='/editplant/:plant_id' component={EditPlant} />
           </Switch>
           </div>
         </main>
