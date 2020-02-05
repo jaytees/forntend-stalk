@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios'
 import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
 
 class Upload extends React.Component {
@@ -15,9 +16,15 @@ class Upload extends React.Component {
       (error, result) => {
 
           if(!error){
-            console.log('succefully-uploaded', result);
+            console.log('successfully-uploaded', result[0].url);
             this.setState({ image_url: result[0].url });
-            // this.props.reportUploadId( result[0].public_id } );
+
+            this.props.addPhoto(result[0].url);
+            // axios.post(`http://localhost:3000/photos`, {id: , photo: {image: result[0].url}})
+            // .then(result => console.log('photo saved', result))
+            // .catch(error => console.log('photo not saved', error));
+            // // this.props.reportUploadId( result[0].public_id } );
+
           } else {
             console.warn('ERROR UPLOADING', error);
           }

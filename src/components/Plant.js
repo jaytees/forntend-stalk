@@ -29,7 +29,7 @@ class Plant extends React.Component {
     .catch(console.warn)
   }
 
-  render(){
+  render(){ 
     return(
       <div className='App'>
         <h2>Plant</h2>

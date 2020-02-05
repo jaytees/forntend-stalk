@@ -5,6 +5,10 @@ class AddPlant extends React.Component {
 
   //must be logged in to create a plant - render error if not logged in
 
+  handlePhoto= (imageUrl) => {
+    // this.set........
+  }
+
   render(){
     return(
       <div className='App'>
@@ -16,7 +20,7 @@ class AddPlant extends React.Component {
             <label>About your plant:</label><input type="text" name="description"/> <br/>
             <label>Date Acquired</label><input type="date" name="date_acquired"/> <br/>
             <label>Days between watering</label><input type="text" name="water_days"/> <br/>
-            <Upload />
+            <Upload addPhoto={handlePhoto} />
             <input type="submit"/>
 
           </div>
