@@ -1,0 +1,24 @@
+#main-wrapper {
+  background-color: aliceblue;
+  width: 80%;
+  height: 83%;
+  margin: 5% auto;
+  position: fixed;
+  left: 0;
+  right: 0;
+  overflow: scroll;
+  padding: 2%;
+}
+
+
+#main-logo {
+  display: flex;
+  justify-content: space-around;
+  border: 6px solid #f2e6e5;
+  position: relative;
+  width: 50%;
+  margin: 2em auto;
+  padding: 0px 4em 0 3em;
+  letter-spacing: 1em;
+  color: #6ea37f;
+}

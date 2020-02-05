@@ -22,11 +22,9 @@ function NavBar( props ){
     <div>
       <nav id="navbar">
 
+
           <p>{props.navMessage}</p>
 
-          <div>
-              <h1>Stalk App</h1>
-          </div>
           {
             (props.tokenHeaderValue)
             ?

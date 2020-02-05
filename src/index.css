@@ -17,13 +17,15 @@ code {
 }
 
 .userIndexPlants {
-  background-color: lightgreen;
+  background-color: #eadbc9;
   height: 200px;
-  width: 90vw;
+  width: 70vw;
   display: inline-block;
   overflow-y: scroll;
   display: flex;
   padding:10px;
+  box-shadow: inset -10px 9px 5px -1px rgba(0,0,0,0.16);
+  box-shadow: inset 10px 9px 5px -1px rgba(0,0,0,0.16);
 }
 
 .indexPlants {
