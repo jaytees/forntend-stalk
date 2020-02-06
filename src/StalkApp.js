@@ -19,6 +19,7 @@ import PlantCalendar from './components/PlantCalendar';
 import AddPhoto from './components/AddPhoto';
 import EditPhoto from './components/EditPhoto';
 import Following from './components/Following';
+import Plant from './components/Plant';
 
 import Time from './components/Time'
 
@@ -163,8 +164,8 @@ function StalkApp() {
             <Route exact path='/addphoto/:plant_id' component={AddPhoto} />
             <Route exact path='/editphoto/:photo_id' component={EditPhoto} />
             <Route exact path='/following/' component={Following} />
-              <Route exact path='/plant/:plant_id' component={Plant} />
-              <Route exact path='/uploadphoto' component={Photo} />
+            <Route exact path='/plant/:plant_id' component={Plant} />
+            <Route exact path='/uploadphoto' component={Photo} />
           </Switch>
 
           </div>
