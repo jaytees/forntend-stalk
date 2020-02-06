@@ -2,7 +2,7 @@
   height: 10em;
   width: 10em;
   /* display: inline; */
-
+  z-index: 20;
 }
 
 /* .waterIcon {
