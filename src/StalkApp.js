@@ -20,8 +20,12 @@ import AddPhoto from './components/AddPhoto';
 import EditPhoto from './components/EditPhoto';
 import Following from './components/Following';
 import Plant from './components/Plant';
+
 import Time from './components/Time'
 import MyGarden2 from './components/GardenDisplay/MyGarden2.js'
+
+import LandingPage from './components/LandingPage';
+
 
 function StalkApp() {
   const [tokenHeaderSet, setTokenHeaderSet] = useState(false);
@@ -131,8 +135,8 @@ function StalkApp() {
 
                 <Switch>
 
-                  <Route exact path='/' component={Home}/>
-
+                  <Route exact path='/home' component={Home}/>
+                  <Route exact path='/' component={LandingPage}/>
 
                   <Route exact path="/signup" render={(props) => <SignUp {...props}
                   messageCreator={handleUserStatus}  />} />
