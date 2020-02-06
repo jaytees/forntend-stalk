@@ -1,40 +1,58 @@
 import React from 'react'
 import './BurgerTest.css'
+import {Link, useHistory} from 'react-router-dom'
+import axios from 'axios'
 
-function BurgerTest(){
+function BurgerTest(props){
+  // const [editRoute, setEditRoute] = useState('')
+  let history = useHistory()
 
-  // <input type="checkbox" id="menu-toggle" checked/>
-  //     <label for="menu-toggle"></label>
-  //     <ul id="menu">
-  //         <li><a href="#">Home</a></li>
-  //         <li><a href="#">About</a></li>
-  //         <li><a href="#">Portfolio</a></li>
-  //         <li><a href="#">Contact</a></li>
-  //     </ul>
+  const handleDeleteClick = ( id ) => {
+    console.log(id)
+    // console.log(`http://localhost.com:3000/plants/${id}.json`)
+    axios.delete(`http://localhost:3000/plants/${id}.json`)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(console.warn)
+    // const route = `/editplant/${ id }`
+    // console.log('route:', route);
+    // this.props.history.push( route )
+  }
+
+    const handleEditClick = ( id ) => {
+        console.log(id);
+        const route = `/editplant/${ id }`
+        console.log('route:', route);
+        history.push( route )
+    }
+
+
+// <Link to=`/editplant/${ props.plantId }`><li>Edit</li></Link>
+
+
+
 
   return(
     <div>
-      <p>burger</p>
+        <div id="menuToggle">
+
+          <input type="checkbox" />
 
 
+          <span></span>
+          <span></span>
+          <span></span>
 
 
-  <div id="menuToggle">
+          <ul id="menu">
+            <li key={props.plantId} onClick={() => handleEditClick(props.plantId)}>Edit</li>
 
-    <input type="checkbox" />
+            <li key={props.plantId} onClick={() => handleDeleteClick(props.plantId)}>Delete</li>
 
-
-    <span></span>
-    <span></span>
-    <span></span>
-
-
-    <ul id="menu">
-      <a href="#"><li>Edit</li></a>
-      <a href="#"><li>Delete</li></a>
-      <a href="#"><li>Water</li></a>
-    </ul>
-  </div>
+            <li key={props.plantId}>Water</li>
+          </ul>
+        </div>
 
 
 

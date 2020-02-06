@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 import './GardenDisplay.css'
+import BurgerTest from './../BurgerTest'
 
 let userIDQuery = ''
 
@@ -15,25 +16,25 @@ class MyGarden extends React.Component {
     this.props.history.push( route )
 }
 
-  handleEditClick = ( id ) => {
-    console.log(id);
-    const route = `/editplant/${ id }`
-    console.log('route:', route);
-    this.props.history.push( route )
-}
-
-  handleDeleteClick = ( id ) => {
-    console.log(id)
-    // console.log(`http://localhost.com:3000/plants/${id}.json`)
-    axios.delete(`http://localhost:3000/plants/${id}.json`)
-    .then(res => {
-      console.log(res);
-    })
-    .catch(console.warn)
-    // const route = `/editplant/${ id }`
-    // console.log('route:', route);
-    // this.props.history.push( route )
-}
+//   handleEditClick = ( id ) => {
+//     console.log(id);
+//     const route = `/editplant/${ id }`
+//     console.log('route:', route);
+//     this.props.history.push( route )
+// }
+//
+//   handleDeleteClick = ( id ) => {
+//     console.log(id)
+//     // console.log(`http://localhost.com:3000/plants/${id}.json`)
+//     axios.delete(`http://localhost:3000/plants/${id}.json`)
+//     .then(res => {
+//       console.log(res);
+//     })
+//     .catch(console.warn)
+//     // const route = `/editplant/${ id }`
+//     // console.log('route:', route);
+//     // this.props.history.push( route )
+// }
 
   state = {
     user: []
@@ -59,6 +60,10 @@ class MyGarden extends React.Component {
     .catch(console.warn)
   }
 
+  // <button onClick={() => this.handleEditClick(plant.id)} className="editButton">edit</button>
+  //
+  // <button onClick={() => this.handleDeleteClick(plant.id)} className="deleteButton">delete</button>
+
   render(){
     return(
       <div className='App'>
@@ -80,9 +85,10 @@ class MyGarden extends React.Component {
                 <div className="display-plant-name">
                     <p>{plant.name}</p>
 
-                  <button onClick={() => this.handleEditClick(plant.id)} className="editButton">edit</button>
 
-                  <button onClick={() => this.handleDeleteClick(plant.id)} className="deleteButton">delete</button>
+                    <BurgerTest plantId={plant.id}/>
+
+
                 </div>
                 {
                   plant.photos.map( photo =>
