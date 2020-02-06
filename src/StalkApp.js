@@ -9,7 +9,7 @@ import Home from './components/Home';
 import SignUp from './SignUp';
 import ProfilePage from './components/ProfilePage';
 // import MyGarden from './components/GardenDisplay/MyGarden';
-import Users from './components/Users';
+import Users2 from './components/Users2';
 import Photo from './components/Photo';
 import AddPlant from './components/AddPlant';
 import EditPlant from './components/EditPlant';
@@ -148,7 +148,7 @@ function StalkApp() {
                   }
 
 
-                  <Route exact path='/users' component={Users}/>
+                  <Route exact path='/users' component={Users2}/>
 
                   <Route exact path='/mygarden/:user_id' component={MyGarden2} />
 

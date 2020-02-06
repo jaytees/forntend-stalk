@@ -59,7 +59,6 @@ function LastWatered(props){
         // const div = document.querySelector('#31')
         // console.log(div);
 
-
       }
     })
     .catch(err =>{

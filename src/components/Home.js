@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import Users from './Users'
+import Users2 from './Users2'
 
 class Home extends React.Component {
 
@@ -8,7 +8,7 @@ class Home extends React.Component {
     return(
       <div>
 
-        <Users history={this.props.history}/>
+        <Users2 history={this.props.history}/>
 
       </div>
     )

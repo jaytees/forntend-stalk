@@ -54,8 +54,7 @@ class MyGarden extends React.Component {
   render(){
     return(
       <div className='App'>
-        <h2>Your Garden</h2>
-        <p>{this.state.user.name}</p>
+        <h2>{this.state.user.name}s Garden</h2>
         {
           this.state.user.length === 0
           ?
