@@ -77,7 +77,7 @@ class MyGarden extends React.Component {
           <p>plants</p>
           {
             this.state.user.plants.map(plant =>
-              <div key={plant.id} className="profilePlantIndex">
+              <div key={plant.id} className="profilePlantIndex" onClick={() => this.handleClickPlant(plant.id)}>
                 <p>{plant.name}</p>
                 <button onClick={() => this.handleEditClick(plant.id)}>edit</button>
                 <button onClick={() => this.handleDeleteClick(plant.id)}>delete</button>
