@@ -19,11 +19,10 @@ class Upload extends React.Component {
             console.log('successfully-uploaded', result[0].url);
             this.setState({ image_url: result[0].url });
 
-            this.props.addPhoto(result[0].url);
+            this.props.Photo(result[0].url);
             // axios.post(`http://localhost:3000/photos`, {id: , photo: {image: result[0].url}})
             // .then(result => console.log('photo saved', result))
             // .catch(error => console.log('photo not saved', error));
-            // // this.props.reportUploadId( result[0].public_id } );
 
           } else {
             console.warn('ERROR UPLOADING', error);

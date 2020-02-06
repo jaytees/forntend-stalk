@@ -45,6 +45,7 @@ class ProfilePage extends React.Component {
         <h2>Profile Page for {this.state.user.name}</h2>
         <Link to='/users'>check out the other stalkers!</Link> <br/>
         <Link to='/profile/64/'>check in on your plants!</Link> <br/>
+        <Link to='/uploadphoto/'>upload a photo!</Link> <br/>
         <Link to='/addplant/'>add a new plant!</Link>
         <div onClick={() => this.handleClick(this.state.user.id)}>
           go to your profile

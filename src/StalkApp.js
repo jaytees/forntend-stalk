@@ -13,7 +13,7 @@ import Photo from './components/Photo'
 import AddPlant from './components/AddPlant'
 import Plant from './components/Plant'
 
-import Upload from './components/Upload'
+
 
 
 function StalkApp() {
@@ -66,6 +66,7 @@ function StalkApp() {
             <Route exact path='/photo/:photo_id' component={Photo} />
             <Route exact path='/plant/:plant_id' component={Plant} />
             <Route exact path='/addplant' component={AddPlant} />
+            <Route exact path='/uploadphoto' component={Photo} />
 
           </Switch>
         </main>

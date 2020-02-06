@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Upload from './Upload'
 
 class Photo extends React.Component {
 
@@ -26,6 +27,7 @@ class Photo extends React.Component {
       <div className='App'>
         <h2>UPDATE FOR THIS IMAGE - ADD DESCRIPTION</h2>
         {this.state.photo.id}
+        <Upload />
         <img className="mainPhoto" src={this.state.photo.image} alt=""/>
       </div>
     )
