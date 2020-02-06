@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import moment from 'moment';
-import { Calendar, momentLocalizer, Views  } from 'react-big-calendar';
+import { Calendar, momentLocalizer  } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import '../App.css';
 
@@ -22,42 +22,37 @@ class PlantCalendar extends React.Component {
       const monthStartDate = new Date();
       monthStartDate.setDate(1);
       this.state.user.plants.forEach(plant => {
-        console.log("###", plant.date_acquired,plant.name);
+        // Water interval dates will be calculated when page is loaded.
         this.calculate( plant.name, plant.date_acquired, plant.water_days, monthStartDate );
       });
     })
     .catch(err => console.warn(err));
   }
 
+  // This function calculates watering dates for plants considering plant acquired date
+  // and water interval.
   calculate = (plantName, startDate, waterInterval, currMonthStart) => {
 
-    // this.state.datesArray = [];
     let acquiredDate = new Date(startDate);
+    acquiredDate.setHours(0);
+    acquiredDate.setMinutes(0);
 
-    const tempDate = acquiredDate;
-    console.log(tempDate);
-    tempDate.setDate(1);
-    if(currMonthStart < startDate) {
-      this.state.datesArray = [];
-      console.log("RETURN",currMonthStart,tempDate);
-      return;
-    }
-
+    // date difference between current month starting date and plant acquired date
     let dateDiff = moment(currMonthStart).diff(moment(startDate),'days');
 
-    // TODO: loop until dateDiff % water !== 0
     let offset = 0;
+    // loops until dateDiff is divisible by waterInterval
     while((dateDiff % waterInterval) !== 0){
-      offset++;
+      offset++; // incremented so that offset days are added to calculate first schedule date
       dateDiff++;
     }
 
+    // adds offset days to current month start date
     let firstScheduleDt = moment(currMonthStart).add( offset, 'days' ).toDate();
 
     let nextScheduleDt = firstScheduleDt;
-    // this.state.datesArray = [];
 
-    //TODO: loop until end of month
+    // loops and calculates watering dates only for current month view.
     while(nextScheduleDt.getMonth() === firstScheduleDt.getMonth()){
 
       let calendarEntry = {
@@ -66,25 +61,31 @@ class PlantCalendar extends React.Component {
         start: nextScheduleDt,
         end: nextScheduleDt,
       }
-      if( nextScheduleDt.getTime() > acquiredDate.getTime() ) {
+      // Watering dates will be pushed into array only if nextScheduleDt is ahead of
+      // acquiredDate in a month.
+      if( nextScheduleDt.getTime() >= acquiredDate.getTime() ) {
         this.state.datesArray.push(calendarEntry);
       }
+      // waterInterval days will be added to nextScheduleDt to calculate next watering date.
       nextScheduleDt = moment(nextScheduleDt).add(waterInterval, 'days').toDate();
     }
-
-    this.setState({data: true});
   } // calculate
 
-  // This calculates watering dates of plants when month view is changed in Calendar.
+  // This function is called to calculate watering dates of plants when month view is changed in Calendar.
   monthsChangeHandler = (date) => {
 
     this.state.datesArray = [];
-    const startDate = date.start;
+
+    const startDate = new Date(date.start);
 
     if(startDate.getDate() !== 1) {
+      startDate.setDate(1); // date is set to 1st of month w.r.t start date displayed on view.
+
+      // increments to next month so that current month in a view is considered to
+      // display watering dates.
       startDate.setMonth(startDate.getMonth()+1);
-      startDate.setDate(1);
     }
+
     this.state.user.plants.forEach(plant => {
       this.calculate( plant.name, plant.date_acquired, plant.water_days, startDate );
     });
@@ -99,7 +100,6 @@ class PlantCalendar extends React.Component {
             localizer={momentLocalizer(moment)}
             style={{ height: '80vh' }}
             onRangeChange={this.monthsChangeHandler}
-            views={Views.MONTH}
           />
       </div>
     );  // return
