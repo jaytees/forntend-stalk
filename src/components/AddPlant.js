@@ -33,6 +33,20 @@ class AddPlant extends React.Component {
     .catch(console.warn)
   } // end of handleSubmit
 
+  handleSubmit = ( event ) => {
+    event.preventDefault();
+    // console.log(this.state);
+    const plant = { plant:  this.state }
+    console.log('plant', plant);
+    axios.post('http://localhost:3000/plants.json', plant )
+    .then(res => {
+      console.log(`res:`, res);
+      console.log('userID:', userID);
+    })
+    .then(this.props.history.push(`/mygarden/${userID}`))
+    .catch(console.warn)
+  } // end of handleSubmit
+
     render(){
     return(
       <div className='App'>

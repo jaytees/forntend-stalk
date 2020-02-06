@@ -3,7 +3,7 @@ import axios from 'axios'
 
 let userIDQuery = ''
 
-class Profile extends React.Component {
+class MyGarden extends React.Component {
 
   handleClick = ( id ) => {
     console.log(id);
@@ -12,12 +12,32 @@ class Profile extends React.Component {
     this.props.history.push( route )
 }
 
- handleClickPlant = ( id ) => {
-  console.log(id);
-  const route = `/plant/${ id }`
-  console.log('route:', route);
-  this.props.history.push( route )
+  handleEditClick = ( id ) => {
+    console.log(id);
+    const route = `/editplant/${ id }`
+    console.log('route:', route);
+    this.props.history.push( route )
 }
+
+  handleAddPhotoClick = ( plantID ) => {
+    console.log(plantID);
+    const route = `/addphoto/${ plantID }`
+    console.log('route:', route);
+    this.props.history.push( route )
+}
+
+  handleDeleteClick = ( id ) => {
+    console.log(id)
+    // console.log(`http://localhost.com:3000/plants/${id}.json`)
+    axios.delete(`http://localhost:3000/plants/${id}.json`)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(console.warn)
+    // const route = `/editplant/${ id }`
+    // console.log('route:', route);
+    // this.props.history.push( route )
+  }
 
   state = {
     user: []
@@ -46,7 +66,7 @@ class Profile extends React.Component {
   render(){
     return(
       <div className='App'>
-        <h2>Profile</h2>
+        <h2>Your Garden</h2>
         <p>{this.state.user.name}</p>
         {
           this.state.user.length === 0
@@ -59,10 +79,13 @@ class Profile extends React.Component {
             this.state.user.plants.map(plant =>
               <div key={plant.id} className="profilePlantIndex" onClick={() => this.handleClickPlant(plant.id)}>
                 <p>{plant.name}</p>
+                <button onClick={() => this.handleEditClick(plant.id)}>edit</button>
+                <button onClick={() => this.handleDeleteClick(plant.id)}>delete</button>
+                <button onClick={() => this.handleAddPhotoClick(plant.id)}>addphoto</button>
                 {
                   plant.photos.map( photo =>
-                    <div className="profilePlantPhoto" onClick={() => this.handleClick(photo.id)}>
-                      <img src={photo.image}/>
+                    <div key={photo.id} className="profilePlantPhoto" onClick={() => this.handleClick(photo.id)}>
+                      <img src={photo.image} />
                     </div>
                   )
                 }
@@ -77,4 +100,4 @@ class Profile extends React.Component {
 
 } // Class
 
-export default Profile
+export default MyGarden

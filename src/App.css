@@ -1,3 +1,7 @@
+
+@import "https://fonts.googleapis.com/css?family=Cookie";
+
+
 .App {
   text-align: center;
 }
@@ -36,3 +40,56 @@
     transform: rotate(360deg);
   }
 }
+
+/* Video */
+.section {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.section .landing-nav,.users-link {
+  /* text-align: center; */
+  font-size: 3rem;
+  font-family: "Cookie";
+  padding: 20px;
+  margin: 15px;
+  z-index: 1;
+  opacity: 0.9;
+  color: #fff;
+}
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+video{
+	width: 100%;
+}
+.color-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.2;
+}
+/* Video end */
+
+
+/* Calendar */
+.container {
+  margin: 50px;
+}
+.rbc-btn-group:last-child{
+  display: none;
+}
+.rbc-toolbar-label {
+  text-align: right !important;
+}
+/* Calendar end */

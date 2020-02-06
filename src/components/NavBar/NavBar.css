@@ -1,0 +1,97 @@
+#nav-div {
+  position: sticky;
+  top: 0;
+  background-color: aliceblue;
+}
+
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0px;
+  z-index: 100;
+  border: 1px solid #ffdede;
+}
+
+#navbar-logo {
+  visibility: hidden;
+  position: sticky;
+  top: 0;
+  padding: 0px 8em 0 3em;
+  letter-spacing: 1em;
+  color: #6ea37f;
+
+
+}
+
+
+nav #login-trigger,
+  nav #signup-link,
+    nav #logOut-link {
+      display: inline;
+      height: 25px;
+      line-height: 25px;
+      font-weight: bold;
+      padding: 0 8px;
+      text-decoration: none;
+      color: #444;
+      text-shadow: 0 1px 0 #fff;
+      cursor: pointer;
+}
+
+nav #login-content {
+  position: absolute;
+  z-index: 999;
+  background: #fff;
+  padding: 2em;
+  box-shadow: 0 2px 2px -1px rgba(0,0,0,.9);
+  border-radius: 3px 0 3px 3px;
+  margin-right: 6em;
+
+}
+
+#login-inputs input {
+  background: #f1f1f1;
+  padding: 6px 5px;
+  margin: 0 0 5px 0;
+  width: 238px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px #ccc inset;
+}
+
+#inputs input:focus {
+  background-color: #fff;
+  border-color: #e8c291;
+  outline: none;
+  box-shadow: 0 0 0 1px #e8c291 inset;
+}
+
+
+#login #login-submit {
+  background-color: #d14545;
+  border-radius: 3px;
+  text-shadow: 0 1px 0 rgba(0,0,0,.5);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3),
+              0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  border: 1px solid #7e1515;
+  float: left;
+  height: 30px;
+  padding: 0;
+  width: 100px;
+  cursor: pointer;
+  font: bold 14px Arial, Helvetica;
+  color: #fff;
+}
+
+#login #login-submit:hover,
+#login #login-submit:focus {
+  background-color: #e97171;
+}
+
+#login #login-submit:active {
+  outline: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+}

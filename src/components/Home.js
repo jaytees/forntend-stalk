@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import Users from './Users'
 
 class Home extends React.Component {
 
@@ -7,7 +8,9 @@ class Home extends React.Component {
     return(
       <div>
       <h2>Home Page</h2>
-      <Link to='/users'>users</Link>
+
+        <Users history={this.props.history}/>
+
       </div>
     )
   }
