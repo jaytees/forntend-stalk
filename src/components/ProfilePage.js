@@ -43,10 +43,10 @@ class ProfilePage extends React.Component {
       <div>
       <h2 className="centered">Profile Page for {this.state.user.name}</h2>
       <div className="profileButtons">
-      <Link to='/users'><div className="profileButton slide-top">STALKERS</div></Link> <br/>
-      <Link to='/addplant'><div className="profileButton slide-top">+PLANT</div></Link> <br/>
-      <Link to={`/mygarden/${this.state.user.id}`}><div className="profileButton slide-top">GARDEN</div></Link> <br/>
-      <Link to={`/plantcalendar/${this.state.user.id}`}><div className="profileButton slide-top">CALENDAR</div></Link> <br/>
+      <Link to='/users'><div className="profileButton slide-top">STALKERS</div></Link>
+      <Link to='/addplant'><div className="profileButton slide-top">+PLANT</div></Link>
+      <Link to={`/mygarden/${this.state.user.id}`}><div className="profileButton slide-top">MY GARDEN</div></Link>
+      <Link to={`/plantcalendar/${this.state.user.id}`}><div className="profileButton slide-top">CALENDAR</div></Link>
       </div>
       </div>
 
