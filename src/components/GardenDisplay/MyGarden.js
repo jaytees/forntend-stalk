@@ -17,6 +17,13 @@ class MyGarden extends React.Component {
     this.props.history.push( route )
 }
 
+handleAddPhotoClick = ( plantID ) => {
+  console.log(plantID);
+  const route = `/addphoto/${ plantID }`
+  console.log('route:', route);
+  this.props.history.push( route )
+}
+
 //   handleEditClick = ( id ) => {
 //     console.log(id);
 //     const route = `/editplant/${ id }`
@@ -84,7 +91,7 @@ class MyGarden extends React.Component {
               <div className="burger-menu">
               <BurgerMenu plantId={plant.id}/>
               </div>
-              
+
                 <div className="skew-left"></div>
                 <div className="skew-right"></div>
 
@@ -93,6 +100,8 @@ class MyGarden extends React.Component {
 
                 </div>
 
+
+                <button onClick={() => this.handleAddPhotoClick(plant.id)}>addphoto</button>
                 {
                   plant.photos.map( photo =>
 

@@ -13,8 +13,13 @@ import Users from './components/Users';
 import Photo from './components/Photo';
 import AddPlant from './components/AddPlant';
 import EditPlant from './components/EditPlant';
+import Upload from './components/Upload';
 import NavBar from './components/NavBar/NavBar';
 import PlantCalendar from './components/PlantCalendar';
+import AddPhoto from './components/AddPhoto';
+import EditPhoto from './components/EditPhoto';
+import Following from './components/Following';
+import Plant from './components/Plant';
 import Time from './components/Time'
 
 
@@ -143,19 +148,25 @@ function StalkApp() {
                   }
 
 
-                  <Route exact path='/users'/>
+                  <Route exact path='/users' component={Users}/>
 
                   <Route exact path='/mygarden/:user_id' component={MyGarden} />
 
                   <Route exact path='/plantcalendar/:user_id' component={PlantCalendar} />
 
 
-                  <Route exact path='/photo/:photo_id' component={Photo} />
-                  <Route exact path='/time/' component={Time} />
-                  <Route exact path='/addplant/' component={AddPlant} />
-                  <Route exact path='/editplant/:plant_id' component={EditPlant} />
 
-                </Switch>
+            <Route exact path='/photo/:photo_id' component={Photo} />
+            <Route exact path='/time/' component={Time} />
+            <Route exact path='/addplant/' component={AddPlant} />
+            <Route exact path='/editplant/:plant_id' component={EditPlant} />
+            <Route exact path='/addphoto/:plant_id' component={AddPhoto} />
+            <Route exact path='/editphoto/:photo_id' component={EditPhoto} />
+            <Route exact path='/following/' component={Following} />
+            <Route exact path='/plant/:plant_id' component={Plant} />
+            <Route exact path='/uploadphoto' component={Photo} />
+          </Switch>
+
           </div>
         </main>
       </div>
