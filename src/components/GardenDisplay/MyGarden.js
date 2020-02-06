@@ -80,17 +80,19 @@ class MyGarden extends React.Component {
             this.state.user.plants.map(plant =>
 
               <div key={plant.id} className="gardenPlantIndex">
+
+              <div className="burger-menu">
+              <BurgerMenu plantId={plant.id}/>
+              </div>
+              
                 <div className="skew-left"></div>
                 <div className="skew-right"></div>
 
                 <div className="display-plant-name">
                     <p>{plant.name}</p>
 
-
-                    <BurgerMenu plantId={plant.id}/>
-
-
                 </div>
+
                 {
                   plant.photos.map( photo =>
 

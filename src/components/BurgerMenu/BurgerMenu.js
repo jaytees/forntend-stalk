@@ -47,11 +47,11 @@ function BurgerMenu(props){
 
 
           <ul id="menu">
-            <li key={props.plantId} onClick={() => handleEditClick(props.plantId)}>Edit</li>
+            <li key='edit' onClick={() => handleEditClick(props.plantId)}>Edit</li>
 
-            <li key={props.plantId} onClick={() => handleDeleteClick(props.plantId)}>Delete</li>
+            <li key='delete' onClick={() => handleDeleteClick(props.plantId)}>Delete</li>
 
-            <li key={props.plantId}>Water</li>
+            <li key='water'>Water</li>
           </ul>
         </div>
 
