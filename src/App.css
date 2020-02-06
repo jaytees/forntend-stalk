@@ -86,3 +86,58 @@ video{
   text-align: right !important;
 }
 /* Calendar end */
+
+/* ProfilePage */
+a {
+  text-decoration: none;
+}
+
+.profileButtons {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.centered {
+  text-align: center;
+}
+
+.profileButton {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profileButton {
+	background-color:#44c767;
+	border-radius:6px;
+  font-family: monospace, cursive;
+	/* display:inline-block; */
+	cursor:pointer;
+	color:#ffffff;
+	text-decoration: none;
+  width: 10vw;
+  height: 10vw;
+}
+.profileButton:hover {
+	background-color:#5cbf2a;
+}
+.profileButton:active {
+	position:relative;
+	top:1px;
+}
+
+.slide-top {
+	animation: slide-top 0.75s ease-out both;
+}
+
+@keyframes slide-top {
+  0% {
+    transform: translateY(300px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ProfilePage end */
