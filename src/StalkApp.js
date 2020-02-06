@@ -17,6 +17,7 @@ import NavBar from './components/NavBar/NavBar';
 import PlantCalendar from './components/PlantCalendar';
 import AddPhoto from './components/AddPhoto';
 import EditPhoto from './components/EditPhoto';
+import Following from './components/Following';
 
 import Time from './components/Time'
 
@@ -160,6 +161,7 @@ function StalkApp() {
             <Route exact path='/editplant/:plant_id' component={EditPlant} />
             <Route exact path='/addphoto/:plant_id' component={AddPhoto} />
             <Route exact path='/editphoto/:photo_id' component={EditPhoto} />
+            <Route exact path='/following/' component={Following} />
           </Switch>
 
           </div>
