@@ -57,12 +57,19 @@ class Following extends React.Component {
           <div>
           {
             this.state.userfollows.userfollows.map( follow =>
-              <div key={follow.id} className="profilePlantIndex">
-                <p>{follow.name}</p>
+
+              <div key={follow.id} className="gardenPlantIndex">
+                <div className="skew-left"></div>
+                <div className="skew-right"></div>
+
+                  <div className="display-plant-name">
+                  <p>{follow.name}</p>
+                  </div>
+
                 {
                   follow.photos.map( photo =>
-                    <div key={photo.id} className="profilePlantPhoto" onClick={() => this.handleClick(photo.id)}>
-                      <img src={photo.image} />
+                    <div className="image-box" key={photo.id} onClick={() => this.handleClick(photo.id)}>
+                      <img className="myGardenPlantPhoto" src={photo.image} />
                     </div>
                   )
                 }

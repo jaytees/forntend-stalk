@@ -2,28 +2,41 @@
   position: sticky;
   top: 0;
   background-color: aliceblue;
+    z-index: 100;
+
 }
 
+
 #navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   width: 90%;
   margin: 0 auto;
   padding: 0px;
-  z-index: 100;
-  border: 1px solid #ffdede;
+  /* border: 1px solid #ffdede; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  text-align: center;
+  align-items: self-end;
 }
 
 #navbar-logo {
   visibility: hidden;
+
   position: sticky;
   top: 0;
-  padding: 0px 8em 0 3em;
+
   letter-spacing: 1em;
   color: #6ea37f;
+  border: 6px solid #f2e6e5;
+  justify-self: center;
 
+  padding-left: 1em;
+}
 
+nav p {
+  margin-bottom: 0.3em;
 }
 
 

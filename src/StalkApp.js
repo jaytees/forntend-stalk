@@ -8,7 +8,7 @@ import './Main.css'
 import Home from './components/Home';
 import SignUp from './SignUp';
 import ProfilePage from './components/ProfilePage';
-import MyGarden from './components/MyGarden';
+import MyGarden from './components/GardenDisplay/MyGarden';
 import Users from './components/Users';
 import Photo from './components/Photo';
 import AddPlant from './components/AddPlant';
@@ -20,7 +20,6 @@ import AddPhoto from './components/AddPhoto';
 import EditPhoto from './components/EditPhoto';
 import Following from './components/Following';
 import Plant from './components/Plant';
-
 import Time from './components/Time'
 
 
@@ -128,7 +127,7 @@ function StalkApp() {
               >
 
                   <div id="main-logo">
-                    <h1 id="logo">STALK</h1>
+                    <h1 id="logo">Stalk</h1>
                   </div>
 
                   <NavBar tokenHeaderValue={tokenHeaderSet} messageCreator={handleUserStatus}

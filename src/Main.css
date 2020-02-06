@@ -1,3 +1,14 @@
+/* logo font */
+@import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative:900&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css?family=Vidaloka&display=swap');
+
+* {
+  font-family: 'Vidaloka', serif;
+}
+
+
 main {
   background-color: #d0deca;
     width: 100vw;
@@ -31,6 +42,24 @@ main {
   letter-spacing: 1em;
   color: #6ea37f;
   background-color: aliceblue;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+#logo {
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+
+#main-logo #logo {
+  align-self: center;
+  justify-self: center;
+  margin-left: 1em;
+
 }
 
 .nav-animate-out {
