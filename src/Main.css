@@ -43,6 +43,7 @@ main {
 #main-logo #logo {
   align-self: center;
   justify-self: center;
+  margin-left: 1em;
 }
 
 .nav-animate-out {
