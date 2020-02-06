@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 
 import StalkApp from './StalkApp'
 
+
 ReactDOM.render(
   <HashRouter>
     <StalkApp />

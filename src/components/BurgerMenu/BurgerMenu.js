@@ -7,29 +7,31 @@ import './BurgerMenu.css'
 function BurgerMenu(props){
   // const [editRoute, setEditRoute] = useState('')
   let history = useHistory()
+  
 
   const handleDeleteClick = ( id ) => {
-    console.log(id)
-    // console.log(`http://localhost.com:3000/plants/${id}.json`)
+    // console.log(id)
     axios.delete(`http://localhost:3000/plants/${id}.json`)
     .then(res => {
-      console.log(res);
+      // console.log(res);
     })
     .catch(console.warn)
-    // const route = `/editplant/${ id }`
-    // console.log('route:', route);
-    // this.props.history.push( route )
   }
 
-    const handleEditClick = ( id ) => {
-        console.log(id);
-        const route = `/editplant/${ id }`
+    const handleEditClick = ( plantID ) => {
+        // console.log(plantID);
+        const route = `/editplant/${ plantID }`
         console.log('route:', route);
         history.push( route )
     }
 
+    const handleAddPhotoClick = ( plantID ) => {
+      // console.log(plantID);
+      const route = `/addphoto/${ plantID }`
+      console.log('route:', route);
+      history.push( route )
+    }
 
-// <Link to=`/editplant/${ props.plantId }`><li>Edit</li></Link>
 
 
 
@@ -51,7 +53,8 @@ function BurgerMenu(props){
 
             <li key='delete' onClick={() => handleDeleteClick(props.plantId)}>Delete</li>
 
-            <li key='water'>Water</li>
+            <li key='add' onClick={() => this.handleAddPhotoClick(props.plant.id)}>Add Photo</li>
+
           </ul>
         </div>
 

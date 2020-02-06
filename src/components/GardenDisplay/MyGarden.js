@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 import BurgerMenu from './../BurgerMenu/BurgerMenu'
+import LastWatered from './../LastWatered.js'
 
 import './GardenDisplay.css'
 
@@ -9,68 +10,45 @@ let userIDQuery = ''
 
 class MyGarden extends React.Component {
 
-  handleClick = ( id ) => {
-    console.log(id);
-    const route = `/photo/${ id }`
-    console.log('route:', route);
-
-    this.props.history.push( route )
-}
-
-handleAddPhotoClick = ( plantID ) => {
-  console.log(plantID);
-  const route = `/addphoto/${ plantID }`
-  console.log('route:', route);
-  this.props.history.push( route )
-}
-
-//   handleEditClick = ( id ) => {
-//     console.log(id);
-//     const route = `/editplant/${ id }`
-//     console.log('route:', route);
-//     this.props.history.push( route )
-// }
-//
-//   handleDeleteClick = ( id ) => {
-//     console.log(id)
-//     // console.log(`http://localhost.com:3000/plants/${id}.json`)
-//     axios.delete(`http://localhost:3000/plants/${id}.json`)
-//     .then(res => {
-//       console.log(res);
-//     })
-//     .catch(console.warn)
-//     // const route = `/editplant/${ id }`
-//     // console.log('route:', route);
-//     // this.props.history.push( route )
-// }
-
-  state = {
-    user: []
-  }
-
-
-  componentDidMount(){
-    // console.log('this.props.match.params.user_id', this.props.match.params.user_id);
-    const token = localStorage.getItem('token')
-    if (token){
-      console.log('TOKEN FOUND!', token);
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      // setTokenHeaderSet( true );
+    state = {
+      user: []
     }
-    userIDQuery = this.props.match.params.user_id
-    console.log(`userIDQuery`, userIDQuery);
-    axios.get(`http://localhost:3000/users/${userIDQuery}.json`)
-    .then(res => {
-      this.setState({user: res.data})
-      console.log('this.state.user', this.state.user);
-      console.log(this.state.user.plants.length);
-    })
-    .catch(console.warn)
-  }
 
-  // <button onClick={() => this.handleEditClick(plant.id)} className="editButton">edit</button>
-  //
-  // <button onClick={() => this.handleDeleteClick(plant.id)} className="deleteButton">delete</button>
+    handleClick = ( id ) => {
+        console.log(id);
+        const route = `/photo/${ id }`
+        console.log('route:', route);
+
+        this.props.history.push( route )
+    }
+
+    // handleAddPhotoClick = ( plantID ) => {
+    //   console.log(plantID);
+    //   const route = `/addphoto/${ plantID }`
+    //   console.log('route:', route);
+    //   this.props.history.push( route )
+    // }
+
+
+    componentDidMount(){
+      // console.log('this.props.match.params.user_id', this.props.match.params.user_id);
+      const token = localStorage.getItem('token')
+      if (token){
+        // console.log('TOKEN FOUND!', token);
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        // setTokenHeaderSet( true );
+      }
+      userIDQuery = this.props.match.params.user_id
+      console.log(`userIDQuery`, userIDQuery);
+      axios.get(`http://localhost:3000/users/${userIDQuery}.json`)
+      .then(res => {
+        this.setState({user: res.data})
+        // console.log('this.state.user', this.state.user);
+        // console.log(this.state.user.plants.length);
+      })
+      .catch(console.warn)
+    }
+
 
   render(){
     return(
@@ -88,9 +66,11 @@ handleAddPhotoClick = ( plantID ) => {
 
               <div key={plant.id} className="gardenPlantIndex">
 
-              <div className="burger-menu">
-              <BurgerMenu plantId={plant.id}/>
-              </div>
+                <div className="burger-menu">
+                  <BurgerMenu plantId={plant.id}/>
+                </div>
+
+                <LastWatered plant={plant}/>
 
                 <div className="skew-left"></div>
                 <div className="skew-right"></div>
@@ -100,8 +80,6 @@ handleAddPhotoClick = ( plantID ) => {
 
                 </div>
 
-
-                <button onClick={() => this.handleAddPhotoClick(plant.id)}>addphoto</button>
                 {
                   plant.photos.map( photo =>
 

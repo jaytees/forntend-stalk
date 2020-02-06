@@ -40,18 +40,15 @@ class ProfilePage extends React.Component {
 
   render(){
     return(
-
-        <div>
-        <h2>Profile Page for {this.state.user.name}</h2>
-        <Link to='/users'>Check Out Other Stalkers</Link> <br/>
-        <Link to='/addplant/'>Add A New Plant</Link><br/>
-        <Link to='/following/'>Check out the plants you're following</Link><br/>
-        <Link to={`/mygarden/${this.state.user.id}`}>View Your Garden</Link><br/>
-        <Link to={`/plantcalendar/${this.state.user.id}`}>Calendar</Link><br/>
-
-
-        </div>
-
+      <div>
+      <h2 className="centered">Profile Page for {this.state.user.name}</h2>
+      <div className="profileButtons">
+      <Link to='/users'><div className="profileButton slide-top">STALKERS</div></Link>
+      <Link to='/addplant'><div className="profileButton slide-top">+PLANT</div></Link>
+      <Link to={`/mygarden/${this.state.user.id}`}><div className="profileButton slide-top">MY GARDEN</div></Link>
+      <Link to={`/plantcalendar/${this.state.user.id}`}><div className="profileButton slide-top">CALENDAR</div></Link>
+      </div>
+      </div>
 
     );
   }
@@ -59,3 +56,11 @@ class ProfilePage extends React.Component {
 }
 
 export default ProfilePage
+
+
+// <Link to='/users'>Check Out Other Stalkers</Link> <br/>
+// <Link to='/addplant/'>Add A New Plant</Link><br/>
+// <Link to='/following/'>Check out the plants you're following</Link><br/>
+// <Link to={`/mygarden/${this.state.user.id}`}>View Your Garden</Link><br/>
+// <Link to={`/plantcalendar/${this.state.user.id}`}>Calendar</Link><br/>
+//

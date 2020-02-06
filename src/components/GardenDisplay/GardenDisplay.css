@@ -75,18 +75,6 @@ img.myGardenPlantPhoto{
 
 
 
-.waterPlant {
-  border-radius: 50%;
-  background-color:#66ADD9;
-}
-
-.waterPlant > img {
-  height: 5vh;
-  margin: 10px;
-  padding: 5px;
-}
-
-
 .image-box{
   position: relative;
   height: 95%;
