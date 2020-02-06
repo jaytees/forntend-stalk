@@ -122,7 +122,7 @@ function StalkApp() {
               >
 
                   <div id="main-logo">
-                    <h1 id="logo">STALK</h1>
+                    <h1 id="logo">Stalk</h1>
                   </div>
 
                   <NavBar tokenHeaderValue={tokenHeaderSet} messageCreator={handleUserStatus}

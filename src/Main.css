@@ -1,3 +1,14 @@
+/* logo font */
+@import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative:900&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css?family=Vidaloka&display=swap');
+
+* {
+  font-family: 'Vidaloka', serif;
+}
+
+
 main {
   background-color: #d0deca;
     width: 100vw;
@@ -39,11 +50,16 @@ main {
   grid-row-gap: 0px;
 }
 
+#logo {
+  font-family: 'Cinzel Decorative', cursive;
+}
+
 
 #main-logo #logo {
   align-self: center;
   justify-self: center;
   margin-left: 1em;
+
 }
 
 .nav-animate-out {
