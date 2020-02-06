@@ -1,20 +1,55 @@
 
-.gardenPlantIndex {
+.gardenItem {
+  border: 2px solid;
+
   display: flex;
-  height: 25vh;
+  height: 30vh;
   width: 65vw;
   /* background-color: palegreen; */
   margin-bottom: 10px;
   align-items: center;
   padding: 10px;
   overflow-y: hidden;
-  overflow-x: scroll;
   position: relative;
-  border-bottom: 1em solid #ead2a7;
   margin: 3em auto;
-  border-radius: 0px 0px 11px 10px;
 
 }
+
+.gardenItem-header {
+  border: 2px solid red;
+
+  height: 20%;
+  width: 99%;
+  top: 0;
+  position: absolute;
+  left: 0;
+
+}
+
+.gardenItem-images {
+  border: 2px solid blue;
+
+  overflow-x: scroll;
+  height: 60%;
+  width: 99%;
+  position: absolute;
+  bottom: 2em;
+  left: 0;
+}
+
+.gardenItem-shelf {
+  border: 2px solid red;
+
+  height: 5%;
+  width: 99%;
+  bottom: 0;
+  position: absolute;
+  left: 0;
+
+  border-bottom: 1em solid #ead2a7;
+  border-radius: 0px 0px 11px 10px;
+}
+
 
 .skew-left {
   z-index: -10;
@@ -38,6 +73,39 @@
   right: 1.8em;
   transform: skewX(37deg);
 }
+
+
+.burger-menu-gardenItem {
+  border: 2px solid black;
+
+  height: 100%;
+  width: 10%;
+  top: 0;
+  position: absolute;
+  right: 0;
+}
+
+.water-gardenItem {
+  border: 2px solid black;
+
+  height: 100%;
+  width: 10%;
+  top: 0;
+  position: absolute;
+  left: 0;
+}
+
+
+.plant-name-gardenItem {
+  border: 2px solid black;
+
+  height: 100%;
+  width: 40%;
+  top: 0;
+  position: absolute;
+  left: 30%
+}
+
 
 .display-plant-name {
   top: 0;
@@ -74,17 +142,6 @@ img.myGardenPlantPhoto{
 }
 
 
-
-.waterPlant {
-  border-radius: 50%;
-  background-color:#66ADD9;
-}
-
-.waterPlant > img {
-  height: 5vh;
-  margin: 10px;
-  padding: 5px;
-}
 
 
 .image-box{

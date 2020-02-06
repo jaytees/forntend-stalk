@@ -8,7 +8,7 @@ import './Main.css'
 import Home from './components/Home';
 import SignUp from './SignUp';
 import ProfilePage from './components/ProfilePage';
-import MyGarden from './components/GardenDisplay/MyGarden';
+// import MyGarden from './components/GardenDisplay/MyGarden';
 import Users from './components/Users';
 import Photo from './components/Photo';
 import AddPlant from './components/AddPlant';
@@ -146,7 +146,7 @@ function StalkApp() {
 
                   <Route exact path='/users' component={Users}/>
 
-                  <Route exact path='/mygarden/:user_id' component={MyGarden} />
+                  <Route exact path='/mygarden/:user_id' component={MyGarden2} />
 
                   <Route exact path='/plantcalendar/:user_id' component={PlantCalendar} />
 
@@ -162,7 +162,7 @@ function StalkApp() {
             <Route exact path='/plant/:plant_id' component={Plant} />
             <Route exact path='/uploadphoto' component={Photo} />
 
-            <Route exact path='/gardentest' component={MyGarden2} />
+
           </Switch>
 
           </div>
