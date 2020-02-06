@@ -61,7 +61,6 @@ class AddPhoto extends React.Component {
           <input type="text" name="description" onChange={this.handleChange}/> <br/>
           <label>ImageURL</label>
           <input type="text" name="image" onChange={this.handleChange}/> <br/>
-          <Upload />
           <button>add update</button>
         </form>
       </div>
