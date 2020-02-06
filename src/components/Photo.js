@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Upload from './Upload'
 
 const userID = localStorage.getItem('userId')
 
@@ -45,6 +46,7 @@ class Photo extends React.Component {
       <div className='App'>
         <h2>Photo Description</h2>
         {this.state.photo.id}
+        <Upload />
         <img className="mainPhoto" src={this.state.photo.image} alt=""/>
         <p>{this.state.photo.description}</p>
         <button onClick={() => this.handleDeleteClick(this.state.photo.id)}>remove photo</button>
