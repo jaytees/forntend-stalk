@@ -44,12 +44,14 @@ class Photo extends React.Component {
   render(){
     return(
       <div className='App'>
-        <h2>Photo Description</h2>
-        {this.state.photo.id}
+        <div className="displayPhoto">
         <img className="mainPhoto" src={this.state.photo.image} alt=""/>
-        <p>{this.state.photo.description}</p>
-        <button onClick={() => this.handleDeleteClick(this.state.photo.id)}>remove photo</button>
-        <button onClick={() => this.handleEditClick(this.state.photo.id)}>edit photo</button>
+        <p>{this.state.photo.name} - {this.state.photo.description}</p>
+        <div className="profileButtons">
+          <div className="centerText formButton slide-top smallerButton" onClick={() => this.handleDeleteClick(this.state.photo.id)}>DELETE</div>
+          <div className="centerText formButton slide-top smallerButton" onClick={() => this.handleEditClick(this.state.photo.id)}>EDIT</div>
+        </div>
+        </div>
       </div>
     )
   }

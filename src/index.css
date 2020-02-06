@@ -23,8 +23,3 @@ code {
   align-items: center;
   justify-content: center;
 }
-
-.mainPhoto {
-  max-width: 75vw;
-  max-height: 75vh;
-}
