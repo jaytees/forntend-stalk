@@ -97,12 +97,17 @@ class Time extends React.Component {
             <p>time is complete</p>
             {
             this.state.plants.map( (plant, index) =>
-              <div key={`plant${plant.id}`} className="profilePlantIndex">
+              <div key={`plant${plant.id}`} className="gardenPlantIndex">
+                <div className="skew-left"></div>
+                <div className="skew-right"></div>
+                <div className="display-plant-name">
                 <p>{plant.name}</p>
+                </div>
+
                 {
                   plant.photos.map( photo =>
-                    <div key={`photo${photo.id}`} className="profilePlantPhoto" onClick={() => this.handleClick(photo.id)}>
-                      <img src={photo.image}/>
+                    <div key={`photo${photo.id}`} className="image-box" onClick={() => this.handleClick(photo.id)}>
+                      <img className="myGardenPlantPhoto" src={photo.image}/>
                     </div>
                   )
                 }
