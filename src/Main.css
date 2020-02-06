@@ -2,10 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative:900&display=swap');
 
 
-@import url('https://fonts.googleapis.com/css?family=Vidaloka&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:500&display=swap');
 
 * {
-  font-family: 'Vidaloka', serif;
+  font-family: 'Comfortaa', cursive;
 }
 
 
@@ -34,6 +34,7 @@ main {
   visibility: visible;
   justify-content: space-around;
   border: 6px solid #f2e6e5;
+  border-style: double;
   position: sticky;
   top: 0;
   width: 50%;

@@ -52,6 +52,7 @@ function StalkApp() {
       // console.log('TOKEN FOUND!', token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       setTokenHeaderSet( true );
+    
     }
 
   }, []);

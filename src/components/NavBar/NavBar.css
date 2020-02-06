@@ -30,6 +30,7 @@
   letter-spacing: 1em;
   color: #6ea37f;
   border: 6px solid #f2e6e5;
+  border-style: double;
   justify-self: center;
 
   padding-left: 1em;

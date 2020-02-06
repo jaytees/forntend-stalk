@@ -1,0 +1,63 @@
+
+
+.signupForm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  margin: 5em auto;
+  background-color: #f7e1e1;
+  border-radius: 5px;
+  padding: 40px 50px 40px 50px;
+}
+
+
+#signUpFormTitle {
+  font-family: 'Cinzel Decorative', cursive;
+  letter-spacing: 0.3em;
+  margin-left: 0.3em;
+}
+
+
+
+
+form input{
+  border: 1px solid #ddd;
+  border-radius: 2em;
+  color: #888;
+  display: block;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0px 10px;
+  height: 2em;
+  width: 16em;
+}
+
+form input:focus{
+  outline: none;
+  border-color: green;
+}
+
+form button{
+  background-color: #4A8DCA;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  height: 50px;
+  width: 270px;
+  margin-bottom: 20px;
+  -webkit-transition: all 400ms ease;
+          transition: all 400ms ease;
+}
+
+form button:focus{
+  outline: none;
+}
+
+form button:hover{
+  background-color: #67A84F;
+}

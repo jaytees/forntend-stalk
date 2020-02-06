@@ -2,6 +2,8 @@ import React, {useState, useReducer} from 'react';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 
+import './SignUp.css'
+
 function SignUp( props ){
   const [user, setUser] = useReducer(
     (state, newState) => ({...state, ...newState}),
@@ -75,7 +77,7 @@ function SignUp( props ){
 
   return(
     <div className="signupForm">
-      <h2>Sign up</h2>
+      <h2 id="signUpFormTitle">Sign up</h2>
       {
         (errors) && <div id="signup-errors">
           <ul>
@@ -129,7 +131,7 @@ function SignUp( props ){
         </div>
         <br/>
 
-        <button type="submit">Submit</button>
+        <button id="sign-up-submit" type="submit">Submit</button>
       </form>
 
     </div>
