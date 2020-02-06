@@ -20,7 +20,8 @@ import AddPhoto from './components/AddPhoto';
 import EditPhoto from './components/EditPhoto';
 import Following from './components/Following';
 import Plant from './components/Plant';
-import Time from './components/Time'
+import Time from './components/Time';
+import LandingPage from './components/LandingPage';
 
 
 function StalkApp() {
@@ -135,8 +136,8 @@ function StalkApp() {
 
                 <Switch>
 
-                  <Route exact path='/' component={Home}/>
-
+                  <Route exact path='/home' component={Home}/>
+                  <Route exact path='/' component={LandingPage}/>
 
                   <Route exact path="/signup" render={(props) => <SignUp {...props}
                   messageCreator={handleUserStatus}  />} />
