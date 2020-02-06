@@ -1,8 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 
+import BurgerMenu from './../BurgerMenu/BurgerMenu'
+
 import './GardenDisplay.css'
-import BurgerTest from './../BurgerTest'
 
 let userIDQuery = ''
 
@@ -86,7 +87,7 @@ class MyGarden extends React.Component {
                     <p>{plant.name}</p>
 
 
-                    <BurgerTest plantId={plant.id}/>
+                    <BurgerMenu plantId={plant.id}/>
 
 
                 </div>

@@ -1,9 +1,10 @@
 import React from 'react'
-import './BurgerTest.css'
 import {Link, useHistory} from 'react-router-dom'
 import axios from 'axios'
 
-function BurgerTest(props){
+import './BurgerMenu.css'
+
+function BurgerMenu(props){
   // const [editRoute, setEditRoute] = useState('')
   let history = useHistory()
 
@@ -64,4 +65,4 @@ function BurgerTest(props){
 
 }
 
-export default BurgerTest
+export default BurgerMenu

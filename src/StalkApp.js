@@ -17,8 +17,6 @@ import NavBar from './components/NavBar/NavBar';
 import PlantCalendar from './components/PlantCalendar';
 import Time from './components/Time'
 
-import BurgerTest from './components/BurgerTest'
-
 
 function StalkApp() {
   const [tokenHeaderSet, setTokenHeaderSet] = useState(false);
@@ -157,7 +155,6 @@ function StalkApp() {
                   <Route exact path='/addplant/' component={AddPlant} />
                   <Route exact path='/editplant/:plant_id' component={EditPlant} />
 
-                  <Route exact path='/burgertest' component={BurgerTest}/>
                 </Switch>
           </div>
         </main>
