@@ -26,7 +26,7 @@ function NavBar( props ){
           <p>{props.navMessage}</p>
 
           <div id="navbar-logo">
-            <h1 id="logo">STALK</h1>
+            <h1 id="logo">Stalk</h1>
           </div>
 
           {

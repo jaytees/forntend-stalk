@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
+import './GardenDisplay/GardenDisplay.css'
 
 class Users extends React.Component {
 
@@ -36,28 +37,40 @@ class Users extends React.Component {
             ?
             <p>no users</p>
             :
+            <div >
+            {
             this.state.users.map( user =>
-              <div key={user.id} onClick={() => this.handleClick(user.id)} >
-                <span>{user.username} - {user.plants.length} plants</span><br/>
-                <div className="userIndexPlants">
+
+              <div className="gardenPlantIndex" onClick={() => this.handleClick(user.id)}>
+                <div className="skew-left"></div>
+                <div className="skew-right"></div>
+
+
+
+                  <div className="display-plant-name">
+                    <p>{user.username}s garden</p>
+
+
+                  </div>
+
                   {
+
                     user.plants.map( plant =>
-                      <div key={plant.id} className="indexPlants">
-                        {plant.name} - {plant.planttype}
-                        <img className="indexPlantPhoto" src={plant.photos[0].image} alt=""/>
-                        {
-                          // loopthrough all photos
-                          // plant.photos.map( photo =>
-                          // <div>
-                          //   <img src={photo.image} className="indexPlantPhoto" />
-                          // </div>)
-                      }
+
+                      <div className="image-box">
+                          <img key={plant.id} className="myGardenPlantPhoto" src={plant.photos[0].image} alt=""/>
+
+                          <p className="plant-details">Plant Name</p>
                       </div>
-                  )
+
+
+                    )
                   }
+
                 </div>
-              </div>
-            )
+                )
+              }
+            </div>
           }
       </div>
     )

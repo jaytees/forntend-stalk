@@ -1,6 +1,10 @@
 import React from 'react'
 import axios from 'axios'
 
+import BurgerMenu from './../BurgerMenu/BurgerMenu'
+
+import './GardenDisplay.css'
+
 let userIDQuery = ''
 
 class MyGarden extends React.Component {
@@ -9,35 +13,36 @@ class MyGarden extends React.Component {
     console.log(id);
     const route = `/photo/${ id }`
     console.log('route:', route);
+
     this.props.history.push( route )
 }
 
-  handleEditClick = ( id ) => {
-    console.log(id);
-    const route = `/editplant/${ id }`
-    console.log('route:', route);
-    this.props.history.push( route )
+handleAddPhotoClick = ( plantID ) => {
+  console.log(plantID);
+  const route = `/addphoto/${ plantID }`
+  console.log('route:', route);
+  this.props.history.push( route )
 }
 
-  handleAddPhotoClick = ( plantID ) => {
-    console.log(plantID);
-    const route = `/addphoto/${ plantID }`
-    console.log('route:', route);
-    this.props.history.push( route )
-}
-
-  handleDeleteClick = ( id ) => {
-    console.log(id)
-    // console.log(`http://localhost.com:3000/plants/${id}.json`)
-    axios.delete(`http://localhost:3000/plants/${id}.json`)
-    .then(res => {
-      console.log(res);
-    })
-    .catch(console.warn)
-    // const route = `/editplant/${ id }`
-    // console.log('route:', route);
-    // this.props.history.push( route )
-  }
+//   handleEditClick = ( id ) => {
+//     console.log(id);
+//     const route = `/editplant/${ id }`
+//     console.log('route:', route);
+//     this.props.history.push( route )
+// }
+//
+//   handleDeleteClick = ( id ) => {
+//     console.log(id)
+//     // console.log(`http://localhost.com:3000/plants/${id}.json`)
+//     axios.delete(`http://localhost:3000/plants/${id}.json`)
+//     .then(res => {
+//       console.log(res);
+//     })
+//     .catch(console.warn)
+//     // const route = `/editplant/${ id }`
+//     // console.log('route:', route);
+//     // this.props.history.push( route )
+// }
 
   state = {
     user: []
@@ -63,6 +68,10 @@ class MyGarden extends React.Component {
     .catch(console.warn)
   }
 
+  // <button onClick={() => this.handleEditClick(plant.id)} className="editButton">edit</button>
+  //
+  // <button onClick={() => this.handleDeleteClick(plant.id)} className="deleteButton">delete</button>
+
   render(){
     return(
       <div className='App'>
@@ -74,19 +83,30 @@ class MyGarden extends React.Component {
           <p>loading</p>
           :
           <div>
-          <p>plants</p>
           {
             this.state.user.plants.map(plant =>
-              <div key={plant.id} className="profilePlantIndex" onClick={() => this.handleClickPlant(plant.id)}>
-                <p>{plant.name}</p>
-                <button onClick={() => this.handleEditClick(plant.id)}>edit</button>
-                <button onClick={() => this.handleDeleteClick(plant.id)}>delete</button>
+
+              <div key={plant.id} className="gardenPlantIndex">
+
+              <div className="burger-menu">
+              <BurgerMenu plantId={plant.id}/>
+              </div>
+
+                <div className="skew-left"></div>
+                <div className="skew-right"></div>
+
+                <div className="display-plant-name">
+                    <p>{plant.name}</p>
+
+                </div>
+
+
                 <button onClick={() => this.handleAddPhotoClick(plant.id)}>addphoto</button>
                 {
                   plant.photos.map( photo =>
-                    <div key={photo.id} className="profilePlantPhoto" onClick={() => this.handleClick(photo.id)}>
-                      <img src={photo.image} />
-                    </div>
+
+                      <img src={photo.image}  key={photo.id} className="myGardenPlantPhoto" onClick={() => this.handleClick(photo.id)}/>
+
                   )
                 }
               </div>
