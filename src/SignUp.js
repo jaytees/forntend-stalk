@@ -76,8 +76,8 @@ function SignUp( props ){
   };
 
   return(
-    <div className="signupForm">
-      <h2 id="signUpFormTitle">Sign up</h2>
+    <div className="formContainer">
+      <h2 class="formTitle">Sign up</h2>
       {
         (errors) && <div id="signup-errors">
           <ul>
@@ -131,7 +131,7 @@ function SignUp( props ){
         </div>
         <br/>
 
-        <button id="sign-up-submit" type="submit">Submit</button>
+        <button className="formButton" type="submit">Submit</button>
       </form>
 
     </div>

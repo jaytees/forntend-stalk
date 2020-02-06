@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 
 import BurgerMenu from './../BurgerMenu/BurgerMenu'
-import LastWatered from './../LastWatered.js'
 
 import './GardenDisplay.css'
 
@@ -43,8 +42,8 @@ class MyGarden extends React.Component {
       axios.get(`http://localhost:3000/users/${userIDQuery}.json`)
       .then(res => {
         this.setState({user: res.data})
-        // console.log('this.state.user', this.state.user);
-        // console.log(this.state.user.plants.length);
+        console.log('this.state.user', this.state.user);
+        console.log(this.state.user.plants.length);
       })
       .catch(console.warn)
     }
@@ -70,7 +69,6 @@ class MyGarden extends React.Component {
                   <BurgerMenu plantId={plant.id}/>
                 </div>
 
-                <LastWatered plant={plant}/>
 
                 <div className="skew-left"></div>
                 <div className="skew-right"></div>

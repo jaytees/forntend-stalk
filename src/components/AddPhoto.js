@@ -54,7 +54,7 @@ class AddPhoto extends React.Component {
   render(){
     return(
       <div className='App'>
-        <h2>Add Photo {this.state.plant.name} the {this.state.plant.planttype}</h2>
+        <h2>Add Photo of {this.state.plant.name}</h2>
 
         <form action="" onSubmit={this.handleSubmit}>
           <label>Description</label>
@@ -62,7 +62,7 @@ class AddPhoto extends React.Component {
           <label>ImageURL</label>
           <input type="text" name="image" onChange={this.handleChange}/> <br/>
           <Upload />
-          <button>add update</button>
+          <button className="formButton">add update</button>
         </form>
       </div>
     )

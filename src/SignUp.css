@@ -1,19 +1,28 @@
 
 
-.signupForm{
+.formContainer{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
   width: 50%;
   margin: 5em auto;
   background-color: #f7e1e1;
-  border-radius: 5px;
+  border-radius: 4em;
   padding: 40px 50px 40px 50px;
+  background-image: linear-gradient(to right, #183325, #2b4b32);
+
+  box-shadow: -11px 10px 33px 2px rgba(0,0,0,0.44);
+  -webkit-box-shadow: -11px 10px 33px 2px rgba(0,0,0,0.44);
+  -moz-box-shadow: -11px 10px 33px 2px rgba(0,0,0,0.44);
+
+  color: white;
+
 }
 
 
-#signUpFormTitle {
+.formTitle {
   font-family: 'Cinzel Decorative', cursive;
   letter-spacing: 0.3em;
   margin-left: 0.3em;
@@ -21,9 +30,7 @@
 
 
 
-
 form input{
-  border: 1px solid #ddd;
   border-radius: 2em;
   color: #888;
   display: block;
@@ -36,11 +43,11 @@ form input{
 
 form input:focus{
   outline: none;
-  border-color: green;
+  border-color: #67A84F;
 }
 
-form button{
-  background-color: #4A8DCA;
+.formButton {
+  background-color: #e45050;
   border: none;
   border-radius: 3px;
   color: #fff;
@@ -48,16 +55,16 @@ form button{
   font-weight: 700;
   letter-spacing: .5px;
   height: 50px;
-  width: 270px;
+  width: 310px;
   margin-bottom: 20px;
   -webkit-transition: all 400ms ease;
           transition: all 400ms ease;
 }
 
-form button:focus{
+.formButton:focus{
   outline: none;
 }
 
-form button:hover{
+.formButton:hover{
   background-color: #67A84F;
 }

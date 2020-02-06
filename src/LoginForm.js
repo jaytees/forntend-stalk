@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 
-import './components/NavBar/NavBar.css'
+import './LoginForm.css'
 
 function LoginForm( props ){
   const [email, setEmail] = useState("jordan@test.com");

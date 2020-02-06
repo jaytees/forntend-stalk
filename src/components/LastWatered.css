@@ -1,0 +1,53 @@
+.waterInfoDisplay {
+  height: 10em;
+  width: 10em;
+  /* display: inline; */
+
+}
+
+/* .waterIcon {
+  height: 2em;
+  width: 2em;
+} */
+
+.waterPlant {
+  /* display: inline; */
+  height: 10em;
+  width: 10em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+
+}
+
+
+#droplet {
+    background-color: lightblue;
+    width: 2em;
+    height: 2em;
+    -webkit-border-top-left-radius: 0;
+    -webkit-border-top-right-radius: 2em;
+    -webkit-border-bottom-right-radius: 2em;
+    -webkit-border-bottom-left-radius: 2em;
+    -webkit-transform:rotate(45deg);
+    box-shadow: 1px 1px 7px #1a1a1a;
+
+}
+
+#droplet:active {
+  background-color: #1152a2;
+}
+
+
+/* .waterPlant {
+  border-radius: 50%;
+  background-color:#66ADD9;
+}
+
+.waterPlant > img {
+  height: 5vh;
+  margin: 10px;
+  padding: 5px;
+} */

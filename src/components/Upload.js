@@ -37,7 +37,7 @@ class Upload extends React.Component {
 
         <div className="upload">
 
-                <button onClick={this.uploadWidget} className="upload-button">
+                <button className="formButton" onClick={this.uploadWidget}>
                     Upload PLANT!
                 </button>
                 {
