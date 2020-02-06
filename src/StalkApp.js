@@ -150,7 +150,10 @@ function StalkApp() {
 
                   <Route exact path='/users' component={Users2}/>
 
-                  <Route exact path='/mygarden/:user_id' component={MyGarden2} />
+                  <Route exact path='/mygarden/:user_id' render={(props) => <MyGarden2 {...props}
+                  tokenHeaderValue={tokenHeaderSet}  />} />
+
+
 
                   <Route exact path='/plantcalendar/:user_id' component={PlantCalendar} />
 

@@ -68,18 +68,24 @@ class MyGarden extends React.Component {
 
                   <div className="gardenItem-header">
 
-                      <div className="water-gardenItem">
-                          <LastWatered plant={plant}/>
-                      </div>
+                      {
+                        (this.props.tokenHeaderValue) &&
+                        <div>
+                          <div className="water-gardenItem">
+                              <LastWatered plant={plant}/>
+                          </div>
+
+                          <div className="burger-menu-gardenItem">
+                              <BurgerMenu plantId={plant.id}/>
+                          </div>
+                        </div>
+                      }
 
                       <div className="plant-name-gardenItem">
                           <p>{plant.name}</p>
                       </div>
 
 
-                      <div className="burger-menu-gardenItem">
-                          <BurgerMenu plantId={plant.id}/>
-                      </div>
 
                   </div>
 
