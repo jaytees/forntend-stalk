@@ -1,10 +1,16 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+import Users from './Users'
 
 class Home extends React.Component {
 
   render(){
     return(
-      <h2>Home Page</h2>
+      <div>
+
+        <Users history={this.props.history}/>
+
+      </div>
     )
   }
 
