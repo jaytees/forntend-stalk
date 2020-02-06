@@ -70,7 +70,6 @@ class MyGarden extends React.Component {
           <p>loading</p>
           :
           <div>
-          <p>plants</p>
           {
             this.state.user.plants.map(plant =>
 

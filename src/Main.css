@@ -31,6 +31,18 @@ main {
   letter-spacing: 1em;
   color: #6ea37f;
   background-color: aliceblue;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+
+#main-logo #logo {
+  align-self: center;
+  justify-self: center;
 }
 
 .nav-animate-out {
