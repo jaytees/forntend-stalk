@@ -51,30 +51,30 @@ class Users2 extends React.Component {
                     {
                     this.props.history.location !== "/home"
                     ?
-                    <div className="water-gardenItem">
-                        <p>Click to View Full Garden!</p>
+                    <div>
+                      <div className="water-gardenItem">
+                          <p>Click to View Full Garden!</p>
+                      </div>
+
+                      <div className="water-gardenItem">
+
+                      </div>
                     </div>
                     :
-                    <div className="water-gardenItem">
-                        <LastWatered plant={user}/>
+                    <div>
+                      <div className="water-gardenItem">
+                          <LastWatered plant={user}/>
+                      </div>
+
+                      <div className="burger-menu-gardenItem">
+                          <BurgerMenu plantId={user.id}/>
+                      </div>
                     </div>
                     }
 
                       <div className="plant-name-gardenItem">
                           <p>{user.username}s garden</p>
                       </div>
-
-                      {
-                      this.props.history.location !== '/home'
-                      ?
-                      <div className="water-gardenItem">
-                          
-                      </div>
-                      :
-                      <div className="burger-menu-gardenItem">
-                          <BurgerMenu plantId={user.id}/>
-                      </div>
-                      }
 
 
 
