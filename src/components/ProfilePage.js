@@ -7,13 +7,12 @@ import 'react-notifications-component/dist/theme.css'
 import { store } from 'react-notifications-component';
 
 
-// let plants = ''
-
 class ProfilePage extends React.Component {
   state = {
     id: localStorage.getItem('userId'),
     user: [],
-    // notifState: false;
+    notificationId: '',
+    notifications : []
   }
 
 
@@ -35,8 +34,12 @@ class ProfilePage extends React.Component {
 
         this.state.user.plants.forEach(plant => {
           let acquiredDate = moment(plant.date_acquired);
+
+          // checks if any plants need to be watered today and gives notifications
           if (currentDate.diff(acquiredDate,'days') % plant.water_days === 0) {
-              store.addNotification({
+              this.setState({
+                notificationId: store.addNotification({
+
               title: "Water me!",
               message: `I am ${plant.name}`,
               type: "success",
@@ -46,13 +49,25 @@ class ProfilePage extends React.Component {
               animationOut: ["animated", "fadeOut"],
               dismiss: {
                 duration: 10000,
-                onScreen: true
+                onScreen: true,
+                pauseOnHover: true,
               }
-            });
+            })
+          });
+          // console.log("NOTIF ID:", this.state.notificationId);
+            this.state.notifications.push(this.state.notificationId);
+            // console.log("NOTIF ARRAY:", this.state.notifications);
           }
         });
       });
 
+  }
+
+  componentWillUnmount() {
+    // console.log("UNMOUNT!!!");
+    this.state.notifications.forEach( n => {
+      store.removeNotification(n)
+    });
   }
 
   handleClick = ( id ) => {
