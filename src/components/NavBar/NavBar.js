@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
-
 import LoginForm from './../../LoginForm';
 import LogOut from './../../LogOut';
 
@@ -10,11 +9,8 @@ import './NavBar.css'
 function NavBar( props ){
   const [loginFormDisplayed, setLoginFormDisplayed] = useState(false)
 
-
   const displayLogin = () => {
-
     (!loginFormDisplayed) ? setLoginFormDisplayed(true) : setLoginFormDisplayed(false)
-
   }
 
 

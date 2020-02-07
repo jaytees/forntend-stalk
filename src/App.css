@@ -138,7 +138,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-	background-color:#44c767;
+	background-image: linear-gradient(to right, #183325, #2b4b32);
 	border-radius:6px;
   font-family: monospace, cursive;
 	/* display:inline-block; */
@@ -148,9 +148,11 @@ a {
   width: 10vw;
   height: 10vw;
 }
+
 .profileButton:hover {
-	background-color:#5cbf2a;
+	    filter: invert(1);
 }
+
 .profileButton:active {
 	position:relative;
 	top:1px;

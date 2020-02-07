@@ -7,7 +7,7 @@ import './BurgerMenu.css'
 function BurgerMenu(props){
   // const [editRoute, setEditRoute] = useState('')
   let history = useHistory()
-  
+
 
   const handleDeleteClick = ( id ) => {
     // console.log(id)
@@ -53,7 +53,7 @@ function BurgerMenu(props){
 
             <li key='delete' onClick={() => handleDeleteClick(props.plantId)}>Delete</li>
 
-            <li key='add' onClick={() => this.handleAddPhotoClick(props.plant.id)}>Add Photo</li>
+            <li key='add' onClick={() => handleAddPhotoClick(props.plantId)}>Add Photo</li>
 
           </ul>
         </div>

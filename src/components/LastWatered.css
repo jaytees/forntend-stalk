@@ -1,9 +1,9 @@
-.waterInfoDisplay {
+/* .waterInfoDisplay {
   height: 10em;
   width: 10em;
   /* display: inline; */
-  z-index: 20;
-}
+  /* z-index: 20; */
+/* }  */
 
 /* .waterIcon {
   height: 2em;
@@ -11,19 +11,43 @@
 } */
 
 .waterPlant {
-  /* display: inline; */
-  height: 10em;
-  width: 10em;
+  /* border: 2px solid; */
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
+  height: 3em;
+  width: 10em;
+  top: 0;
+  position: absolute;
+  left: 0;
 
 }
 
+.waterPlant-droplet {
+  /* border: 2px solid red; */
 
-#droplet {
+  height: 93%;
+  width: 30%;
+  top: 0;
+  position: absolute;
+  left: 0;
+
+}
+
+.waterPlant-text {
+  /* border: 2px solid blue; */
+
+  height: 93%;
+  width: 65%;
+  top: 0;
+  position: absolute;
+  right: 0
+}
+
+.waterPlant-text p{
+  margin: 0;
+}
+
+
+.droplet {
     background-color: lightblue;
     width: 2em;
     height: 2em;
@@ -33,10 +57,11 @@
     -webkit-border-bottom-left-radius: 2em;
     -webkit-transform:rotate(45deg);
     box-shadow: 1px 1px 7px #1a1a1a;
+    margin: 1em auto;
 
 }
 
-#droplet:active {
+.droplet:active {
   background-color: #1152a2;
 }
 
