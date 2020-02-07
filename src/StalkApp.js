@@ -31,11 +31,6 @@ function StalkApp() {
   const [tokenHeaderSet, setTokenHeaderSet] = useState(false);
   const [welcomeMessage, setWelcomeMessage] = useState('Welcome, please login or sign up');
 
-  const myRef = React.createRef();
-  const [scrollTop, setScrollTop] = useState(0)
-
-  const [baseWidth, setBaseWidth] = useState(100)
-
 
 
   const handleUserStatus = (tokenValue, name) => {
@@ -62,55 +57,6 @@ function StalkApp() {
   }, []);
 
 
-    const navAnimation = (merge) => {
-
-      // console.log('trigger'):
-      const mainLogoElem = document.querySelector('#main-logo');
-      const navbarLogoElem = document.querySelector('#navbar-logo');
-
-      if (merge) {
-        // console.log('mergeAnimation')
-
-
-        // mainLogoElem.style.visibility = 'hidden';
-        mainLogoElem.className = 'nav-animate-out';
-        navbarLogoElem.style.visibility = 'visible';
-
-
-
-      } else {
-        //unmerge
-        // console.log('unmerge animation')
-
-        // mainLogoElem.style.visibility = 'visible';
-        mainLogoElem.className = 'nav-animate-back';
-        navbarLogoElem.style.visibility = 'hidden';
-
-      }
-
-    }
-
-    const onScroll = () => {
-      const scrollTop = myRef.current.scrollTop;
-      // console.log(`myRef.scrollTop: ${scrollTop} `)
-      setScrollTop(scrollTop);
-
-      // console.log('scrollTop', scrollTop)
-
-
-          if (scrollTop >= 80) {
-              // console.log('merge')
-
-              navAnimation(true);
-
-          } else if (scrollTop <= 110) {
-              // console.log('unMerge')
-              navAnimation();
-
-          } //nested if
-
-
-    } //onscroll
 
 
 
@@ -121,10 +67,7 @@ function StalkApp() {
       <div className="stalk-app">
         <main>
 
-            <div id="main-wrapper"
-              ref={myRef}
-              onScroll={onScroll}
-              >
+            <div id="main-wrapper">
 
                   <div id="main-logo">
                     <h1 onClick={() => console.log(`hello`)} id="logo"><Link id='logo' to='/users'>Stalk</Link></h1>
