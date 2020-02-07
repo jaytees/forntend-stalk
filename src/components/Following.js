@@ -40,13 +40,6 @@ class Following extends React.Component {
     })
     .catch(console.warn)
     console.log(`userID`, userID);
-    let url = '';
-    if (process.env.NODE_ENV !== 'production') {
-      url = 'http://localhost:3000';
-    } else {
-      url = 'https://backend-stalk.herokuapp.com';
-    }
-    console.log('url', url);
     axios.get(`${url}/follows/${userID}.json`)
     // axios.get(`http://localhost:3000/users/${userID}.json`)
     .then(res => {
