@@ -22,7 +22,15 @@ class Users extends React.Component {
 
   componentDidMount(){
     console.log('mounted');
-    axios.get(`http://localhost:3000/users.json`)
+    let url = '';
+    if (process.env.NODE_ENV !== 'production') {
+      url = 'http://localhost:3000';
+    } else {
+      url = 'https://backend-stalk.herokuapp.com';
+    }
+    console.log('url', url);
+    axios.get(`${url}/users.json`)
+    // axios.get(`http://localhost:3000/users.json`)
     .then(res => {
       this.setState({users: res.data.users})
       console.log('this.state.users', this.state.users);

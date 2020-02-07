@@ -15,8 +15,14 @@ class PlantCalendar extends React.Component {
   }
 
   componentDidMount(){
-
-    axios.get(`http://localhost:3000/users/${this.state.userId}.json`)
+    let url = '';
+    if (process.env.NODE_ENV !== 'production') {
+      url = 'http://localhost:3000';
+    } else {
+      url = 'https://backend-stalk.herokuapp.com';
+    }
+    console.log('url', url);
+    axios.get(`${url}/users/${this.state.userId}.json`)
     .then( res => {
       this.setState({ user: res.data });
       const monthStartDate = new Date();

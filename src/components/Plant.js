@@ -20,7 +20,14 @@ class Plant extends React.Component {
     }
     plantIDQuery = this.props.match.params.plant_id
     console.log(`plantIDQuery`, plantIDQuery);
-    axios.get(`http://localhost:3000/plants/${plantIDQuery}.json`)
+    let url = '';
+    if (process.env.NODE_ENV !== 'production') {
+      url = 'http://localhost:3000';
+    } else {
+      url = 'https://backend-stalk.herokuapp.com';
+    }
+    console.log('url', url);
+    axios.get(`${url}/plants/${plantIDQuery}.json`)
     .then(res => {
       console.log('res:', res);
       this.setState({plant: res.data})
@@ -29,7 +36,7 @@ class Plant extends React.Component {
     .catch(console.warn)
   }
 
-  render(){ 
+  render(){
     return(
       <div className='App'>
         <h2>Plant</h2>

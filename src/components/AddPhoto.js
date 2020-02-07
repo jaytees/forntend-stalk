@@ -27,7 +27,14 @@ class AddPhoto extends React.Component {
     console.log(this.state.photo);
     const photoParams = this.state.photo
     console.log('photoParams:', photoParams);
-    axios.post(`http://localhost:3000/photos.json`, {
+    let url = '';
+    if (process.env.NODE_ENV !== 'production') {
+      url = 'http://localhost:3000';
+    } else {
+      url = 'https://backend-stalk.herokuapp.com';
+    }
+    console.log('url', url);
+    axios.post(`${url}/photos.json`, {
       photo: {
         image: this.state.image,
         description: this.state.description,
@@ -42,7 +49,14 @@ class AddPhoto extends React.Component {
   componentDidMount(){
     plantID = this.props.match.params.plant_id
     console.log(`plantID: ${plantID}`);
-    axios.get(`http://localhost:3000/plants/${plantID}.json`)
+    let url = '';
+    if (process.env.NODE_ENV !== 'production') {
+      url = 'http://localhost:3000';
+    } else {
+      url = 'https://backend-stalk.herokuapp.com';
+    }
+    console.log('url', url);
+    axios.get(`${url}/plants/${plantID}.json`)
     .then(res => {
       console.log(res);
       this.setState({plant: res.data})

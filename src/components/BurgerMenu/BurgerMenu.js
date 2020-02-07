@@ -11,7 +11,14 @@ function BurgerMenu(props){
 
   const handleDeleteClick = ( id ) => {
     // console.log(id)
-    axios.delete(`http://localhost:3000/plants/${id}.json`)
+    let url = '';
+    if (process.env.NODE_ENV !== 'production') {
+      url = 'http://localhost:3000';
+    } else {
+      url = 'https://backend-stalk.herokuapp.com';
+    }
+    console.log('url', url);
+    axios.delete(`${url}/plants/${id}.json`)
     .then(res => {
       // console.log(res);
     })

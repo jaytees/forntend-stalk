@@ -25,7 +25,14 @@ class Following extends React.Component {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       // setTokenHeaderSet( true );
     }
-    axios.get(`http://localhost:3000/users/${userID}.json`)
+    let url = '';
+    if (process.env.NODE_ENV !== 'production') {
+      url = 'http://localhost:3000';
+    } else {
+      url = 'https://backend-stalk.herokuapp.com';
+    }
+    console.log('url', url);
+    axios.get(`${url}/users/${userID}.json`)
     .then(res => {
       this.setState({user: res.data})
       console.log('this.state.user', this.state.user);
@@ -33,7 +40,7 @@ class Following extends React.Component {
     })
     .catch(console.warn)
     console.log(`userID`, userID);
-    axios.get(`http://localhost:3000/follows/${userID}.json`)
+    axios.get(`${url}/follows/${userID}.json`)
     // axios.get(`http://localhost:3000/users/${userID}.json`)
     .then(res => {
       console.log(res);

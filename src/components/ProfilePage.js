@@ -22,8 +22,15 @@ class ProfilePage extends React.Component {
     // console.log('HEADERS', axios.defaults.headers.common);
     // this.setState({id: localStorage.getItem('userId')})
 
-
-      axios.get(`http://localhost:3000/users/${this.state.id}.json`)
+    let url = '';
+    if (process.env.NODE_ENV !== 'production') {
+      url = 'http://localhost:3000';
+    } else {
+      url = 'https://backend-stalk.herokuapp.com';
+    }
+    console.log('url', url);
+      axios.get(`${url}/users/${this.state.id}.json`)
+      // axios.get(`http://localhost:3000/users/${this.state.id}.json`)
       .then( res => {
         // const { addToast } = useToasts();
         console.log('res', res)
