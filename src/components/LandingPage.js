@@ -14,7 +14,7 @@ class LandingPage extends React.Component {
           </div>
 
             <video autoPlay loop muted>
-              <source src="flowers1080p.mp4" type="video/mp4" />
+              <source src="photos/flowers1080p.mp4" type="video/mp4" />
             </video>
       </div>
     );
