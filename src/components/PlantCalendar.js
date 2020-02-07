@@ -21,7 +21,7 @@ class PlantCalendar extends React.Component {
       this.setState({ user: res.data });
       const monthStartDate = new Date();
       monthStartDate.setDate(1);
-      this.state.user.plants.forEach(plant => {
+      res.data.plants.forEach(plant => {
         // Water interval dates will be calculated when page is loaded.
         this.calculate( plant.name, plant.date_acquired, plant.water_days, monthStartDate );
       });
@@ -52,6 +52,8 @@ class PlantCalendar extends React.Component {
 
     let nextScheduleDt = firstScheduleDt;
 
+    const datesArrayCopy = [...this.state.datesArray];
+
     // loops and calculates watering dates only for current month view.
     while(nextScheduleDt.getMonth() === firstScheduleDt.getMonth()){
 
@@ -64,11 +66,12 @@ class PlantCalendar extends React.Component {
       // Watering dates will be pushed into array only if nextScheduleDt is ahead of
       // acquiredDate in a month.
       if( nextScheduleDt.getTime() >= acquiredDate.getTime() ) {
-        this.state.datesArray.push(calendarEntry);
+        datesArrayCopy.push(calendarEntry);
       }
       // waterInterval days will be added to nextScheduleDt to calculate next watering date.
       nextScheduleDt = moment(nextScheduleDt).add(waterInterval, 'days').toDate();
     }
+    this.setState({ datesArray: datesArrayCopy });
   } // calculate
 
   // This function is called to calculate watering dates of plants when month view is changed in Calendar.
