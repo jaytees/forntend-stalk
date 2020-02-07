@@ -65,7 +65,7 @@ class AddPlant extends React.Component {
             <input type="date" name="date_acquired" onChange={this.handleChange}/> <br/>
 
             <label>Days between watering</label>
-            <input type="text" name="water_days" onChange={this.handleChange}/> <br/> 
+            <input type="text" name="water_days" onChange={this.handleChange}/> <br/>
 
             <input type="submit"/>
         </form>

@@ -28,8 +28,14 @@ function LoginForm( props ){
     // console.log(password);
     // console.log(event);
 
-
-      axios.post( 'http://localhost:3000/login', {
+    let url = '';
+    if (process.env.NODE_ENV !== 'production') {
+      url = 'http://localhost:3000';
+    } else {
+      url = 'https://backend-stalk.herokuapp.com';
+    }
+    console.log('url', url);
+      axios.post( `${url}/login`, {
         email: email,
         password: password,
         headers: {

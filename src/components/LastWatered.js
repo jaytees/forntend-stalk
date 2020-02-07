@@ -39,8 +39,14 @@ function LastWatered(props){
     const lastWatered = (Math.floor(Date.now() / 1000))
 
 
-
-    axios.put(`http://localhost:3000/plants/${plant_id}.json`, {
+    let url = '';
+    if (process.env.NODE_ENV !== 'production') {
+      url = 'http://localhost:3000';
+    } else {
+      url = 'https://backend-stalk.herokuapp.com';
+    }
+    console.log('url', url);
+    axios.put(`${url}/plants/${plant_id}.json`, {
       plant: {
         last_watered: lastWatered
       },
