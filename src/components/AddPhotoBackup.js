@@ -8,8 +8,7 @@ const userID = localStorage.getItem('userId')
 class AddPhoto extends React.Component {
 
   state = {
-    plant: [],
-    image: ''
+    plant: []
   }
 
   handleChange = (event) => {
@@ -47,27 +46,6 @@ class AddPhoto extends React.Component {
     .catch(console.log)
   }
 
-  uploadWidget = (event) => {
-    event.preventDefault()
-
-    window.cloudinary.openUploadWidget({
-
-      cloud_name: 'dlbfbi0rp', upload_preset: 'mtkzwbw5', tags:['plants']},
-      (error, result) => {
-          if(!error){
-            console.log('successfully-uploaded', result[0].url);
-            this.setState({ image: result[0].url });
-
-            // this.props.Photo(result[0].url);
-            // axios.post(`http://localhost:3000/photos`, {id: , photo: {image: result[0].url}})
-            // .then(result => console.log('photo saved', result))
-            // .catch(error => console.log('photo not saved', error));
-          } else {
-            console.warn('ERROR UPLOADING', error);
-          }
-      });
-  }
-
   componentDidMount(){
     plantID = this.props.match.params.plant_id
     console.log(`plantID: ${plantID}`);
@@ -95,31 +73,27 @@ class AddPhoto extends React.Component {
         <form action="" onSubmit={this.handleSubmit}>
           <label>Description</label>
           <input type="text" name="description" onChange={this.handleChange}/> <br/>
+          <label>ImageURL</label>
+          <input type="text" name="image" onChange={this.handleChange}/> <br/>
 
+          <div>
+            <div className="upload">
+                    <button className="formButton" onClick={this.uploadWidget}>
 
-
+                        Upload PLANT!
+                    </button>
+                    {
+                      this.state.image_url.length === 0
+                      ?
+                      console.log("no image")
+                      :
+                      <img className="uploadImagePreview" src={this.state.image_url} />
+                    }
+                </div>
+          </div>
           <button className="formButton">add update</button>
 
         </form>
-        <div>
-          <div className="upload">
-
-            {
-              this.state.image.length === 0
-              ?
-              <div>
-                <button className="formButton" onClick={this.uploadWidget}>
-                  Upload Photo!
-                </button>
-              </div>
-              :
-              <div class="uploadPhoto">
-                <p>Image Uploaded!</p>
-                <img className="uploadImagePreview" src={this.state.image} />
-              </div>
-            }
-          </div>
-        </div>
       </div>
     )
   }
