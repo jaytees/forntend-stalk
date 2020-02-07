@@ -8,8 +8,11 @@ class Upload extends React.Component {
     image_url: ''
   };
 
-  uploadWidget = () => {
+  uploadWidget = (event) => {
 
+    event.preventDefault();
+
+    console.log('here!');
     window.cloudinary.openUploadWidget({
 
       cloud_name: 'dlbfbi0rp', upload_preset: 'mtkzwbw5', tags:['plants']},
@@ -17,14 +20,12 @@ class Upload extends React.Component {
           if(!error){
             console.log('successfully-uploaded', result[0].url);
             this.setState({ image_url: result[0].url });
-            this.props.Photo(result[0].url);
-            // axios.post(`http://localhost:3000/photos`, {id: , photo: {image: result[0].url}})
-            // .then(result => console.log('photo saved', result))
-            // .catch(error => console.log('photo not saved', error));
+            this.props.onImageUpload(result[0].url);
           } else {
             console.warn('ERROR UPLOADING', error);
           }
       });
+      console.log('end');
   }
 
   render(){
@@ -40,7 +41,7 @@ class Upload extends React.Component {
                   ?
                   console.log("no image")
                   :
-                  <img className="uploadImagePreview" src={this.state.image_url} />
+                  <img className="uploadImagePreview" src={this.state.image_url} style={{maxWidth: '200px'}}/>
                 }
             </div>
       </div>
