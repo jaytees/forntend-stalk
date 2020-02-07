@@ -3,6 +3,9 @@ import axios from 'axios'
 
 import './GardenDisplay/GardenDisplay.css'
 
+import LastWatered from './LastWatered'
+import BurgerMenu from './BurgerMenu/BurgerMenu'
+
 class Users extends React.Component {
 
   state = {
@@ -37,40 +40,66 @@ class Users extends React.Component {
             ?
             <p>no users</p>
             :
-            <div >
+            <div>
             {
-            this.state.users.map( user =>
+              this.state.users.map( user =>
 
-              <div className="gardenPlantIndex" onClick={() => this.handleClick(user.id)}>
-                <div className="skew-left"></div>
-                <div className="skew-right"></div>
+                <div key={user.id} className="gardenItem" onClick={() => this.handleClick(user.id)}>
 
+                  <div className="gardenItem-header">
 
+                    {
+                    this.props.history.location !== "/home"
+                    ?
+                    <div>
+                      <div className="water-gardenItem">
+                          <p>Click to View Full Garden!</p>
+                      </div>
 
-                  <div className="display-plant-name">
-                    <p>{user.username}s garden</p>
+                      <div className="water-gardenItem">
+
+                      </div>
+                    </div>
+                    :
+                    <div>
+                      <div className="water-gardenItem">
+                          <LastWatered plant={user}/>
+                      </div>
+
+                      <div className="burger-menu-gardenItem">
+                          <BurgerMenu plantId={user.id}/>
+                      </div>
+                    </div>
+                    }
+
+                      <div className="plant-name-gardenItem">
+                          <p>{user.username}s garden</p>
+                      </div>
+
 
 
                   </div>
 
-                  {
+                  <div className="gardenItem-images">
+                    {
+                      user.plants.map( plant =>
 
-                    user.plants.map( plant =>
-
-                      <div className="image-box">
-                          <img key={plant.id} className="myGardenPlantPhoto" src={plant.photos[0].image} alt=""/>
-
-                          <p className="plant-details">Plant Name</p>
-                      </div>
+                          <img src={plant.photos[0].image}  key={plant.id} className="myGardenPlantPhoto" onClick={() => this.handleClick(user.id)}/>
 
 
-                    )
-                  }
+                      )
+                    }
+                  </div>
 
-                </div>
-                )
-              }
-            </div>
+                  <div className="gardenItem-shelf">
+                    <div className="skew-left"></div>
+                    <div className="skew-right"></div>
+                  </div>
+
+              </div>
+            )
+          }
+        </div>
           }
       </div>
     )

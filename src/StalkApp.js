@@ -1,6 +1,6 @@
 import React, {useState, useEffect, createRef} from 'react';
 import axios from 'axios';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, Link} from 'react-router-dom';
 
 import './components/NavBar/NavBar.css'
 import './Main.css'
@@ -8,7 +8,7 @@ import './Main.css'
 import Home from './components/Home';
 import SignUp from './SignUp';
 import ProfilePage from './components/ProfilePage';
-// import MyGarden from './components/GardenDisplay/MyGarden';
+import MyGarden from './components/GardenDisplay/MyGarden';
 import Users from './components/Users';
 import Photo from './components/Photo';
 import AddPlant from './components/AddPlant';
@@ -22,7 +22,7 @@ import Following from './components/Following';
 import Plant from './components/Plant';
 
 import Time from './components/Time'
-import MyGarden2 from './components/GardenDisplay/MyGarden2.js'
+// import MyGarden2 from './components/GardenDisplay/MyGarden2.js'
 
 import LandingPage from './components/LandingPage';
 
@@ -127,7 +127,7 @@ function StalkApp() {
               >
 
                   <div id="main-logo">
-                    <h1 id="logo">Stalk</h1>
+                    <h1 onClick={() => console.log(`hello`)} id="logo"><Link id='logo' to='/users'>Stalk</Link></h1>
                   </div>
 
                   <NavBar tokenHeaderValue={tokenHeaderSet} messageCreator={handleUserStatus}
@@ -150,7 +150,10 @@ function StalkApp() {
 
                   <Route exact path='/users' component={Users}/>
 
-                  <Route exact path='/mygarden/:user_id' component={MyGarden2} />
+                  <Route exact path='/mygarden/:user_id' render={(props) => <MyGarden {...props}
+                  tokenHeaderValue={tokenHeaderSet}  />} />
+
+
 
                   <Route exact path='/plantcalendar/:user_id' component={PlantCalendar} />
 

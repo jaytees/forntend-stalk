@@ -9,10 +9,8 @@ class LandingPage extends React.Component {
   render(){
     return(
       <div className="landing-container">
-          <div className="viewport-header">
-            <h2>Welcome to Plants World!
-              <Link to='/home' className='home-link'> Stalk!</Link>
-            </h2>
+          <div className="viewport-header text-focus-in">
+            <h2><Link to='/home' className='home-link'> Stalk</Link></h2>
           </div>
 
             <video autoPlay loop muted>

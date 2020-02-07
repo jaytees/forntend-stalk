@@ -1,7 +1,6 @@
 
 @import "https://fonts.googleapis.com/css?family=Cookie";
 
-
 .App {
   text-align: center;
 }
@@ -42,6 +41,16 @@
 }
 
 /* Landing Video */
+.landing-container{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 video{
   object-fit:cover;
   width: 100vw;
@@ -51,6 +60,7 @@ video{
   left: 0;
   background-color: black;
   z-index: 101;
+  filter: brightness(0.6);
 }
 .viewport-header {
   position: relative;
@@ -64,14 +74,32 @@ video{
 }
 .viewport-header h2 {
   font-size: 4rem;
-  background-color: rgb(139, 213, 174);
+  /* background-color: #ffffffCC; */
   padding:50px;
   border-radius: 20px;
 }
 .home-link {
   text-decoration: none;
-  color: green;
+  color: #6ea37f;
+  font-family: 'Cinzel Decorative', cursive;
+  letter-spacing: 1em;
+  margin-left: 1em;
 }
+
+.text-focus-in {
+  animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+@keyframes text-focus-in {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
 /* Video end */
 
 
@@ -172,3 +200,7 @@ a {
 }
 
 /* photo end */
+
+#logo {
+  color: #6ea37f;
+}
