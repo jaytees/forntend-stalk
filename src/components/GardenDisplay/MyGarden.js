@@ -53,44 +53,60 @@ class MyGarden extends React.Component {
   render(){
     return(
       <div className='App'>
-        <h2>Your Garden</h2>
-        <p>{this.state.user.name}</p>
+        <h2>{this.state.user.name}s Garden</h2>
         {
           this.state.user.length === 0
           ?
           <p>loading</p>
           :
-          <div>
-          {
-            this.state.user.plants.map(plant =>
+            <div>
+            {
+              this.state.user.plants.map(plant =>
 
-              <div key={plant.id} className="gardenPlantIndex">
+                <div key={plant.id} className="gardenItem">
 
-                <div className="burger-menu">
-                  <BurgerMenu plantId={plant.id}/>
-                </div>
+                  <div className="gardenItem-header">
 
-                <LastWatered plant={plant}/>
+                      {
+                        (this.props.tokenHeaderValue) &&
+                        <div>
+                          <div className="water-gardenItem">
+                              <LastWatered plant={plant}/>
+                          </div>
 
-                <div className="skew-left"></div>
-                <div className="skew-right"></div>
+                          <div className="burger-menu-gardenItem">
+                              <BurgerMenu plantId={plant.id}/>
+                          </div>
+                        </div>
+                      }
 
-                <div className="display-plant-name">
-                    <p>{plant.name}</p>
+                      <div className="plant-name-gardenItem">
+                          <p>{plant.name}</p>
+                      </div>
 
-                </div>
 
-                {
-                  plant.photos.map( photo =>
 
-                      <img src={photo.image}  key={photo.id} className="myGardenPlantPhoto" onClick={() => this.handleClick(photo.id)}/>
+                  </div>
 
-                  )
-                }
+                  <div className="gardenItem-images">
+                    {
+                      plant.photos.map( photo =>
+
+                          <img src={photo.image}  key={photo.id} className="myGardenPlantPhoto" onClick={() => this.handleClick(photo.id)}/>
+
+                      )
+                    }
+                  </div>
+
+                  <div className="gardenItem-shelf">
+                    <div className="skew-left"></div>
+                    <div className="skew-right"></div>
+                  </div>
+
               </div>
             )
           }
-          </div>
+        </div>
         }
       </div>
     )

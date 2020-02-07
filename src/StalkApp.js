@@ -8,7 +8,7 @@ import './Main.css'
 import Home from './components/Home';
 import SignUp from './SignUp';
 import ProfilePage from './components/ProfilePage';
-// import MyGarden from './components/GardenDisplay/MyGarden';
+import MyGarden from './components/GardenDisplay/MyGarden';
 import Users2 from './components/Users2';
 import Photo from './components/Photo';
 import AddPlant from './components/AddPlant';
@@ -22,7 +22,7 @@ import Following from './components/Following';
 import Plant from './components/Plant';
 
 import Time from './components/Time'
-import MyGarden2 from './components/GardenDisplay/MyGarden2.js'
+// import MyGarden2 from './components/GardenDisplay/MyGarden2.js'
 
 import LandingPage from './components/LandingPage';
 
@@ -150,7 +150,7 @@ function StalkApp() {
 
                   <Route exact path='/users' component={Users2}/>
 
-                  <Route exact path='/mygarden/:user_id' render={(props) => <MyGarden2 {...props}
+                  <Route exact path='/mygarden/:user_id' render={(props) => <MyGarden {...props}
                   tokenHeaderValue={tokenHeaderSet}  />} />
 
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-import './GardenDisplay/GardenDisplay2.css'
+import './GardenDisplay/GardenDisplay.css'
 
 import LastWatered from './LastWatered'
 import BurgerMenu from './BurgerMenu/BurgerMenu'
