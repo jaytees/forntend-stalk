@@ -15,7 +15,7 @@ function LogOut(props) {
 
     props.logOutMessage( false, 'Please login or sign up' );
 
-    history.push('/')
+    history.push('/home')
 
   }
 
