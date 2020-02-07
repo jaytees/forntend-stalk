@@ -23,6 +23,8 @@ import Plant from './components/Plant';
 import Time from './components/Time';
 import LandingPage from './components/LandingPage';
 
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
 
 function StalkApp() {
   const [tokenHeaderSet, setTokenHeaderSet] = useState(false);
@@ -120,6 +122,8 @@ function StalkApp() {
     return(
 
       <div className="stalk-app">
+        <ReactNotification />
+        
         <main>
 
             <div id="main-wrapper"

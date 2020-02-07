@@ -1,6 +1,10 @@
 import React from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom';
+import moment from 'moment';
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
+import { store } from 'react-notifications-component';
 
 
 // let plants = ''
@@ -8,9 +12,9 @@ import {Link} from 'react-router-dom';
 class ProfilePage extends React.Component {
   state = {
     id: localStorage.getItem('userId'),
-    user: []
+    user: [],
+    // notifState: false;
   }
-
 
 
 
@@ -22,9 +26,31 @@ class ProfilePage extends React.Component {
 
       axios.get(`http://localhost:3000/users/${this.state.id}.json`)
       .then( res => {
+        // const { addToast } = useToasts();
         console.log('res', res)
         this.setState({user: res.data})
         console.log(`plants`, this.state.user.plants)
+
+        const currentDate = moment().hours(0).minutes(0).seconds(0);
+
+        this.state.user.plants.forEach(plant => {
+          let acquiredDate = moment(plant.date_acquired);
+          if (currentDate.diff(acquiredDate,'days') % plant.water_days === 0) {
+              store.addNotification({
+              title: "Water me!",
+              message: `I am ${plant.name}`,
+              type: "success",
+              insert: "top",
+              container: "top-right",
+              animationIn: ["animated", "fadeIn"],
+              animationOut: ["animated", "fadeOut"],
+              dismiss: {
+                duration: 10000,
+                onScreen: true
+              }
+            });
+          }
+        });
       });
 
   }
