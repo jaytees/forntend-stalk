@@ -1,7 +1,6 @@
 
 @import "https://fonts.googleapis.com/css?family=Cookie";
 
-
 .App {
   text-align: center;
 }
@@ -172,3 +171,7 @@ a {
 }
 
 /* photo end */
+
+#logo {
+  color: #6ea37f;
+}
