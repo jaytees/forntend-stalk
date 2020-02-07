@@ -92,7 +92,7 @@ function LastWatered(props){
             :
             <div>
               <div className='waterPlant-droplet'>
-                <div id="droplet" onClick={() => waterPlant(props.plant.id)}></div>
+                <div className="droplet" onClick={() => waterPlant(props.plant.id)}></div>
               </div>
 
               <div className='waterPlant-text'>

@@ -47,7 +47,7 @@
 }
 
 
-#droplet {
+.droplet {
     background-color: lightblue;
     width: 2em;
     height: 2em;
@@ -57,10 +57,11 @@
     -webkit-border-bottom-left-radius: 2em;
     -webkit-transform:rotate(45deg);
     box-shadow: 1px 1px 7px #1a1a1a;
+    margin: 1em auto;
 
 }
 
-#droplet:active {
+.droplet:active {
   background-color: #1152a2;
 }
 
