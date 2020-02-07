@@ -113,6 +113,9 @@ video{
 .rbc-toolbar-label {
   text-align: right !important;
 }
+.rbc-event {
+  background-color: green !important;
+}
 /* Calendar end */
 
 /* ProfilePage */
