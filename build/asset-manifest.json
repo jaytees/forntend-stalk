@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/frontend-stalk/static/css/main.e62eb380.chunk.css",
+    "main.js": "/frontend-stalk/static/js/main.e7f99831.chunk.js",
+    "main.js.map": "/frontend-stalk/static/js/main.e7f99831.chunk.js.map",
+    "runtime-main.js": "/frontend-stalk/static/js/runtime-main.b3d67bb2.js",
+    "runtime-main.js.map": "/frontend-stalk/static/js/runtime-main.b3d67bb2.js.map",
+    "static/css/2.01909d95.chunk.css": "/frontend-stalk/static/css/2.01909d95.chunk.css",
+    "static/js/2.a4d8f59f.chunk.js": "/frontend-stalk/static/js/2.a4d8f59f.chunk.js",
+    "static/js/2.a4d8f59f.chunk.js.map": "/frontend-stalk/static/js/2.a4d8f59f.chunk.js.map",
+    "index.html": "/frontend-stalk/index.html",
+    "precache-manifest.85525cc553c66cbfe65acc874ed0b0ec.js": "/frontend-stalk/precache-manifest.85525cc553c66cbfe65acc874ed0b0ec.js",
+    "service-worker.js": "/frontend-stalk/service-worker.js",
+    "static/css/2.01909d95.chunk.css.map": "/frontend-stalk/static/css/2.01909d95.chunk.css.map",
+    "static/css/main.e62eb380.chunk.css.map": "/frontend-stalk/static/css/main.e62eb380.chunk.css.map",
+    "static/js/2.a4d8f59f.chunk.js.LICENSE.txt": "/frontend-stalk/static/js/2.a4d8f59f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b3d67bb2.js",
+    "static/css/2.01909d95.chunk.css",
+    "static/js/2.a4d8f59f.chunk.js",
+    "static/css/main.e62eb380.chunk.css",
+    "static/js/main.e7f99831.chunk.js"
+  ]
+}
