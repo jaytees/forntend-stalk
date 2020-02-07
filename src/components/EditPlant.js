@@ -48,14 +48,14 @@ class EditPlant extends React.Component {
 
   render(){
     return(
-      <div className='App'>
-        <h2>EditPlant</h2>
+      <div className='formContainer'>
+        <h2 className="formTitle">Edit {this.state.plant.name}</h2>
         {
           this.state.plant.length === 0
           ?
           'no'
           :
-          <p>{this.state.plant.name}</p>
+          <div></div>
         }
         <form action="" onSubmit={this.handleSubmit}>
             <label>Plant Type</label>
@@ -73,7 +73,7 @@ class EditPlant extends React.Component {
             <label>Days between watering</label>
             <input type="text" name="water_days" defaultValue={this.state.plant.water_days} onChange={this.handleChange}/> <br/>
 
-            <input type="submit"/>
+            <input className="formButton" type="submit"/>
         </form>
       </div>
     )

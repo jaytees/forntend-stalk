@@ -31,7 +31,8 @@ class Upload extends React.Component {
     return (
       <div>
         <div className="upload">
-                <button onClick={this.uploadWidget} className="upload-button">
+                <button className="formButton" onClick={this.uploadWidget}>
+
                     Upload PLANT!
                 </button>
                 {

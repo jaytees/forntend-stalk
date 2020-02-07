@@ -67,6 +67,8 @@ class Time extends React.Component {
     })
   }
 
+
+
   componentDidMount(){
     axios.get(`http://localhost:3000/plants.json`)
     .then(res => {
@@ -79,9 +81,7 @@ class Time extends React.Component {
     .catch(console.warn)
   }
 
-  componentDidUpdate(){
 
-  }
 
   render(){
     return(
@@ -111,15 +111,20 @@ class Time extends React.Component {
                     </div>
                   )
                 }
-                <p>
+
+
+                <p>  //shows me lastWatered text
                   {
                     timeSince(new Date( plant.last_watered * 1000) ) === '0 seconds'
                     ?
                     'watered!'
                     :
-                    'Last Watered - ' + timeSince(new Date( plant.last_watered * 1000) )
+                    <p>Last Watered {timeSince(new Date( plant.last_watered * 1000) )} Hours Ago </p>
                   }
                 </p>
+
+
+
                 <div onClick={() => this.waterPlant(plant.id, index)} className="waterPlant">
                 <img src="/water.png" alt=""/>
                 </div>

@@ -2,9 +2,9 @@ import React from 'react'
 import axios from 'axios'
 
 import BurgerMenu from './../BurgerMenu/BurgerMenu'
-import LastWatered from './../LastWatered.js'
 
-import './GardenDisplay.css'
+import './GardenDisplay2.css'
+import LastWatered from './../LastWatered.js'
 
 let userIDQuery = ''
 
@@ -13,6 +13,7 @@ class MyGarden extends React.Component {
     state = {
       user: []
     }
+
 
     handleClick = ( id ) => {
         console.log(id);
@@ -43,8 +44,8 @@ class MyGarden extends React.Component {
       axios.get(`http://localhost:3000/users/${userIDQuery}.json`)
       .then(res => {
         this.setState({user: res.data})
-        // console.log('this.state.user', this.state.user);
-        // console.log(this.state.user.plants.length);
+        console.log('this.state.user', this.state.user);
+        console.log(this.state.user.plants.length);
       })
       .catch(console.warn)
     }
@@ -60,37 +61,48 @@ class MyGarden extends React.Component {
           ?
           <p>loading</p>
           :
-          <div>
-          {
-            this.state.user.plants.map(plant =>
+            <div>
+            {
+              this.state.user.plants.map(plant =>
 
-              <div key={plant.id} className="gardenPlantIndex">
+                <div key={plant.id} className="gardenItem">
 
-                <div className="burger-menu">
-                  <BurgerMenu plantId={plant.id}/>
-                </div>
+                  <div className="gardenItem-header">
 
-                <LastWatered plant={plant}/>
+                      <div className="water-gardenItem">
+                          <LastWatered plant={plant}/>
+                      </div>
 
-                <div className="skew-left"></div>
-                <div className="skew-right"></div>
+                      <div className="plant-name-gardenItem">
+                          <p>{plant.name}</p>
+                      </div>
 
-                <div className="display-plant-name">
-                    <p>{plant.name}</p>
 
-                </div>
+                      <div className="burger-menu-gardenItem">
+                          <BurgerMenu plantId={plant.id}/>
+                      </div>
 
-                {
-                  plant.photos.map( photo =>
+                  </div>
 
-                      <img src={photo.image}  key={photo.id} className="myGardenPlantPhoto" onClick={() => this.handleClick(photo.id)}/>
+                  <div className="gardenItem-images">
+                    {
+                      plant.photos.map( photo =>
 
-                  )
-                }
+                          <img src={photo.image}  key={photo.id} className="myGardenPlantPhoto" onClick={() => this.handleClick(photo.id)}/>
+
+                      )
+                    }
+                  </div>
+
+                  <div className="gardenItem-shelf">
+                    <div className="skew-left"></div>
+                    <div className="skew-right"></div>
+                  </div>
+
               </div>
             )
           }
-          </div>
+        </div>
         }
       </div>
     )
