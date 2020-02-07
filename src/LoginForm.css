@@ -15,7 +15,7 @@ nav #login-trigger,
 
 nav #login-content {
   position: absolute;
-  z-index: 999;
+  /* z-index: 999; */
   background-image: linear-gradient(to right, #183325, #2b4b32);
   padding: 2em;
   box-shadow: -7px 10px 20px 0px rgba(0,0,0,.9);
