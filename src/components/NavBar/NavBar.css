@@ -1,24 +1,40 @@
 #nav-div {
-  position: sticky;
+  /* position: sticky;
   top: 0;
-  background-color: aliceblue;
-    z-index: 100;
+  /* background-color: aliceblue; */
+    /* z-index: 100; */
+/*
+    border: 2px solid;
 
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    left: 0;
+    margin: 0;
+    width: 99.5%;
+    height: 25%; */
 }
 
 
 #navbar {
-  width: 90%;
-  margin: 0 auto;
-  padding: 0px;
+  width: 86%;
+  /* margin: 0 auto; */
+  /* padding: 0px; */
   /* border: 1px solid #ffdede; */
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  text-align: center;
-  align-items: self-end;
+  display: flex;
+  justify-content: space-around;
+  /* align-content: baseline; */
+  /* justify-items: baseline; */
+  /* align-self: flex-end; */
+  /* grid-template-columns: repeat(3, 1fr); */
+  /* grid-template-rows: 1fr; */
+  /* grid-column-gap: 0px; */
+  /* grid-row-gap: 0px; */
+  /* text-align: center; */
+  /* align-items: self-end; */
+  position: fixed;
+  top: 0;
+  left: 4em;
 }
 
 #navbar-logo {
@@ -38,4 +54,8 @@
 
 nav p {
   margin-bottom: 0.3em;
+}
+
+#nav-login-operations {
+  align-self: flex-end;
 }

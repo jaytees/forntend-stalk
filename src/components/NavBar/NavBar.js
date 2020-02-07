@@ -10,7 +10,6 @@ import './NavBar.css'
 function NavBar( props ){
   const [loginFormDisplayed, setLoginFormDisplayed] = useState(false)
 
-
   const displayLogin = () => {
 
     (!loginFormDisplayed) ? setLoginFormDisplayed(true) : setLoginFormDisplayed(false)
@@ -25,9 +24,8 @@ function NavBar( props ){
 
           <p>{props.navMessage}</p>
 
-          <div id="navbar-logo">
-            <h1 id="logo">Stalk</h1>
-          </div>
+            <div id="navbar-logo">
+            </div>
 
           {
             (props.tokenHeaderValue)

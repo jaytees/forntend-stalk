@@ -9,7 +9,7 @@ nav #login-trigger,
       padding: 0 8px;
       text-decoration: none;
       color: #444;
-      text-shadow: 0 1px 0 #fff;
+      /* text-shadow: 0 1px 0 #fff; */
       cursor: pointer;
 }
 
@@ -20,7 +20,9 @@ nav #login-content {
   padding: 2em;
   box-shadow: -7px 10px 20px 0px rgba(0,0,0,.9);
   border-radius: 0 0 2em 2em;
-  margin-right: 6em;
+  /* margin-right: 6em; */
+
+  width: 19%;
 
 }
 
@@ -28,7 +30,7 @@ nav #login-content {
   color: #888;
   padding: 6px 5px;
   margin: 0 0 5px 0;
-  width: 238px;
+  width: 105%;
   border-radius: 2em;
   box-shadow: 0 1px 1px #ccc inset;
   font-size: 1em;
