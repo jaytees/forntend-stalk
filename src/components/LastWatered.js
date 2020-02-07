@@ -65,32 +65,44 @@ function LastWatered(props){
       console.warn('err:', err)
     })
   }
+  //
+  // <div className="waterInfoDisplay">
+  //     {
+  //       timeSince(new Date( props.plant.last_watered * 1000) ) === '0 seconds'
+  //       ?
+  //       'watered!'
+  //       :
+  //     <div className="waterInfoDisplay">
+  //       <div id="droplet" onClick={() => waterPlant(props.plant.id)}></div>
+  //         <p id={props.plant.id}>Last Watered {timeSince(new Date( props.plant.last_watered * 1000) )} Ago </p>
+  //
+  //     </div>
+  //     }
+  // </div>
 
 
-      // <img className="waterIcon" src="/water.png" alt="" onClick={() => waterPlant(props.plant.id)}/>
+
 
   return(
     <div className='waterPlant'>
           {
+            timeSince(new Date( props.plant.last_watered * 1000) ) === '0 seconds'
+            ?
+            'watered!'
+            :
+            <div>
+              <div className='waterPlant-droplet'>
+                <div id="droplet" onClick={() => waterPlant(props.plant.id)}></div>
+              </div>
 
-                <div className="waterInfoDisplay">
-                    {
-                      timeSince(new Date( props.plant.last_watered * 1000) ) === '0 seconds'
-                      ?
-                      'watered!'
-                      :
-                    <div className="waterInfoDisplay">
-                      <p id={props.plant.id}>Last Watered {timeSince(new Date( props.plant.last_watered * 1000) )} Ago </p>
-
-
-
-                      <div id="droplet" onClick={() => waterPlant(props.plant.id)}></div>
-                    </div>
-                    }
-                </div>
-
-            }
-      </div>
+              <div className='waterPlant-text'>
+                {
+                <p id={props.plant.id}>Last Watered {timeSince(new Date( props.plant.last_watered * 1000) )} Ago </p>
+                }
+              </div>
+            </div>
+          }
+    </div>
 
   )
 
