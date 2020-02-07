@@ -1,6 +1,6 @@
 import React, {useState, useEffect, createRef} from 'react';
 import axios from 'axios';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, Link} from 'react-router-dom';
 
 import './components/NavBar/NavBar.css'
 import './Main.css'
@@ -127,7 +127,7 @@ function StalkApp() {
               >
 
                   <div id="main-logo">
-                    <h1 id="logo">Stalk</h1>
+                    <h1 onClick={() => console.log(`hello`)} id="logo"><Link id='logo' to='/users'>Stalk</Link></h1>
                   </div>
 
                   <NavBar tokenHeaderValue={tokenHeaderSet} messageCreator={handleUserStatus}
