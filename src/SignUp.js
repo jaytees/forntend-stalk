@@ -40,8 +40,14 @@ function SignUp( props ){
   const handleSubmit = (event) => {
     event.preventDefault()
     // console.log(user);
-
-    axios.post('http://localhost:3000/users', {
+    let url = '';
+    if (process.env.NODE_ENV !== 'production') {
+      url = 'http://localhost:3000';
+    } else {
+      url = 'https://backend-stalk.herokuapp.com';
+    }
+    console.log('url', url);
+    axios.post(`${url}/users`, {
       user,
       headers: {
         'Accept': 'application/json',
