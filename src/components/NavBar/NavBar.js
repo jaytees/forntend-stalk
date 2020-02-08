@@ -28,7 +28,10 @@ function NavBar( props ){
           {
             (props.tokenHeaderValue)
             ?
-            <LogOut logOutMessage={props.messageCreator} />
+            <div>
+              <Link to='/profile/edit' id="logOut-link">Settings</Link>
+              <LogOut logOutMessage={props.messageCreator} />
+            </div>
             :
 
             <div id="nav-login-operations">

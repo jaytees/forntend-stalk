@@ -20,6 +20,7 @@ import AddPhoto from './components/AddPhoto';
 import EditPhoto from './components/EditPhoto';
 import Following from './components/Following';
 import Plant from './components/Plant';
+import ProfileEdit from './components/ProfileEdit';
 
 import Time from './components/Time'
 // import MyGarden2 from './components/GardenDisplay/MyGarden2.js'
@@ -111,6 +112,7 @@ function StalkApp() {
             <Route exact path='/following/' component={Following} />
             <Route exact path='/plant/:plant_id' component={Plant} />
             <Route exact path='/uploadphoto' component={Photo} />
+            <Route exact path='/profile/edit' component={ProfileEdit} />
 
 
           </Switch>
