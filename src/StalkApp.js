@@ -1,4 +1,4 @@
-import React, {useState, useEffect, createRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Route, Switch, Link} from 'react-router-dom';
 
@@ -26,6 +26,8 @@ import Time from './components/Time'
 
 import LandingPage from './components/LandingPage';
 
+import ReactNotification from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
 
 function StalkApp() {
   const [tokenHeaderSet, setTokenHeaderSet] = useState(false);
@@ -65,16 +67,20 @@ function StalkApp() {
     return(
 
       <div className="stalk-app">
+        <ReactNotification />
+
         <main>
 
             <div id="main-wrapper">
 
-                  <div id="main-logo">
-                    <h1 onClick={() => console.log(`hello`)} id="logo"><Link id='logo' to='/users'>Stalk</Link></h1>
-                  </div>
+              <NavBar tokenHeaderValue={tokenHeaderSet} messageCreator={handleUserStatus}
+              navMessage={welcomeMessage} />
 
-                  <NavBar tokenHeaderValue={tokenHeaderSet} messageCreator={handleUserStatus}
-                  navMessage={welcomeMessage} />
+                <div id="main-logo">
+                  <h1 onClick={() => console.log(`hello`)} id="logo"><Link id='logo' to='/users'>Stalk</Link></h1>
+                </div>
+
+
 
                 <Switch>
 

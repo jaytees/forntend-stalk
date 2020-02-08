@@ -113,6 +113,9 @@ video{
 .rbc-toolbar-label {
   text-align: right !important;
 }
+.rbc-event {
+  background-color: green !important;
+}
 /* Calendar end */
 
 /* ProfilePage */
@@ -205,4 +208,23 @@ a {
 
 #logo {
   color: #6ea37f;
+}
+
+.uploadImagePreview {
+  max-width: 45vw;
+  max-height: 45vh;
+  margin-top: 20px;
+  border: 2px solid #bfb29c;
+  box-shadow: 1px 9px 7px -4px rgba(0,0,0,0.47);
+  border-radius: 3%;
+}
+
+
+.uploadPhoto {
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 1px 9px 7px -4px rgba(0,0,0,0.47);
+  width: 75vw;
+  background-color: white;
+  border-radius: 4%;
 }

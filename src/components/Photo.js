@@ -13,7 +13,14 @@ class Photo extends React.Component {
   handleDeleteClick = ( id ) => {
     console.log('id:', id)
     // console.log(`http://localhost.com:3000/plants/${id}.json`)
-    axios.delete(`http://localhost:3000/photos/${id}.json`)
+    let url = '';
+    if (process.env.NODE_ENV !== 'production') {
+      url = 'http://localhost:3000';
+    } else {
+      url = 'https://backend-stalk.herokuapp.com';
+    }
+    console.log('url', url);
+    axios.delete(`${url}/photos/${id}.json`)
     .then(res => {
       console.log(res);
     })
@@ -31,7 +38,14 @@ class Photo extends React.Component {
   componentDidMount(){
     const photoIDQuery = this.props.match.params.photo_id
     // console.log(`photoIDQuery`, photoIDQuery);
-    axios.get(`http://localhost:3000/photos/${photoIDQuery}.json`)
+    let url = '';
+    if (process.env.NODE_ENV !== 'production') {
+      url = 'http://localhost:3000';
+    } else {
+      url = 'https://backend-stalk.herokuapp.com';
+    }
+    console.log('url', url);
+    axios.get(`${url}/photos/${photoIDQuery}.json`)
     .then(res => {
       // console.log(res);
       this.setState({photo: res.data})

@@ -40,7 +40,14 @@ class MyGarden extends React.Component {
       }
       userIDQuery = this.props.match.params.user_id
       console.log(`userIDQuery`, userIDQuery);
-      axios.get(`http://localhost:3000/users/${userIDQuery}.json`)
+      let url = '';
+      if (process.env.NODE_ENV !== 'production') {
+        url = 'http://localhost:3000';
+      } else {
+        url = 'https://backend-stalk.herokuapp.com';
+      }
+      console.log('url', url);
+      axios.get(`${url}/users/${userIDQuery}.json`)
       .then(res => {
         this.setState({user: res.data})
         // console.log('this.state.user', this.state.user);

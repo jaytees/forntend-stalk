@@ -1,16 +1,19 @@
 import React from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom';
+import moment from 'moment';
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
+import { store } from 'react-notifications-component';
 
-
-// let plants = ''
 
 class ProfilePage extends React.Component {
   state = {
     id: localStorage.getItem('userId'),
-    user: []
+    user: [],
+    notificationId: '',
+    notifications : []
   }
-
 
 
 
@@ -19,14 +22,59 @@ class ProfilePage extends React.Component {
     // console.log('HEADERS', axios.defaults.headers.common);
     // this.setState({id: localStorage.getItem('userId')})
 
-
-      axios.get(`http://localhost:3000/users/${this.state.id}.json`)
+    let url = '';
+    if (process.env.NODE_ENV !== 'production') {
+      url = 'http://localhost:3000';
+    } else {
+      url = 'https://backend-stalk.herokuapp.com';
+    }
+    console.log('url', url);
+      axios.get(`${url}/users/${this.state.id}.json`)
+      // axios.get(`http://localhost:3000/users/${this.state.id}.json`)
       .then( res => {
+        // const { addToast } = useToasts();
         console.log('res', res)
         this.setState({user: res.data})
         console.log(`plants`, this.state.user.plants)
+
+        const currentDate = moment().hours(0).minutes(0).seconds(0);
+
+        this.state.user.plants.forEach(plant => {
+          let acquiredDate = moment(plant.date_acquired);
+
+          // checks if any plants need to be watered today and gives notifications
+          if (currentDate.diff(acquiredDate,'days') % plant.water_days === 0) {
+              this.setState({
+                notificationId: store.addNotification({
+
+              title: "Water me!",
+              message: `I am ${plant.name}`,
+              type: "success",
+              insert: "top",
+              container: "top-right",
+              animationIn: ["animated", "fadeIn"],
+              animationOut: ["animated", "fadeOut"],
+              dismiss: {
+                duration: 10000,
+                onScreen: true,
+                pauseOnHover: true,
+              }
+            })
+          });
+          // console.log("NOTIF ID:", this.state.notificationId);
+            this.state.notifications.push(this.state.notificationId);
+            // console.log("NOTIF ARRAY:", this.state.notifications);
+          }
+        });
       });
 
+  }
+
+  componentWillUnmount() {
+    // console.log("UNMOUNT!!!");
+    this.state.notifications.forEach( n => {
+      store.removeNotification(n)
+    });
   }
 
   handleClick = ( id ) => {
