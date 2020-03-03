@@ -108,15 +108,15 @@ function StalkApp() {
 
 
 
-            <Route exact path='/photo/:photo_id' component={Photo} />
-            <Route exact path='/time/' component={Time} />
-            <Route exact path='/addplant/' component={AddPlant} />
-            <Route exact path='/editplant/:plant_id' component={EditPlant} />
-            <Route exact path='/addphoto/:plant_id' component={AddPhoto} />
-            <Route exact path='/editphoto/:photo_id' component={EditPhoto} />
-            <Route exact path='/following/' component={Following} />
-            <Route exact path='/plant/:plant_id' component={Plant} />
-            <Route exact path='/uploadphoto' component={Photo} />
+                  <Route exact path='/photo/:photo_id' component={Photo} />
+                  <Route exact path='/time/' component={Time} />
+                  <Route exact path='/addplant/' component={AddPlant} />
+                  <Route exact path='/editplant/:plant_id' component={EditPlant} />
+                  <Route exact path='/addphoto/:plant_id' component={AddPhoto} />
+                  <Route exact path='/editphoto/:photo_id' component={EditPhoto} />
+                  <Route exact path='/following/' component={Following} />
+                  <Route exact path='/plant/:plant_id' component={Plant} />
+                  <Route exact path='/uploadphoto' component={Photo} />
 
 
           </Switch>
