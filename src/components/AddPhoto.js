@@ -87,6 +87,11 @@ class AddPhoto extends React.Component {
     this.setState({plant_id : plantID })
   }
 
+  handleImageUploaded = (imageURL) => {
+    console.log('in AddPhoto', imageURL);
+    this.setState({imageURL: imageURL});
+  }
+
   render(){
     return(
       <div className='App'>
@@ -95,7 +100,11 @@ class AddPhoto extends React.Component {
         <form action="" onSubmit={this.handleSubmit}>
           <label>Description</label>
           <input type="text" name="description" onChange={this.handleChange}/> <br/>
+          <label>ImageURL</label>
+          <input type="text" name="imageURL" value={ this.state.imageURL } onChange={this.handleChange}/> <br/>
 
+
+          <Upload onImageUpload={ this.handleImageUploaded }/>
 
 
           <button className="formButton">add update</button>
