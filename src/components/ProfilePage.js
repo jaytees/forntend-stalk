@@ -18,9 +18,6 @@ class ProfilePage extends React.Component {
 
   componentDidMount(){
 
-    // console.log('HEADERS', axios.defaults.headers.common);
-    // this.setState({id: localStorage.getItem('userId')})
-
     let url = '';
     if (process.env.NODE_ENV !== 'production') {
       url = 'http://localhost:3000';
@@ -29,9 +26,9 @@ class ProfilePage extends React.Component {
     }
     console.log('url', url);
       axios.get(`${url}/users/${this.state.id}.json`)
-      // axios.get(`http://localhost:3000/users/${this.state.id}.json`)
+
       .then( res => {
-        // const { addToast } = useToasts();
+
         console.log('res', res)
         this.setState({user: res.data})
         console.log(`plants`, this.state.user.plants)
@@ -60,9 +57,9 @@ class ProfilePage extends React.Component {
               }
             })
           });
-          // console.log("NOTIF ID:", this.state.notificationId);
+
             this.state.notifications.push(this.state.notificationId);
-            // console.log("NOTIF ARRAY:", this.state.notifications);
+
           }
         });
       });
