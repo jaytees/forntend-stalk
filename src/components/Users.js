@@ -13,30 +13,28 @@ class Users extends React.Component {
   }
 
   handleClick = ( id ) => {
-    console.log(id);
+
     const route = `/mygarden/${ id }`
-    console.log('route:', route);
+
     this.props.history.push( route )
 }
 
 
   componentDidMount(){
-    console.log('mounted');
+
     let url = '';
     if (process.env.NODE_ENV !== 'production') {
       url = 'http://localhost:3000';
     } else {
       url = 'https://backend-stalk.herokuapp.com';
     }
-    console.log('url', url);
+
     axios.get(`${url}/users.json`)
-    // axios.get(`http://localhost:3000/users.json`)
+
     .then(res => {
       this.setState({users: res.data.users})
-      console.log('this.state.users', this.state.users);
-      console.log('this.state.res.data.users.length', this.state.users.length);
     })
-    .catch(console.warn)
+    .catch(err => console.warn(err))
   }
 
   render(){
@@ -92,7 +90,7 @@ class Users extends React.Component {
                     {
                       user.plants.map( plant =>
 
-                          <img src={plant.photos[0].image}  key={plant.id} className="myGardenPlantPhoto" onClick={() => this.handleClick(user.id)}/>
+                          <img src={plant.photos[0].image}  key={plant.id} alt={plant.name} className="myGardenPlantPhoto" onClick={() => this.handleClick(user.id)}/>
 
 
                       )

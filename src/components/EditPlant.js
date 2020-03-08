@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 
-const plantID = ''
 const userID = localStorage.getItem('userId')
 
 
@@ -19,23 +18,22 @@ class EditPlant extends React.Component {
 
   componentDidMount(){
     let plantID = this.props.match.params.plant_id
-    console.log(`plantID`, plantID);
+
     axios.get(`http://localhost:3000/plants/${plantID}.json`)
     .then(res => {
       const plantInfo = res.data
       this.setState({ plant: plantInfo })
-      console.log(this.state.plant);
-      console.log(this.state.plant.length);
     })
-    .catch(console.warn)
+    .catch(err => console.warn(err))
   }
 
+
   handleSubmit = ( event ) => {
-    let plantID = this.props.match.params.plant_id
     event.preventDefault();
-    console.log(this.state);
+    let plantID = this.state.plant.id
+
     const plant = this.state
-    console.log('plant', plant);
+
     axios.put(`http://localhost:3000/plants/${plantID}.json`, {
       plant
     })
@@ -43,8 +41,9 @@ class EditPlant extends React.Component {
       console.log(`res:`, res);
     })
     .then(this.props.history.push(`/mygarden/${userID}`))
-    .catch(console.warn)
+    .catch( err => console.warn(err))
   } // end of handleSubmit
+
 
   render(){
     return(

@@ -18,6 +18,7 @@ class AddPhoto extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+
     this.setState({
       photo: {
         image: this.state.image,
@@ -25,16 +26,16 @@ class AddPhoto extends React.Component {
         plant_id: plantID
       }
     })
-    console.log(this.state.photo);
-    const photoParams = this.state.photo
-    console.log('photoParams:', photoParams);
+
+
     let url = '';
     if (process.env.NODE_ENV !== 'production') {
       url = 'http://localhost:3000';
     } else {
       url = 'https://backend-stalk.herokuapp.com';
     }
-    console.log('url', url);
+
+
     axios.post(`${url}/photos.json`, {
       photo: {
         image: this.state.image,
@@ -42,9 +43,8 @@ class AddPhoto extends React.Component {
         plant_id: plantID
       }
     })
-    .then(console.log)
     .then(this.props.history.push(`/mygarden/${userID}`))
-    .catch(console.log)
+    .catch( err => console.warn(err))
   }
 
   uploadWidget = (event) => {
@@ -55,13 +55,10 @@ class AddPhoto extends React.Component {
       cloud_name: 'dlbfbi0rp', upload_preset: 'mtkzwbw5', tags:['plants']},
       (error, result) => {
           if(!error){
-            console.log('successfully-uploaded', result[0].url);
+
             this.setState({ image: result[0].url });
 
-            // this.props.Photo(result[0].url);
-            // axios.post(`http://localhost:3000/photos`, {id: , photo: {image: result[0].url}})
-            // .then(result => console.log('photo saved', result))
-            // .catch(error => console.log('photo not saved', error));
+
           } else {
             console.warn('ERROR UPLOADING', error);
           }
@@ -70,25 +67,27 @@ class AddPhoto extends React.Component {
 
   componentDidMount(){
     plantID = this.props.match.params.plant_id
-    console.log(`plantID: ${plantID}`);
+
     let url = '';
     if (process.env.NODE_ENV !== 'production') {
       url = 'http://localhost:3000';
     } else {
       url = 'https://backend-stalk.herokuapp.com';
     }
-    console.log('url', url);
+
+
     axios.get(`${url}/plants/${plantID}.json`)
     .then(res => {
-      console.log(res);
+
       this.setState({plant: res.data})
     })
-    .catch(console.warn)
+    .catch( err => console.warn(err))
+
     this.setState({plant_id : plantID })
   }
 
   handleImageUploaded = (imageURL) => {
-    console.log('in AddPhoto', imageURL);
+
     this.setState({imageURL: imageURL});
   }
 
@@ -124,7 +123,7 @@ class AddPhoto extends React.Component {
               :
               <div class="uploadPhoto">
                 <p>Image Uploaded!</p>
-                <img className="uploadImagePreview" src={this.state.image} />
+                <img className="uploadImagePreview" src={this.state.image} alt="upload preview"/>
               </div>
             }
           </div>

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import { Calendar, momentLocalizer  } from 'react-big-calendar';
@@ -15,13 +15,14 @@ class PlantCalendar extends React.Component {
   }
 
   componentDidMount(){
+
     let url = '';
     if (process.env.NODE_ENV !== 'production') {
       url = 'http://localhost:3000';
     } else {
       url = 'https://backend-stalk.herokuapp.com';
     }
-    console.log('url', url);
+
     axios.get(`${url}/users/${this.state.userId}.json`)
     .then( res => {
       this.setState({ user: res.data });
@@ -83,7 +84,7 @@ class PlantCalendar extends React.Component {
   // This function is called to calculate watering dates of plants when month view is changed in Calendar.
   monthsChangeHandler = (date) => {
 
-    this.state.datesArray = [];
+    this.setState({ datesArray: [] });
 
     const startDate = new Date(date.start);
 

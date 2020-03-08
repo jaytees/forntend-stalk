@@ -31,27 +31,27 @@ class MyGarden extends React.Component {
 
 
     componentDidMount(){
-      // console.log('this.props.match.params.user_id', this.props.match.params.user_id);
+
       const token = localStorage.getItem('token')
       if (token){
-        // console.log('TOKEN FOUND!', token);
+
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         // setTokenHeaderSet( true );
       }
       userIDQuery = this.props.match.params.user_id
-      console.log(`userIDQuery`, userIDQuery);
+
       let url = '';
       if (process.env.NODE_ENV !== 'production') {
         url = 'http://localhost:3000';
       } else {
         url = 'https://backend-stalk.herokuapp.com';
       }
-      console.log('url', url);
+
       axios.get(`${url}/users/${userIDQuery}.json`)
       .then(res => {
+
         this.setState({user: res.data})
-        // console.log('this.state.user', this.state.user);
-        // console.log(this.state.user.plants.length);
+
       })
       .catch(console.warn)
     }
@@ -99,7 +99,7 @@ class MyGarden extends React.Component {
                     {
                       plant.photos.map( photo =>
 
-                          <img src={photo.image}  key={photo.id} className="myGardenPlantPhoto" onClick={() => this.handleClick(photo.id)}/>
+                          <img src={photo.image}  key={photo.id} alt={plant.name} className="myGardenPlantPhoto" onClick={() => this.handleClick(photo.id)}/>
 
                       )
                     }

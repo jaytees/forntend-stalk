@@ -46,6 +46,7 @@ function SignUp( props ){
     } else {
       url = 'https://backend-stalk.herokuapp.com';
     }
+
     console.log('url', url);
     axios.post(`${url}/users`, {
       user,

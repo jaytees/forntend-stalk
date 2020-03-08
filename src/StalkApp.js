@@ -13,7 +13,7 @@ import Users from './components/Users';
 import Photo from './components/Photo';
 import AddPlant from './components/AddPlant';
 import EditPlant from './components/EditPlant';
-import Upload from './components/Upload';
+// import Upload from './components/Upload';
 import NavBar from './components/NavBar/NavBar';
 import PlantCalendar from './components/PlantCalendar';
 import AddPhoto from './components/AddPhoto';
@@ -22,7 +22,7 @@ import Following from './components/Following';
 import Plant from './components/Plant';
 
 import Time from './components/Time'
-// import MyGarden2 from './components/GardenDisplay/MyGarden2.js'
+
 
 import LandingPage from './components/LandingPage';
 

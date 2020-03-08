@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom';
 import moment from 'moment';
-import ReactNotification from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import { store } from 'react-notifications-component';
 
