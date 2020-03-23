@@ -3,53 +3,47 @@ import axios from 'axios'
 const userID = localStorage.getItem('userId')
 
 class Following extends React.Component {
-
-  handleClick = ( id ) => {
-    console.log(id);
-    const route = `/photo/${ id }`
-    console.log('route:', route);
-    this.props.history.push( route )
-}
   state = {
     user: [],
     userfollows: []
   }
 
+  handleClick = ( id ) => {
+
+    const route = `/photo/${ id }`
+
+    this.props.history.push( route )
+  }
+
 
   componentDidMount(){
     const token = localStorage.getItem('token')
-    console.log(userID)
-    // console.log(`userID`, userID);
     if (token){
-      console.log('TOKEN FOUND!', token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      // setTokenHeaderSet( true );
     }
+
     let url = '';
     if (process.env.NODE_ENV !== 'production') {
       url = 'http://localhost:3000';
     } else {
       url = 'https://backend-stalk.herokuapp.com';
     }
-    console.log('url', url);
+
     axios.get(`${url}/users/${userID}.json`)
-    .then(res => {
-      this.setState({user: res.data})
-      console.log('this.state.user', this.state.user);
-      console.log(this.state.user.plants.length);
-    })
-    .catch(console.warn)
-    console.log(`userID`, userID);
+      .then(res => {
+        this.setState({user: res.data})
+
+      })
+      .catch(err => console.warn(err))
+
     axios.get(`${url}/follows/${userID}.json`)
-    // axios.get(`http://localhost:3000/users/${userID}.json`)
-    .then(res => {
-      console.log(res);
-      this.setState({userfollows: res.data})
-      // console.log('this.state.user', this.state.user);
-      // console.log(this.state.user.plants.length);
-    })
-    .catch(console.warn)
-  }
+      .then(res => {
+
+        this.setState({userfollows: res.data})
+      })
+      .catch(err => console.warn(err))
+
+  }; //componentDidMount
 
   render(){
     return(
@@ -76,7 +70,7 @@ class Following extends React.Component {
                 {
                   follow.photos.map( photo =>
                     <div className="image-box" key={photo.id} onClick={() => this.handleClick(photo.id)}>
-                      <img className="myGardenPlantPhoto" src={photo.image} />
+                      <img className="myGardenPlantPhoto" src={photo.image} alt="plant"/>
                     </div>
                   )
                 }

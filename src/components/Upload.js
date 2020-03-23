@@ -1,6 +1,5 @@
 import React from 'react';
-import axios from 'axios'
-import {Image, Video, Transformation, CloudinaryContext} from 'cloudinary-react';
+// import {Image, Video} from 'cloudinary-react';
 
 class Upload extends React.Component {
 
@@ -8,23 +7,25 @@ class Upload extends React.Component {
     image_url: ''
   };
 
-  uploadWidget = () => {
+  uploadWidget = (event) => {
+
+    event.preventDefault();
+
 
     window.cloudinary.openUploadWidget({
 
       cloud_name: 'dlbfbi0rp', upload_preset: 'mtkzwbw5', tags:['plants']},
       (error, result) => {
           if(!error){
-            console.log('successfully-uploaded', result[0].url);
+
             this.setState({ image_url: result[0].url });
-            // this.props.Photo(result[0].url);
-            // axios.post(`http://localhost:3000/photos`, {id: , photo: {image: result[0].url}})
-            // .then(result => console.log('photo saved', result))
-            // .catch(error => console.log('photo not saved', error));
+            this.props.onImageUpload(result[0].url);
+
           } else {
             console.warn('ERROR UPLOADING', error);
           }
       });
+
   }
 
   render(){
@@ -38,9 +39,9 @@ class Upload extends React.Component {
                 {
                   this.state.image_url.length === 0
                   ?
-                  console.log("no image")
+                  <p>No Image</p>
                   :
-                  <img className="uploadImagePreview" src={this.state.image_url} />
+                  <img className="uploadImagePreview" src={this.state.image_url} alt="upload preview" style={{maxWidth: '200px'}}/>
                 }
             </div>
       </div>

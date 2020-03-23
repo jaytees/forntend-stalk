@@ -2,8 +2,6 @@ import React from 'react'
 import axios from 'axios'
 
 let photoID = ''
-let plantID = ''
-const userID = localStorage.getItem('userId')
 
 class EditPhoto extends React.Component {
 
@@ -17,32 +15,31 @@ class EditPhoto extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(this.state.photoNew);
+
     const photo = {
-      // photo : {
+
         image: this.state.image,
         description: this.state.description
-      // }
+
     }
-    console.log('photo:', photo);
+
     axios.put(`http://localhost:3000/photos/${photoID}.json`, {
       photo
     })
-    .then(console.log)
     .then(this.props.history.push(`/photo/${photoID}`))
-    .catch(console.log)
+    .catch(err => console.warn(err))
   }
 
   componentDidMount(){
     photoID = this.props.match.params.photo_id
-    console.log(`plantID: ${plantID}`);
+
     axios.get(`http://localhost:3000/photos/${photoID}.json`)
     .then(res => {
-      console.log(res);
+
       this.setState({photo: res.data})
     })
     .catch(console.warn)
-    // this.setState({plant_id : plantID })
+
   }
 
   render(){

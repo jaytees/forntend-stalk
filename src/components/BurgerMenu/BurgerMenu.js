@@ -5,39 +5,40 @@ import axios from 'axios'
 import './BurgerMenu.css'
 
 function BurgerMenu(props){
-  // const [editRoute, setEditRoute] = useState('')
-  let history = useHistory()
+  let history = useHistory();
 
 
   const handleDeleteClick = ( id ) => {
-    // console.log(id)
+
     let url = '';
     if (process.env.NODE_ENV !== 'production') {
       url = 'http://localhost:3000';
     } else {
       url = 'https://backend-stalk.herokuapp.com';
     }
-    console.log('url', url);
+
+
     axios.delete(`${url}/plants/${id}.json`)
     .then(res => {
       // console.log(res);
     })
-    .catch(console.warn)
-  }
+    .catch( err => console.log(err));
+  };
 
-    const handleEditClick = ( plantID ) => {
-        // console.log(plantID);
-        const route = `/editplant/${ plantID }`
-        console.log('route:', route);
-        history.push( route )
-    }
+  const handleEditClick = ( plantID ) => {
 
-    const handleAddPhotoClick = ( plantID ) => {
-      // console.log(plantID);
-      const route = `/addphoto/${ plantID }`
-      console.log('route:', route);
+      const route = `/editplant/${ plantID }`
+
       history.push( route )
-    }
+  };
+
+
+  const handleAddPhotoClick = ( plantID ) => {
+
+    const route = `/addphoto/${ plantID }`
+
+    history.push( route )
+  }
 
 
 
@@ -50,9 +51,9 @@ function BurgerMenu(props){
           <input type="checkbox" />
 
 
-          <span></span>
-          <span></span>
-          <span></span>
+          <span className="forIcon"></span>
+          <span className="forIcon"></span>
+          <span className="forIcon"></span>
 
 
           <ul id="menu">

@@ -25,9 +25,8 @@ function timeSince(date) {
   }
   return Math.floor(seconds) + " seconds";
 }
-var aDay = 24*60*60*1000;
-// console.log(timeSince(new Date(Date.now()-aDay)));
-// console.log(timeSince(new Date(Date.now()-aDay*2)));
+// var aDay = 24*60*60*1000;
+
 
 
 class Time extends React.Component {
@@ -38,10 +37,7 @@ class Time extends React.Component {
   }
 
   waterPlant = ( plant_id, plantIndex ) => {
-    console.log('wateringPlant:', plant_id);
-    // this.setState({watering: Math.floor(Date.now() / 1000)})
-    console.log(({last_watered: Math.floor(Date.now() / 1000)}));
-    // console.log(this.state.watering);
+
     const lastWatered = (Math.floor(Date.now() / 1000))
 
 
@@ -107,13 +103,13 @@ class Time extends React.Component {
                 {
                   plant.photos.map( photo =>
                     <div key={`photo${photo.id}`} className="image-box" onClick={() => this.handleClick(photo.id)}>
-                      <img className="myGardenPlantPhoto" src={photo.image}/>
+                      <img className="myGardenPlantPhoto" src={photo.image} alt={plant.name}/>
                     </div>
                   )
                 }
 
 
-                <p>  //shows me lastWatered text
+                <p>
                   {
                     timeSince(new Date( plant.last_watered * 1000) ) === '0 seconds'
                     ?

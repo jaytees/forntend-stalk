@@ -38,14 +38,15 @@ function SignUp( props ){
 
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    // console.log(user);
+    event.preventDefault();
+
     let url = '';
     if (process.env.NODE_ENV !== 'production') {
       url = 'http://localhost:3000';
     } else {
       url = 'https://backend-stalk.herokuapp.com';
     }
+
     console.log('url', url);
     axios.post(`${url}/users`, {
       user,
@@ -83,7 +84,7 @@ function SignUp( props ){
 
   return(
     <div className="formContainer">
-      <h2 class="formTitle">Sign up</h2>
+      <h2 className="formTitle">Sign up</h2>
       {
         (errors) && <div id="signup-errors">
           <ul>
@@ -102,7 +103,7 @@ function SignUp( props ){
         </div>
         <br/>
 
-        <div className="field">
+      <div className="field">
           <label>Username:</label>
           <br/>
           <input value={user.username} onChange={handleChange} type="text" name="username" placeholder="username"/>

@@ -1,68 +1,123 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Stalk - Plant Care Scheduler and Social Platform
 
-## Available Scripts
+## Purpose of the site
 
-In the project directory, you can run:
+The main focus of the site is to provide a platform that helps you keep track of when you last watered your plants, schedule watering and provide notifications. You can also document the progress of your plants with photos in the my garden feature.
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+* Full rails CRUD system and SPA interface
+* My Garden, populated by photos of your plants to keep track of there progress
+  * Home page displays latest photo of each plant in a users garden, grouped by user
+  * Profile view displays individual plant and there progress
+* Indicator on the time since each plant was last watered
+  * Provides real-time updates to the second
+  * Click to update when watered
+* Calendar to schedule watering days
+  * Set by the user so they can dynamically update the schedule based on season
+* Notifications on login of which plants need watering that day
+* Photo upload and storage provided by Cloudinary
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Style
 
-### `npm run build`
+* Organic
+* Clean
+* Stylish
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Tech / Framework Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* React
+* react-notifications-component
+* react-big-calendar
+* moment
+* Ruby
+* Ruby on Rails
+* JWT tokens
+* Postgresql
+* CSS
+* Cloudinary
+* Heroku
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Link to Live Site
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+https://jaytees.github.io/frontend-stalk/#/
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Link to the Backend Repo
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+https://github.com/srv-dev/backend-stalk
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Wins
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Tackling a full stack authentication process with no prior experience, was perhaps my biggest challenge and biggest reward. I choose to take on this task without the use of a library like Knock. In hindsight I am not sure why but I don't regret the decision. In the process I learnt a lot about;
+  * The encoding and decoding of JWT tokens
+  * How JWT tokens are used for authorization
+  * Functional programming in Ruby
+* Really proud of what I managed to achieve with the design aesthetic in just a few days. Most notably the garden display with the burger menu, pure css water drop and of course the pure CSS shelf. Also very happy with the form styling.
+* Using and learning how to use hooks in functional components.
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Challenges
 
-### Analyzing the Bundle Size
+* As mentioned above in Wins, the authentication process was testing. Having no prior knowledge it was a process of learning and understanding whilst implementing. I used a number of different online resources in the end, each providing different elements of the process (never the full picture), which I had to piece together to suit my needs and stack. A snippet of the backend code is previewed in the code section of the README.
+* Version control and merge conflicts were difficult to overcome at first, with quite a few lost hours. After some research in the end we opted for branches, as each team member was a collaborator on the repo. This helped us gain an understanding of branches and once this was achieved it was (almost plain sailing).
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
+## Code
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+* Refactor of the handling of signup data. Using the useReducer hook and spread operators, to handle the change to multiple fields in the user object in one function.
 
-### Advanced Configuration
+![handle change image](./public/readme-images/handle-change.png)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+![handle change image](./public/readme-images/use-reducer-code.png)
 
-### Deployment
+* Couldn't not mention the shelf
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+![handle change image](./public/readme-images/shelf-css.png)
 
-### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Screenshots
+
+* Homepage
+
+![homepage image](./public/readme-images/homepage.png)
+
+* Profile Page
+
+![profile page image](./public/readme-images/profile-page.png)
+
+* Your Personal Garden
+
+![personal garden image](./public/readme-images/your-garden.png)
+
+* Other Users Gardens
+
+![other users gardens image](./public/readme-images/other-users-gardens.png)
+
+* Signup form
+
+![sign up form image](./public/readme-images/signup-form.png)
+
+
+
+## Experience
+
+* First team project, so dealing with the minefields of merge conflicts was a fun experience.
+* Really loved seeing our individual pieces of the project come together over the course the of the week. Everyone played a huge a part in the project and even though not everyone was sold on the concept at the beginning we were all really impressed and happy with what we achieved together.
+* It has definitely left me with a sense of excitement about being part of a dev team and the possibilities of what can be achieved.
+
+## Things to do
+
+* Finish the ability to follow other plants progress
+* Navigation is quite difficult
+* Email notifications
+* Authorization for certain functions and components
+
+## Known bugs
+
+* Sometimes the calendar fails to show schedule for all plants in the upcoming months
+* Need to hard refresh to update the time after clicking watered

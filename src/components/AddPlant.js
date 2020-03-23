@@ -1,5 +1,4 @@
 import React from 'react'
-import Upload from './Upload'
 import axios from 'axios'
 
 const userID = localStorage.getItem('userId')
@@ -19,35 +18,19 @@ class AddPlant extends React.Component {
     console.log('user_id:', userID);
   }
 
-  handleSubmit = ( event ) => {
-    event.preventDefault();
-    // console.log(this.state);
-    const plant = { plant:  this.state }
-    console.log('plant', plant);
-    axios.post('http://localhost:3000/plants.json', plant )
-    .then(res => {
-      console.log(`res:`, res);
-      console.log('userID:', userID);
-    })
-    .then(this.props.history.push(`/mygarden/${userID}`))
-    .catch(console.warn)
-  } // end of handleSubmit
 
   handleSubmit = ( event ) => {
     event.preventDefault();
-    // console.log(this.state);
+
     const plant = { plant:  this.state }
-    console.log('plant', plant);
+
     axios.post('http://localhost:3000/plants.json', plant )
-    .then(res => {
-      console.log(`res:`, res);
-      console.log('userID:', userID);
-    })
-    .then(this.props.history.push(`/mygarden/${userID}`))
-    .catch(console.warn)
+      .then(this.props.history.push(`/mygarden/${userID}`))
+      .catch( err => console.warn( err ))
   } // end of handleSubmit
 
-    render(){
+
+  render(){
     return(
       <div className='App'>
         <h2>AddPlant</h2>

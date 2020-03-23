@@ -167,12 +167,3 @@ img.myGardenPlantPhoto{
 	color: #464646;
   z-index: -1;
 }
-
-.myGardenPlantPhoto:hover{
-	opacity: 0.5;
-}
-
-
-.myGardenPlantPhoto:hover {
-	top: -75px;
-}
