@@ -83,8 +83,7 @@ https://github.com/srv-dev/backend-stalk
 
 **Authentication process**
 
-- Full stack authentication process.
-  - Backend authentication controller
+- Backend authentication controller
 
 ![Backend auth controller](./public/readme-images/backend-auth1.png)
 
