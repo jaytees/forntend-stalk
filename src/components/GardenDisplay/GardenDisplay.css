@@ -51,14 +51,12 @@
   border-radius: 0px 0px 11px 10px;
 }
 
-
 .skew-left {
   z-index: -10;
   background-color: moccasin;
   height: 5em;
   bottom: 0;
   position: absolute;
-  width: 50%;
   width: 50%;
   left: 1.8em;
   transform: skewX(-37deg)
