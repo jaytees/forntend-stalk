@@ -81,13 +81,17 @@ https://github.com/srv-dev/backend-stalk
 
 ## Code
 
-- Authentication process
+**Authentication process**
 
-* Refactor of the handling of signup data. Using the useReducer hook and spread operators, to handle the change to multiple fields in the user object in one function.
+**Form Handling**
+
+- Refactor of the handling of signup data. Using the useReducer hook and spread operators, to handle the change to multiple fields in the user object in one function.
 
 ![handle change image](./public/readme-images/handle-change.png)
 
 ![handle change image](./public/readme-images/use-reducer-code.png)
+
+**Garden Display**
 
 - Couldn't not mention the shelf
 
@@ -95,23 +99,23 @@ https://github.com/srv-dev/backend-stalk
 
 ## Screenshots
 
-- Homepage
+**Homepage**
 
 ![homepage image](./public/readme-images/homepage.png)
 
-- Profile Page
+**Profile Page**
 
 ![profile page image](./public/readme-images/profile-page.png)
 
-- Your Personal Garden
+**Your Personal Garden**
 
 ![personal garden image](./public/readme-images/your-garden.png)
 
-- Other Users Gardens
+**Other Users Gardens**
 
 ![other users gardens image](./public/readme-images/other-users-gardens.png)
 
-- Signup form
+**Signup form**
 
 ![sign up form image](./public/readme-images/signup-form.png)
 
@@ -120,7 +124,7 @@ https://github.com/srv-dev/backend-stalk
 - Finish the ability to follow other plants progress
 - Navigation is quite difficult
 - Email notifications
-- Authorization for certain functions and components
+- Authorisation for certain functions and components
 
 ## Known bugs
 
