@@ -83,6 +83,19 @@ https://github.com/srv-dev/backend-stalk
 
 **Authentication process**
 
+- Full stack authentication process.
+  - Backend authentication controller
+
+![Backend auth controller](./public/readme-images/backend-auth1.png)
+
+- Backend application controller
+
+![Backend application controller](./public/readme-images/backend-auth2.png)
+
+- Front-end JWT handling
+
+![Front-end JWT handling](./public/readme-images/backend-auth3.png)
+
 **Form Handling**
 
 - Refactor of the handling of signup data. Using the useReducer hook and spread operators, to handle the change to multiple fields in the user object in one function.
