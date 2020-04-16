@@ -1,22 +1,19 @@
 /* logo font */
-@import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative:900&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Cinzel+Decorative:900&display=swap");
 
-
-@import url('https://fonts.googleapis.com/css?family=Comfortaa:500&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Comfortaa:500&display=swap");
 
 * {
-  font-family: 'Comfortaa', cursive;
+  font-family: "Comfortaa", cursive;
 }
-
 
 main {
   background-color: #d0deca;
-    width: 100vw;
-    height: 100vh;
-    /* background-image: url(https://wallpaperaccess.com/full/1464300.jpg);
+  width: 100vw;
+  height: 100vh;
+  /* background-image: url(https://wallpaperaccess.com/full/1464300.jpg);
     background-size: contain; */
 }
-
 
 #main-wrapper {
   background-color: aliceblue;
@@ -29,20 +26,18 @@ main {
   overflow: scroll;
   padding: 0 2% 2% 2%;
 
-  box-shadow: 0px 6px 33px 6px rgba(0,0,0,0.44);
+  box-shadow: 0px 6px 33px 6px rgba(0, 0, 0, 0.44);
 
-  background-image: url('https://i.pinimg.com/originals/88/1c/12/881c12ee2e6588dae4e2ed765bf87a03.jpg');
+  background-image: url("https://i.pinimg.com/originals/88/1c/12/881c12ee2e6588dae4e2ed765bf87a03.jpg");
   background-size: cover;
 
+  background-position: 0% 22%;
 }
-
 
 #main-logo {
   display: flex;
   visibility: visible;
   justify-content: space-around;
-  /* border: 6px solid #f7e1e1; */
-  /* border-style: double; */
   position: sticky;
   top: 0;
   width: 82%;
@@ -51,6 +46,11 @@ main {
   letter-spacing: 1em;
   color: #6ea37f;
   background-color: #f2f3f5;
+  box-shadow: 1px -20px 10px 20px #f2f3f5, 0px 7px 50px 20px #f2f3f5;
+  -moz-box-shadow: outset 1px -20px 10px 20px #f2f3f5,
+    outset 0px 7px 50px 20px #f2f3f5;
+  -webkit-box-shadow: outset 1px -20px 10px 20px #f2f3f5,
+    outset 0px 7px 50px 20px #f2f3f5;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -62,49 +62,45 @@ main {
 }
 
 #logo {
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: "Cinzel Decorative", cursive;
 }
-
 
 #main-logo #logo {
   align-self: center;
   justify-self: center;
-  /* margin-left: 1em; */
-
 }
 
 .nav-animate-out {
-
-  animation: nav-animate-out 0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  animation: nav-animate-out 0.6s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
 @keyframes nav-animate-out {
-0% {
--webkit-transform: scale(1);
+  0% {
+    -webkit-transform: scale(1);
     transform: scale(1);
-opacity: 1;
-}
-100% {
--webkit-transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
     transform: scale(0);
-opacity: 1;
+    opacity: 1;
+  }
 }
-}
-
 
 .nav-animate-back {
-  animation: nav-animate-back 0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) reverse both;
+  animation: nav-animate-back 0.6s cubic-bezier(0.55, 0.085, 0.68, 0.53) reverse
+    both;
 }
 
 @keyframes nav-animate-back {
   0% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     opacity: 1;
   }
   100% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
     opacity: 1;
   }
 }

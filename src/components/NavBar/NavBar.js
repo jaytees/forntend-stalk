@@ -1,57 +1,59 @@
-import React, { useState } from 'react';
-import {Link} from 'react-router-dom';
-import LoginForm from './../../LoginForm';
-import LogOut from './../../LogOut';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import LoginForm from "./../../LoginForm";
+import LogOut from "./../../LogOut";
 
-import './NavBar.css'
+import "./NavBar.css";
 
-
-function NavBar( props ){
-  const [loginFormDisplayed, setLoginFormDisplayed] = useState(false)
+function NavBar(props) {
+  const [loginFormDisplayed, setLoginFormDisplayed] = useState(false);
 
   const displayLogin = () => {
-    (!loginFormDisplayed) ? setLoginFormDisplayed(true) : setLoginFormDisplayed(false)
-  }
+    !loginFormDisplayed
+      ? setLoginFormDisplayed(true)
+      : setLoginFormDisplayed(false);
+  };
 
-
-  return(
+  return (
     <div id="nav-div">
       <nav id="navbar">
+        <p>{props.navMessage}</p>
 
-
-          <p>{props.navMessage}</p>
-
-            <div id="navbar-logo">
-            </div>
-
-          {
-            (props.tokenHeaderValue)
-            ?
+        {props.tokenHeaderValue ? (
+          <>
             <LogOut logOutMessage={props.messageCreator} />
-            :
 
-            <div id="nav-login-operations">
+            <Link to={"/profile/"}>Profile</Link>
+            <Link to={`/mygarden/${localStorage.getItem("userId")}`}>
+              Your Garden
+            </Link>
+            <Link to={`/plantcalendar/${localStorage.getItem("userId")}`}>
+              Calendar
+            </Link>
+          </>
+        ) : (
+          <div id="nav-login-operations">
+            <p id="login-trigger" href="#" onClick={displayLogin}>
+              Log In
+            </p>
 
-              <p id="login-trigger" href="#" onClick={displayLogin}>Log In</p>
+            {loginFormDisplayed && (
+              <div id="login-content">
+                <LoginForm
+                  loginMessage={props.messageCreator}
+                  loginDisplay={displayLogin}
+                />
+              </div>
+            )}
 
-            {
-              (loginFormDisplayed) &&
-
-                <div id="login-content">
-                    <LoginForm loginMessage={props.messageCreator}
-                    loginDisplay={displayLogin}/>
-                </div>
-
-              }
-
-
-              <Link to='/signup' id="signup-link">Sign Up</Link>
-
-            </div>
-          }
-        </nav>
-      </div>
-  )
+            <Link to="/signup" id="signup-link">
+              Sign Up
+            </Link>
+          </div>
+        )}
+      </nav>
+    </div>
+  );
 }
 
-export default NavBar
+export default NavBar;

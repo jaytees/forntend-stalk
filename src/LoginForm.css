@@ -1,16 +1,15 @@
-
 nav #login-trigger,
-  nav #signup-link,
-    nav #logOut-link {
-      display: inline;
-      height: 25px;
-      line-height: 25px;
-      font-weight: bold;
-      padding: 0 8px;
-      text-decoration: none;
-      color: #444;
-      /* text-shadow: 0 1px 0 #fff; */
-      cursor: pointer;
+nav #signup-link,
+nav #logOut-link {
+  display: inline;
+  height: 25px;
+  line-height: 25px;
+  font-weight: bold;
+  padding: 0 8px;
+  text-decoration: none;
+  color: #444;
+  /* text-shadow: 0 1px 0 #fff; */
+  cursor: pointer;
 }
 
 nav #login-content {
@@ -18,17 +17,21 @@ nav #login-content {
   /* z-index: 999; */
   background-image: linear-gradient(to right, #183325, #2b4b32);
   padding: 2em;
-  box-shadow: -7px 10px 20px 0px rgba(0,0,0,.9);
+  box-shadow: -7px 10px 20px 0px rgba(0, 0, 0, 0.9);
   border-radius: 0 0 2em 2em;
   /* margin-right: 6em; */
 
-  width: 19%;
+  width: 21%;
+  margin-top: 26px;
+}
 
+#login {
+  max-width: 80%;
 }
 
 #login-inputs input {
   color: #888;
-  padding: 6px 5px;
+  padding: 6px 22px;
   margin: 0 0 5px 0;
   width: 105%;
   border-radius: 2em;
@@ -38,18 +41,16 @@ nav #login-content {
 
 #inputs input:focus {
   background-color: #fff;
-  border-color: #67A84F;
+  border-color: #67a84f;
   outline: none;
   box-shadow: 0 0 0 1px #e8c291 inset;
 }
 
-
 #login #login-submit {
   background-color: #e45050;
   border-radius: 3px;
-  text-shadow: 0 1px 0 rgba(0,0,0,.5);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3),
-              0 1px 0 rgba(255, 255, 255, 0.3) inset;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
   float: left;
   height: 30px;
   padding: 0;
@@ -58,12 +59,12 @@ nav #login-content {
   font: bold 14px Arial, Helvetica;
   color: #fff;
   -webkit-transition: all 400ms ease;
-          transition: all 400ms ease;
+  transition: all 400ms ease;
 }
 
 #login #login-submit:hover,
 #login #login-submit:focus {
-  background-color: #67A84F;
+  background-color: #67a84f;
 }
 
 #login #login-submit:active {
