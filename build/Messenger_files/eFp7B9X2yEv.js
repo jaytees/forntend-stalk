@@ -1,0 +1,3 @@
+if (self.CavalryLogger) { CavalryLogger.start_js(["xFRh5"]); }
+
+__d("SaveMessageUtils",["MessengerDotComSaveModule","QE2Logger","immutable"],(function(a,b,c,d,e,f){__p&&__p();var g=b("immutable").Set.of("fallback","share","event","attached_story","music_aggregation","avatar"),h=b("immutable").Set.of("group_sell_product_item");a={isSavableMessageAttachment:function(a){__p&&__p();var c=!0;for(var d=0;d<a.length;d++){if(a[d]=="group_sell_product_item")if(b("MessengerDotComSaveModule").can_save_for_sale_item_attachment!=null){b("QE2Logger").logExposureForUser("marketplace_www_messenger_save");return b("MessengerDotComSaveModule").can_save_for_sale_item_attachment}else return!1;if(h.has(a[d]))return!0;g.has(a[d])||(c=!1)}return c}};e.exports=a}),null);
