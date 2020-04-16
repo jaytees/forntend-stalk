@@ -16,25 +16,28 @@
   z-index: 20;
 }
 
-#navbar-logo {
-  visibility: hidden;
-
-  position: sticky;
-  top: 0;
-
-  letter-spacing: 1em;
-  color: #6ea37f;
-  border: 6px solid #f2e6e5;
-  border-style: double;
-  justify-self: center;
-
-  padding-left: 1em;
-}
-
 nav p {
   margin-bottom: 0.3em;
 }
 
+nav a,
+#login-trigger,
+#logOut-link {
+  display: inline;
+  font-weight: bold;
+  padding: 0 8px;
+  text-decoration: none;
+  color: #080808b5;
+  cursor: pointer;
+}
+
+nav a:hover,
+#login-trigger:hover,
+#logOut-link:hover {
+  color: #6ea37f;
+}
+
 #nav-login-operations {
   align-self: flex-end;
+  margin-bottom: 0.3em;
 }

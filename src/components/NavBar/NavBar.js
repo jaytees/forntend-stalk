@@ -21,15 +21,16 @@ function NavBar(props) {
 
         {props.tokenHeaderValue ? (
           <>
-            <LogOut logOutMessage={props.messageCreator} />
-
-            <Link to={"/profile/"}>Profile</Link>
+            <Link to={"/profile/"}>
+              <p>Profile</p>
+            </Link>
             <Link to={`/mygarden/${localStorage.getItem("userId")}`}>
-              Your Garden
+              <p>Your Garden</p>
             </Link>
             <Link to={`/plantcalendar/${localStorage.getItem("userId")}`}>
-              Calendar
+              <p>Calendar</p>
             </Link>
+            <LogOut logOutMessage={props.messageCreator} />
           </>
         ) : (
           <div id="nav-login-operations">

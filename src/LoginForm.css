@@ -1,4 +1,4 @@
-nav #login-trigger,
+/* nav #login-trigger,
 nav #signup-link,
 nav #logOut-link {
   display: inline;
@@ -8,9 +8,8 @@ nav #logOut-link {
   padding: 0 8px;
   text-decoration: none;
   color: #444;
-  /* text-shadow: 0 1px 0 #fff; */
   cursor: pointer;
-}
+} */
 
 nav #login-content {
   position: absolute;
@@ -22,7 +21,7 @@ nav #login-content {
   /* margin-right: 6em; */
 
   width: 21%;
-  margin-top: 26px;
+  margin-top: 31px;
 }
 
 #login {
