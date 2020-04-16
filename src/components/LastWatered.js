@@ -1,12 +1,12 @@
-import React from 'react'
-import axios from 'axios'
+import React, { useState } from "react";
+import axios from "axios";
 
-import './LastWatered.css'
+import "./LastWatered.css";
 
-function LastWatered(props){
+function LastWatered(props) {
+  const [watered, setWatered] = useState(false);
 
-
-  const timeSince = ( date ) => {
+  const timeSince = date => {
     var seconds = Math.floor((new Date() - date) / 1000);
     var interval = Math.floor(seconds / 31536000);
     if (interval > 1) {
@@ -29,89 +29,67 @@ function LastWatered(props){
       return interval + " minutes";
     }
     return Math.floor(seconds) + " seconds";
-  }
+  };
 
-  const waterPlant = ( plant_id ) => {
-    // console.log('wateringPlant:', plant_id);
-    // this.setState({watering: Math.floor(Date.now() / 1000)})
-    // console.log(({last_watered: Math.floor(Date.now() / 1000)}));
-    // console.log(this.state.watering);
-    const lastWatered = (Math.floor(Date.now() / 1000))
+  const waterPlant = plant_id => {
+    const lastWatered = Math.floor(Date.now() / 1000);
 
-
-    let url = '';
-    if (process.env.NODE_ENV !== 'production') {
-      url = 'http://localhost:3000';
+    let url = "";
+    if (process.env.NODE_ENV !== "production") {
+      url = "http://localhost:3000";
     } else {
-      url = 'https://backend-stalk.herokuapp.com';
+      url = "https://backend-stalk.herokuapp.com";
     }
-    console.log('url', url);
-    axios.put(`${url}/plants/${plant_id}.json`, {
-      plant: {
-        last_watered: lastWatered
-      },
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(res => {
-      console.log('res:', res);
-      if (res.status === 200) {
-          //
-          // this.props.plant.last_watered = 0
-        // console.log('props:', this.props.plant.last_watered);
-        // const plantID = props.plant.id
-        // const div = document.querySelector('#31')
-        // console.log(div);
+    console.log("url", url);
+    axios
+      .put(`${url}/plants/${plant_id}.json`, {
+        plant: {
+          last_watered: lastWatered
+        },
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      })
+      .then(res => {
+        console.log("res:", res);
+        if (res.status === 200) {
+          setWatered(true);
+        }
+      })
+      .catch(err => {
+        console.warn("err:", err);
+      });
+  };
 
-      }
-    })
-    .catch(err =>{
-      console.warn('err:', err)
-    })
-  }
-  //
-  // <div className="waterInfoDisplay">
-  //     {
-  //       timeSince(new Date( props.plant.last_watered * 1000) ) === '0 seconds'
-  //       ?
-  //       'watered!'
-  //       :
-  //     <div className="waterInfoDisplay">
-  //       <div id="droplet" onClick={() => waterPlant(props.plant.id)}></div>
-  //         <p id={props.plant.id}>Last Watered {timeSince(new Date( props.plant.last_watered * 1000) )} Ago </p>
-  //
-  //     </div>
-  //     }
-  // </div>
+  // timeSince(new Date(props.plant.last_watered * 1000)) === "0 seconds"
 
-
-
-
-  return(
-    <div className='waterPlant'>
-          {
-            timeSince(new Date( props.plant.last_watered * 1000) ) === '0 seconds'
-            ?
-            'watered!'
-            :
-            <div>
-              <div className='waterPlant-droplet'>
-                <div className="droplet" onClick={() => waterPlant(props.plant.id)}></div>
-              </div>
-
-              <div className='waterPlant-text'>
-                {
-                <p id={props.plant.id}>Last Watered {timeSince(new Date( props.plant.last_watered * 1000) )} Ago </p>
-                }
-              </div>
-            </div>
-          }
+  return (
+    <div className="waterPlant">
+      <div className="waterPlant-droplet">
+        <div
+          className="droplet"
+          onClick={() => waterPlant(props.plant.id)}
+        ></div>
+      </div>
+      {watered ? (
+        <div className="waterPlant-text">
+          <p id={props.plant.id}>Watered!</p>
+        </div>
+      ) : (
+        <div>
+          <div className="waterPlant-text">
+            {
+              <p id={props.plant.id}>
+                Last Watered{" "}
+                {timeSince(new Date(props.plant.last_watered * 1000))} Ago{" "}
+              </p>
+            }
+          </div>
+        </div>
+      )}
     </div>
-
-  )
-
+  );
 }
 
-export default LastWatered
+export default LastWatered;
