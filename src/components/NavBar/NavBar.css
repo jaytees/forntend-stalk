@@ -29,6 +29,8 @@ nav a,
   text-decoration: none;
   color: #080808b5;
   cursor: pointer;
+
+  transition: all 0.5s ease;
 }
 
 nav a:hover,

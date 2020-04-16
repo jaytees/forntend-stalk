@@ -44,7 +44,6 @@ main {
   margin: 2em auto;
   padding: 2em 4em 0 4em;
   letter-spacing: 1em;
-  color: #6ea37f;
   background-color: #f2f3f5;
   box-shadow: 1px -20px 10px 20px #f2f3f5, 0px 7px 50px 20px #f2f3f5;
   -moz-box-shadow: outset 1px -20px 10px 20px #f2f3f5,
@@ -63,14 +62,18 @@ main {
 
 #logo {
   font-family: "Cinzel Decorative", cursive;
-}
-
-#main-logo #logo {
+  color: #6ea37f;
   align-self: center;
   justify-self: center;
+
+  transition: all 0.5s ease;
 }
 
-.nav-animate-out {
+#logo:hover {
+  color: #00922f;
+}
+
+/* # .nav-animate-out {
   animation: nav-animate-out 0.6s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
@@ -103,4 +106,4 @@ main {
     transform: scale(0);
     opacity: 1;
   }
-}
+} */
