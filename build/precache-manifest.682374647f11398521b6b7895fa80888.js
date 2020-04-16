@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8456d289ee50e317bdd051602248949e",
+    "revision": "95d9429155a4e937a49904dda7df2b12",
     "url": "/frontend-stalk/index.html"
   },
   {
-    "revision": "53ccde02f0cf368b36c1",
+    "revision": "f9f2200c78d0ad2a90d5",
     "url": "/frontend-stalk/static/css/2.01909d95.chunk.css"
   },
   {
-    "revision": "35daee602ec94fa9392f",
+    "revision": "7f49004034b559cd9919",
     "url": "/frontend-stalk/static/css/main.1e7349bd.chunk.css"
   },
   {
-    "revision": "53ccde02f0cf368b36c1",
-    "url": "/frontend-stalk/static/js/2.1f9fe2ac.chunk.js"
+    "revision": "f9f2200c78d0ad2a90d5",
+    "url": "/frontend-stalk/static/js/2.0d00ccd2.chunk.js"
   },
   {
     "revision": "22f6ec7ef22eb3f84567a8bc5a14549e",
-    "url": "/frontend-stalk/static/js/2.1f9fe2ac.chunk.js.LICENSE.txt"
+    "url": "/frontend-stalk/static/js/2.0d00ccd2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "35daee602ec94fa9392f",
-    "url": "/frontend-stalk/static/js/main.f2616d5d.chunk.js"
+    "revision": "7f49004034b559cd9919",
+    "url": "/frontend-stalk/static/js/main.a2787259.chunk.js"
   },
   {
     "revision": "dcaf549b7d39163c0dbc",

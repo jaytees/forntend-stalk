@@ -74,7 +74,7 @@ function LastWatered(props) {
       </div>
       {watered ? (
         <div className="waterPlant-text">
-          <p id={props.plant.id}>Watered!</p>
+          <p id={props.plant.id}>Just Watered!</p>
         </div>
       ) : (
         <div>
